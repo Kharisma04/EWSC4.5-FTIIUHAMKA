@@ -1,0 +1,4392 @@
+[
+    {
+        "nim": "2203015072",
+        "nama": "Kharisma Rahmawati Lubis",
+        "prodi": "Teknik Informatika",
+        "kehadiran": 67,
+        "ipk": 2,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015001",
+        "prodi": "Teknik Informatika",
+        "nama": "MALIK EMIR HAFTA",
+        "kehadiran": 60,
+        "ipk": 3.71,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015003",
+        "prodi": "Teknik Informatika",
+        "nama": "SUFFI SHAFARYANI FARADILLAH PUTRI",
+        "kehadiran": 40,
+        "ipk": 3.5,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015005",
+        "prodi": "Teknik Informatika",
+        "nama": "BAGAS RAMADHAN",
+        "kehadiran": 100,
+        "ipk": 3.48,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015006",
+        "prodi": "Teknik Informatika",
+        "nama": "SATRIA FAHLEVI",
+        "kehadiran": 65,
+        "ipk": 3.49,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015007",
+        "prodi": "Teknik Informatika",
+        "nama": "RISKA AMELIA PUSPITA SARI",
+        "kehadiran": 100,
+        "ipk": 3.66,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015008",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ALBYAN ARSYIL MAJID",
+        "kehadiran": 60,
+        "ipk": 3.49,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015009",
+        "prodi": "Teknik Informatika",
+        "nama": "SYAUQI THORIQ RAMADHAN",
+        "kehadiran": 85,
+        "ipk": 3.32,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015012",
+        "prodi": "Teknik Informatika",
+        "nama": "HADITYA PANDU WINANTA",
+        "kehadiran": 65,
+        "ipk": 3.51,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015013",
+        "prodi": "Teknik Informatika",
+        "nama": "FADLI FATIH MADINAH",
+        "kehadiran": 90,
+        "ipk": 3.78,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015014",
+        "prodi": "Teknik Informatika",
+        "nama": "HARYO FATAH",
+        "kehadiran": 70,
+        "ipk": 3.14,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015016",
+        "prodi": "Teknik Informatika",
+        "nama": "NURUL RAHMA ISTIQOMAH",
+        "kehadiran": 100,
+        "ipk": 3.29,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015017",
+        "prodi": "Teknik Informatika",
+        "nama": "APRIYADI FIRMANSYAH",
+        "kehadiran": 70,
+        "ipk": 3.18,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015018",
+        "prodi": "Teknik Informatika",
+        "nama": "RENO DWI PRANOWO",
+        "kehadiran": 100,
+        "ipk": 3.16,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015019",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD FADHILAH HAKIM",
+        "kehadiran": 60,
+        "ipk": 3.22,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015021",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RIZQI FIRDAUS",
+        "kehadiran": 90,
+        "ipk": 3.23,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015022",
+        "prodi": "Teknik Informatika",
+        "nama": "PANJI RAHMAT ASGIRI",
+        "kehadiran": 95,
+        "ipk": 3.17,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015023",
+        "prodi": "Teknik Informatika",
+        "nama": "YOGA PRASETYA",
+        "kehadiran": 95,
+        "ipk": 3.38,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015024",
+        "prodi": "Teknik Informatika",
+        "nama": "LINTANG AJENGSARI",
+        "kehadiran": 80,
+        "ipk": 3.06,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015026",
+        "prodi": "Teknik Informatika",
+        "nama": "TIARA EKA RAHMADANI",
+        "kehadiran": 95,
+        "ipk": 3.25,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015027",
+        "prodi": "Teknik Informatika",
+        "nama": "DINARA REFALINA NITI ASMARA",
+        "kehadiran": 60,
+        "ipk": 3.44,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015028",
+        "prodi": "Teknik Informatika",
+        "nama": "ELVINA ADELLIA",
+        "kehadiran": 48,
+        "ipk": 3.33,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015029",
+        "prodi": "Teknik Informatika",
+        "nama": "ROMMY BUDIRACHMA SAPUTRA",
+        "kehadiran": 90,
+        "ipk": 3.09,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015030",
+        "prodi": "Teknik Informatika",
+        "nama": "ABRAR DHIYA RABBANI",
+        "kehadiran": 35,
+        "ipk": 3.37,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015031",
+        "prodi": "Teknik Informatika",
+        "nama": "GUSNUL MAHESA",
+        "kehadiran": 60,
+        "ipk": 3.33,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015032",
+        "prodi": "Teknik Informatika",
+        "nama": "AFIFAH AULIA RAHMAN",
+        "kehadiran": 80,
+        "ipk": 3.24,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015033",
+        "prodi": "Teknik Informatika",
+        "nama": "RIDWAN BAGUS ANDREYANTO",
+        "kehadiran": 90,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015034",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD PADILAH",
+        "kehadiran": 100,
+        "ipk": 3.38,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015035",
+        "prodi": "Teknik Informatika",
+        "nama": "IIN NURUL LATIFAH",
+        "kehadiran": 55,
+        "ipk": 3.48,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015036",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RIZAL",
+        "kehadiran": 80,
+        "ipk": 3.18,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015037",
+        "prodi": "Teknik Informatika",
+        "nama": "DAVA QOLBY FISABILLAH",
+        "kehadiran": 45,
+        "ipk": 3.17,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015038",
+        "prodi": "Teknik Informatika",
+        "nama": "AMARTA SYAHPUTRA NEPA",
+        "kehadiran": 48,
+        "ipk": 3.17,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015040",
+        "prodi": "Teknik Informatika",
+        "nama": "RIVAL YUDHISTIRA",
+        "kehadiran": 95,
+        "ipk": 3.15,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015041",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD IQBAL BURHANUDDIN",
+        "kehadiran": 95,
+        "ipk": 3.54,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015042",
+        "prodi": "Teknik Informatika",
+        "nama": "SITI RAHMA DAFINA",
+        "kehadiran": 85,
+        "ipk": 3.38,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015043",
+        "prodi": "Teknik Informatika",
+        "nama": "ABDUL RAHMAN",
+        "kehadiran": 80,
+        "ipk": 3.29,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015044",
+        "prodi": "Teknik Informatika",
+        "nama": "NASYWA BEFIPUTRI",
+        "kehadiran": 100,
+        "ipk": 3.82,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015045",
+        "prodi": "Teknik Informatika",
+        "nama": "DWI NITA MAULIDA",
+        "kehadiran": 80,
+        "ipk": 3.66,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015047",
+        "prodi": "Teknik Informatika",
+        "nama": "YOGA BUDI SANTOSO",
+        "kehadiran": 35,
+        "ipk": 3.51,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015048",
+        "prodi": "Teknik Informatika",
+        "nama": "LAELAH FITRIAH",
+        "kehadiran": 65,
+        "ipk": 3.26,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015049",
+        "prodi": "Teknik Informatika",
+        "nama": "YOGA DANANG HARYANTO",
+        "kehadiran": 75,
+        "ipk": 2.81,
+        "sks": 92,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015050",
+        "prodi": "Teknik Informatika",
+        "nama": "ALIF ILHAM RAMADHAN",
+        "kehadiran": 60,
+        "ipk": 2.99,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015051",
+        "prodi": "Teknik Informatika",
+        "nama": "DWI MAWARNI",
+        "kehadiran": 55,
+        "ipk": 3.27,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015053",
+        "prodi": "Teknik Informatika",
+        "nama": "ALI SUKMA WIJAYA",
+        "kehadiran": 85,
+        "ipk": 3.4,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015055",
+        "prodi": "Teknik Informatika",
+        "nama": "NASAB MUGHYFAH FADRI",
+        "kehadiran": 75,
+        "ipk": 3.38,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015056",
+        "prodi": "Teknik Informatika",
+        "nama": "DHIVA  RIZKY HAMBALI",
+        "kehadiran": 55,
+        "ipk": 3.28,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015057",
+        "prodi": "Teknik Informatika",
+        "nama": "NABILA PUTRI SHALEHAH",
+        "kehadiran": 80,
+        "ipk": 3.53,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015058",
+        "prodi": "Teknik Informatika",
+        "nama": "ADRIAN MUHARIANTO",
+        "kehadiran": 85,
+        "ipk": 3.13,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015059",
+        "prodi": "Teknik Informatika",
+        "nama": "RAFIQ SETYO AJI",
+        "kehadiran": 95,
+        "ipk": 3.22,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015061",
+        "prodi": "Teknik Informatika",
+        "nama": "MAISIE ELVIANA",
+        "kehadiran": 100,
+        "ipk": 3.49,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015062",
+        "prodi": "Teknik Informatika",
+        "nama": "JULIANANDA PRATAMA PUTRA NEJWA",
+        "kehadiran": 70,
+        "ipk": 3.29,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015063",
+        "prodi": "Teknik Informatika",
+        "nama": "LUQMAN SUKMA RIFAADA",
+        "kehadiran": 35,
+        "ipk": 3.44,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015066",
+        "prodi": "Teknik Informatika",
+        "nama": "DESYANA RAMADHAN AR",
+        "kehadiran": 80,
+        "ipk": 3.17,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015067",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RIZKI KURNIAWAN",
+        "kehadiran": 60,
+        "ipk": 2.36,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015068",
+        "prodi": "Teknik Informatika",
+        "nama": "SALSABILA PUTRI DESRIANI",
+        "kehadiran": 70,
+        "ipk": 3.44,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015069",
+        "prodi": "Teknik Informatika",
+        "nama": "FAKHRI NUR MAJID",
+        "kehadiran": 75,
+        "ipk": 3.32,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015071",
+        "prodi": "Teknik Informatika",
+        "nama": "RAFFI KAMAL IKHSAN",
+        "kehadiran": 55,
+        "ipk": 2.7,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015072",
+        "prodi": "Teknik Informatika",
+        "nama": "KHARISMA RAHMAWATI LUBIS",
+        "kehadiran": 45,
+        "ipk": 3.58,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015073",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ADIPUTRA SITORUS",
+        "kehadiran": 95,
+        "ipk": 3.39,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015075",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMAD KAFIIL ANJANI",
+        "kehadiran": 90,
+        "ipk": 2.88,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015077",
+        "prodi": "Teknik Informatika",
+        "nama": "AFIFA DENISA NUR'AINI",
+        "kehadiran": 75,
+        "ipk": 3.58,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015078",
+        "prodi": "Teknik Informatika",
+        "nama": "ADE FAKHRUDIN",
+        "kehadiran": 80,
+        "ipk": 3.48,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015079",
+        "prodi": "Teknik Informatika",
+        "nama": "ERZY HUNAFA",
+        "kehadiran": 75,
+        "ipk": 3.41,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015080",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FAUZAN HANIF",
+        "kehadiran": 80,
+        "ipk": 3.59,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015081",
+        "prodi": "Teknik Informatika",
+        "nama": "NAZHMI HAKIMAH FAJRIAH",
+        "kehadiran": 70,
+        "ipk": 3.02,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015082",
+        "prodi": "Teknik Informatika",
+        "nama": "JOEDDY KURNIAWAN",
+        "kehadiran": 80,
+        "ipk": 3.27,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015083",
+        "prodi": "Teknik Informatika",
+        "nama": "FAUZI AHMAD DARMAWAN",
+        "kehadiran": 75,
+        "ipk": 2.92,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015084",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD ROFIK HARAHAP",
+        "kehadiran": 95,
+        "ipk": 3.58,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015085",
+        "prodi": "Teknik Informatika",
+        "nama": "HARIPTO SENOBUDI",
+        "kehadiran": 80,
+        "ipk": 3.24,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015087",
+        "prodi": "Teknik Informatika",
+        "nama": "MAULANA MALIK",
+        "kehadiran": 55,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015088",
+        "prodi": "Teknik Informatika",
+        "nama": "ZAHRUL FUADI",
+        "kehadiran": 80,
+        "ipk": 3.4,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015089",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMAD KHALIL GIBRAN",
+        "kehadiran": 80,
+        "ipk": 3.16,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015090",
+        "prodi": "Teknik Informatika",
+        "nama": "MEIZURRA DINDA DZAKINAH",
+        "kehadiran": 80,
+        "ipk": 3.47,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015092",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMAD YUSUF",
+        "kehadiran": 85,
+        "ipk": 3.41,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015093",
+        "prodi": "Teknik Informatika",
+        "nama": "DIMAS SATRIA DZAQI",
+        "kehadiran": 75,
+        "ipk": 3.15,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015094",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD BUKHORI",
+        "kehadiran": 35,
+        "ipk": 3.22,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015095",
+        "prodi": "Teknik Informatika",
+        "nama": "SEPTYANDARU ADAM GUMELAR",
+        "kehadiran": 60,
+        "ipk": 3.03,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015096",
+        "prodi": "Teknik Informatika",
+        "nama": "RAFI MUHAMMAD NURDIN",
+        "kehadiran": 45,
+        "ipk": 3.14,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015097",
+        "prodi": "Teknik Informatika",
+        "nama": "PUTRI SALMA",
+        "kehadiran": 100,
+        "ipk": 3.31,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015098",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FARIS SYAUQY",
+        "kehadiran": 80,
+        "ipk": 3.1,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015099",
+        "prodi": "Teknik Informatika",
+        "nama": "EFLAN ANANDA PUJITO",
+        "kehadiran": 90,
+        "ipk": 2.86,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015100",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD TAJRI",
+        "kehadiran": 85,
+        "ipk": 3.43,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015101",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ZIDHANE PRADANA",
+        "kehadiran": 100,
+        "ipk": 3.23,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015102",
+        "prodi": "Teknik Informatika",
+        "nama": "OCTAVIAN FAHRUL SYAH",
+        "kehadiran": 40,
+        "ipk": 3.47,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015103",
+        "prodi": "Teknik Informatika",
+        "nama": "DWI WANTI KURNIA SARI",
+        "kehadiran": 65,
+        "ipk": 3.1,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015104",
+        "prodi": "Teknik Informatika",
+        "nama": "SITI NURHALIMAH",
+        "kehadiran": 65,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015105",
+        "prodi": "Teknik Informatika",
+        "nama": "SULTHAN ATHA GHATHFAN",
+        "kehadiran": 48,
+        "ipk": 3.19,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015108",
+        "prodi": "Teknik Informatika",
+        "nama": "FACHRUL UBAIDILLAH",
+        "kehadiran": 35,
+        "ipk": 3.25,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015109",
+        "prodi": "Teknik Informatika",
+        "nama": "DHENDY BAGUS PRIYANTO",
+        "kehadiran": 48,
+        "ipk": 3.26,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015110",
+        "prodi": "Teknik Informatika",
+        "nama": "RAFLI ILHAM ADITIA",
+        "kehadiran": 95,
+        "ipk": 3.57,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015111",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RAIHAN AMAR MARUF",
+        "kehadiran": 90,
+        "ipk": 2.85,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015112",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMAD ANDI ERIA PUTRA",
+        "kehadiran": 100,
+        "ipk": 3.24,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015113",
+        "prodi": "Teknik Informatika",
+        "nama": "ADAM SYAIFULLAH",
+        "kehadiran": 85,
+        "ipk": 3.74,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015114",
+        "prodi": "Teknik Informatika",
+        "nama": "LIDIA APRIYANTI",
+        "kehadiran": 60,
+        "ipk": 3.57,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015115",
+        "prodi": "Teknik Informatika",
+        "nama": "ZAKY PERMANA PUTRA",
+        "kehadiran": 85,
+        "ipk": 3.28,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015117",
+        "prodi": "Teknik Informatika",
+        "nama": "NURUL IZZAH AHLAM",
+        "kehadiran": 100,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015118",
+        "prodi": "Teknik Informatika",
+        "nama": "AZAM MAHADI",
+        "kehadiran": 90,
+        "ipk": 3.32,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015119",
+        "prodi": "Teknik Informatika",
+        "nama": "RIO MUSA DARMAWAN",
+        "kehadiran": 95,
+        "ipk": 3.47,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015120",
+        "prodi": "Teknik Informatika",
+        "nama": "PUTRI RAMADHAN",
+        "kehadiran": 75,
+        "ipk": 3.47,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015121",
+        "prodi": "Teknik Informatika",
+        "nama": "FIRZA AUZAN",
+        "kehadiran": 75,
+        "ipk": 2.68,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015123",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ATHAILLAH AL GHAZI",
+        "kehadiran": 70,
+        "ipk": 3.5,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015124",
+        "prodi": "Teknik Informatika",
+        "nama": "FATIH ZAIDAN AQIL",
+        "kehadiran": 70,
+        "ipk": 3.33,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015125",
+        "prodi": "Teknik Informatika",
+        "nama": "TEGAR PRASETYO NUGROHO",
+        "kehadiran": 75,
+        "ipk": 2.83,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015126",
+        "prodi": "Teknik Informatika",
+        "nama": "RIVO JUNIANDRA RUMADI",
+        "kehadiran": 60,
+        "ipk": 3.52,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015127",
+        "prodi": "Teknik Informatika",
+        "nama": "MAULANA UMAR FADILAH",
+        "kehadiran": 90,
+        "ipk": 3.59,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015128",
+        "prodi": "Teknik Informatika",
+        "nama": "ZULFIQAR",
+        "kehadiran": 75,
+        "ipk": 3.31,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015129",
+        "prodi": "Teknik Informatika",
+        "nama": "SYAIFUL YUDHA PLATOTELES",
+        "kehadiran": 40,
+        "ipk": 2.96,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015130",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD DZAKY",
+        "kehadiran": 60,
+        "ipk": 3.25,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015131",
+        "prodi": "Teknik Informatika",
+        "nama": "HADI SETIAWAN",
+        "kehadiran": 65,
+        "ipk": 3.52,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015133",
+        "prodi": "Teknik Informatika",
+        "nama": "VINA TRIALIZA",
+        "kehadiran": 65,
+        "ipk": 3.46,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015135",
+        "prodi": "Teknik Informatika",
+        "nama": "FERDI ZUKMAN",
+        "kehadiran": 75,
+        "ipk": 3.28,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015136",
+        "prodi": "Teknik Informatika",
+        "nama": "SETIAWAN ADEKA PUTRA JAYA",
+        "kehadiran": 85,
+        "ipk": 3.17,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015138",
+        "prodi": "Teknik Informatika",
+        "nama": "TEDY HERMAWANTO",
+        "kehadiran": 95,
+        "ipk": 3.67,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015139",
+        "prodi": "Teknik Informatika",
+        "nama": "DIMAS ARYA BAGASKARA",
+        "kehadiran": 85,
+        "ipk": 3.29,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015140",
+        "prodi": "Teknik Informatika",
+        "nama": "ABDAN SAKURA",
+        "kehadiran": 45,
+        "ipk": 3.5,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015141",
+        "prodi": "Teknik Informatika",
+        "nama": "GALANG TALKHIS FUADY",
+        "kehadiran": 55,
+        "ipk": 3.47,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015142",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD MIFTA DWI EFENDI",
+        "kehadiran": 85,
+        "ipk": 3.16,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015144",
+        "prodi": "Teknik Informatika",
+        "nama": "MAHESA FIGO ABIYYU",
+        "kehadiran": 95,
+        "ipk": 3.52,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015145",
+        "prodi": "Teknik Informatika",
+        "nama": "ROYHAN FALAHA",
+        "kehadiran": 80,
+        "ipk": 3.48,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015147",
+        "prodi": "Teknik Informatika",
+        "nama": "ALIFA QURRATUAIN",
+        "kehadiran": 85,
+        "ipk": 3.12,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015148",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ILHAM ABDUL MUFID",
+        "kehadiran": 90,
+        "ipk": 3.57,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015149",
+        "prodi": "Teknik Informatika",
+        "nama": "RAIHAN RAMADHAN",
+        "kehadiran": 100,
+        "ipk": 2.75,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203015150",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FARHAN",
+        "kehadiran": 65,
+        "ipk": 3.42,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015152",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ZAWAWI BASRI",
+        "kehadiran": 95,
+        "ipk": 3.15,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015153",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ADRIEL DARMAWAN",
+        "kehadiran": 75,
+        "ipk": 3.4,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015160",
+        "prodi": "Teknik Informatika",
+        "nama": "M. AMRUL FADLI",
+        "kehadiran": 80,
+        "ipk": 3.21,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015163",
+        "prodi": "Teknik Informatika",
+        "nama": "MERCY WULAN DZULHIJAH",
+        "kehadiran": 80,
+        "ipk": 3.63,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015164",
+        "prodi": "Teknik Informatika",
+        "nama": "PUTRI ALINDA",
+        "kehadiran": 65,
+        "ipk": 3.04,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203015165",
+        "prodi": "Teknik Informatika",
+        "nama": "SETIO DARMAJI",
+        "kehadiran": 75,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203015167",
+        "prodi": "Teknik Informatika",
+        "nama": "KHALIFAH SAFA RIZKY",
+        "kehadiran": 70,
+        "ipk": 3.26,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015002",
+        "prodi": "Teknik Informatika",
+        "nama": "SALVALYNDA RIANA PUTRI",
+        "kehadiran": 75,
+        "ipk": 3.65,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015003",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD  DAFFA FAUZAN",
+        "kehadiran": 75,
+        "ipk": 3.15,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015004",
+        "prodi": "Teknik Informatika",
+        "nama": "AKBAR MAULANA ISHAQ",
+        "kehadiran": 95,
+        "ipk": 3.26,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015005",
+        "prodi": "Teknik Informatika",
+        "nama": "LUTHFI FAUZIAH RAHMADHANI",
+        "kehadiran": 40,
+        "ipk": 3.38,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015007",
+        "prodi": "Teknik Informatika",
+        "nama": "FIKRI RAFTANJANI",
+        "kehadiran": 100,
+        "ipk": 3.56,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015008",
+        "prodi": "Teknik Informatika",
+        "nama": "YASIN AYATULLOH HAKIM",
+        "kehadiran": 70,
+        "ipk": 3.66,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015012",
+        "prodi": "Teknik Informatika",
+        "nama": "AMMAR ABDULLAH AL-ZAHID",
+        "kehadiran": 90,
+        "ipk": 3.65,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015013",
+        "prodi": "Teknik Informatika",
+        "nama": "MAULANA RIZAL FIRDAUS",
+        "kehadiran": 75,
+        "ipk": 3.34,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015014",
+        "prodi": "Teknik Informatika",
+        "nama": "NINDA BAITZA MAULANA",
+        "kehadiran": 48,
+        "ipk": 3.69,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015015",
+        "prodi": "Teknik Informatika",
+        "nama": "SELVIANA DWI PUTRI",
+        "kehadiran": 100,
+        "ipk": 3.2,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015016",
+        "prodi": "Teknik Informatika",
+        "nama": "MOHAMAD ABDULAH AL-FARUQ PUTRA KARNA",
+        "kehadiran": 95,
+        "ipk": 3.25,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015018",
+        "prodi": "Teknik Informatika",
+        "nama": "BINTANG ALFAIZI",
+        "kehadiran": 85,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015019",
+        "prodi": "Teknik Informatika",
+        "nama": "EVI RAHMAWATI",
+        "kehadiran": 70,
+        "ipk": 2.87,
+        "sks": 95,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015020",
+        "prodi": "Teknik Informatika",
+        "nama": "FAIRUZ ZAHRAN RAMADAN",
+        "kehadiran": 85,
+        "ipk": 3.21,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015021",
+        "prodi": "Teknik Informatika",
+        "nama": "ASEP SAEFULLAH",
+        "kehadiran": 48,
+        "ipk": 3.29,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015022",
+        "prodi": "Teknik Informatika",
+        "nama": "NADITA EKA PRATIWI ATMAJA PUTRI",
+        "kehadiran": 55,
+        "ipk": 3.45,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015023",
+        "prodi": "Teknik Informatika",
+        "nama": "NALENDRA ANUGRAH GUSTI",
+        "kehadiran": 85,
+        "ipk": 3.45,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015025",
+        "prodi": "Teknik Informatika",
+        "nama": "AKMAL HABIBI",
+        "kehadiran": 45,
+        "ipk": 3.29,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015026",
+        "prodi": "Teknik Informatika",
+        "nama": "M. RYAN AZMI MUNTHE",
+        "kehadiran": 90,
+        "ipk": 3.3,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015027",
+        "prodi": "Teknik Informatika",
+        "nama": "TASYA PUTRI WINARTI WULANDARI",
+        "kehadiran": 75,
+        "ipk": 3.17,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015028",
+        "prodi": "Teknik Informatika",
+        "nama": "GILANG ZALAYETA IBRAHIMOVIC",
+        "kehadiran": 95,
+        "ipk": 3,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015030",
+        "prodi": "Teknik Informatika",
+        "nama": "RONA",
+        "kehadiran": 100,
+        "ipk": 3.29,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015031",
+        "prodi": "Teknik Informatika",
+        "nama": "ADHY SATRIA",
+        "kehadiran": 65,
+        "ipk": 3.42,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015032",
+        "prodi": "Teknik Informatika",
+        "nama": "FAJAR RAMADAN",
+        "kehadiran": 95,
+        "ipk": 3.05,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015033",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ILHAM",
+        "kehadiran": 48,
+        "ipk": 3.28,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015034",
+        "prodi": "Teknik Informatika",
+        "nama": "BAYU SAPUTRA",
+        "kehadiran": 48,
+        "ipk": 3.48,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015035",
+        "prodi": "Teknik Informatika",
+        "nama": "LUTHFIA WIDYANINGRUM",
+        "kehadiran": 60,
+        "ipk": 3.38,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015036",
+        "prodi": "Teknik Informatika",
+        "nama": "BAYU KURNIAWAN",
+        "kehadiran": 75,
+        "ipk": 3.4,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015037",
+        "prodi": "Teknik Informatika",
+        "nama": "BINGAH MAHCHA HANIFA",
+        "kehadiran": 80,
+        "ipk": 3.68,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015038",
+        "prodi": "Teknik Informatika",
+        "nama": "LALA FADYLLAH",
+        "kehadiran": 80,
+        "ipk": 3.46,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015039",
+        "prodi": "Teknik Informatika",
+        "nama": "SYAHRUR RAMADHAN TSALAATSA",
+        "kehadiran": 65,
+        "ipk": 3.41,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015040",
+        "prodi": "Teknik Informatika",
+        "nama": "TRI VIBIYANTO",
+        "kehadiran": 80,
+        "ipk": 3.29,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015041",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD HAIDIR ALI",
+        "kehadiran": 85,
+        "ipk": 3.46,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015042",
+        "prodi": "Teknik Informatika",
+        "nama": "BAYU CAHYO NUGROHO",
+        "kehadiran": 80,
+        "ipk": 3.5,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015043",
+        "prodi": "Teknik Informatika",
+        "nama": "ADINDA WULANDARI ANGGRAINI",
+        "kehadiran": 80,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015044",
+        "prodi": "Teknik Informatika",
+        "nama": "ADNAN FAQIH YUDHA MULIA",
+        "kehadiran": 95,
+        "ipk": 3.46,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015045",
+        "prodi": "Teknik Informatika",
+        "nama": "RIFDAH DWI ARIANTI",
+        "kehadiran": 70,
+        "ipk": 3.5,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015047",
+        "prodi": "Teknik Informatika",
+        "nama": "NAJWA HABIBAH",
+        "kehadiran": 85,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015048",
+        "prodi": "Teknik Informatika",
+        "nama": "NINDI ASRAINI",
+        "kehadiran": 75,
+        "ipk": 3.53,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015049",
+        "prodi": "Teknik Informatika",
+        "nama": "SAFITRI NUR AENI",
+        "kehadiran": 85,
+        "ipk": 3.73,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015050",
+        "prodi": "Teknik Informatika",
+        "nama": "DEETA ZAMEL AULIA",
+        "kehadiran": 85,
+        "ipk": 3.42,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015052",
+        "prodi": "Teknik Informatika",
+        "nama": "ELSA LESTARI",
+        "kehadiran": 65,
+        "ipk": 3.54,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015053",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FAIZ AL GHOZI",
+        "kehadiran": 90,
+        "ipk": 3.64,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015054",
+        "prodi": "Teknik Informatika",
+        "nama": "TIANANMEN SETYO NUGROHO",
+        "kehadiran": 65,
+        "ipk": 3.53,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015056",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RAFLIE HIBATULLAH",
+        "kehadiran": 85,
+        "ipk": 3.48,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015057",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FARHAN ABDUL MALIK",
+        "kehadiran": 100,
+        "ipk": 3.18,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015058",
+        "prodi": "Teknik Informatika",
+        "nama": "AURA SHYFA AULIA",
+        "kehadiran": 45,
+        "ipk": 3.12,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015059",
+        "prodi": "Teknik Informatika",
+        "nama": "SYAFIRA NADIA AL-FADILLAH",
+        "kehadiran": 45,
+        "ipk": 3.4,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015060",
+        "prodi": "Teknik Informatika",
+        "nama": "REVAL DELSIYANO",
+        "kehadiran": 95,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015061",
+        "prodi": "Teknik Informatika",
+        "nama": "FAUZAN AKBAR RUSYDIAN",
+        "kehadiran": 55,
+        "ipk": 3.28,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015062",
+        "prodi": "Teknik Informatika",
+        "nama": "INDRA DHARMAWAN",
+        "kehadiran": 95,
+        "ipk": 3.19,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015063",
+        "prodi": "Teknik Informatika",
+        "nama": "SAAD",
+        "kehadiran": 48,
+        "ipk": 2.46,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015064",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAN BINTANG PRADANA",
+        "kehadiran": 85,
+        "ipk": 2.99,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015065",
+        "prodi": "Teknik Informatika",
+        "nama": "RAJS PANDANTA SEMBIRING",
+        "kehadiran": 60,
+        "ipk": 3.25,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015066",
+        "prodi": "Teknik Informatika",
+        "nama": "IJLAL HIBRIZI SURATMAN",
+        "kehadiran": 75,
+        "ipk": 3.08,
+        "sks": 94,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015067",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RAYHAN",
+        "kehadiran": 90,
+        "ipk": 3.19,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015068",
+        "prodi": "Teknik Informatika",
+        "nama": "RAHMA PUTRIYANA",
+        "kehadiran": 45,
+        "ipk": 3.73,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015071",
+        "prodi": "Teknik Informatika",
+        "nama": "GILANG HERLAMBANG",
+        "kehadiran": 75,
+        "ipk": 3.23,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015072",
+        "prodi": "Teknik Informatika",
+        "nama": "MIFTAH RIANA PUTRI",
+        "kehadiran": 70,
+        "ipk": 3.45,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015073",
+        "prodi": "Teknik Informatika",
+        "nama": "FASSA ROBBY ADJI",
+        "kehadiran": 90,
+        "ipk": 3.3,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015075",
+        "prodi": "Teknik Informatika",
+        "nama": "HAFIZ PUTRA MAHESTA",
+        "kehadiran": 100,
+        "ipk": 3.52,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015076",
+        "prodi": "Teknik Informatika",
+        "nama": "FIRDAUS FIRMANSYAH",
+        "kehadiran": 60,
+        "ipk": 3.54,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015077",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD VARIZAL",
+        "kehadiran": 40,
+        "ipk": 3.33,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015078",
+        "prodi": "Teknik Informatika",
+        "nama": "ANNISA ZAKY AMALIA",
+        "kehadiran": 75,
+        "ipk": 3.49,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015079",
+        "prodi": "Teknik Informatika",
+        "nama": "DAFA WIBISENA",
+        "kehadiran": 55,
+        "ipk": 3.59,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015080",
+        "prodi": "Teknik Informatika",
+        "nama": "RAMANDHANI SETIAWAN PRAYOGO",
+        "kehadiran": 75,
+        "ipk": 3.18,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015081",
+        "prodi": "Teknik Informatika",
+        "nama": "ALLPIAN",
+        "kehadiran": 40,
+        "ipk": 3.14,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015082",
+        "prodi": "Teknik Informatika",
+        "nama": "HUSBAIDILLAH WARDANIANSYAH",
+        "kehadiran": 65,
+        "ipk": 3.03,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015083",
+        "prodi": "Teknik Informatika",
+        "nama": "ACHMAD ARIF JAILANI",
+        "kehadiran": 85,
+        "ipk": 3.31,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015085",
+        "prodi": "Teknik Informatika",
+        "nama": "DAMAR SETYO PAMUNGKAS",
+        "kehadiran": 40,
+        "ipk": 3.43,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015086",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ALBARANOER",
+        "kehadiran": 95,
+        "ipk": 3.43,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015087",
+        "prodi": "Teknik Informatika",
+        "nama": "WINDI AULIYASARI",
+        "kehadiran": 55,
+        "ipk": 3.61,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015088",
+        "prodi": "Teknik Informatika",
+        "nama": "PUTRI DWI RESTU SETYANINGRUM",
+        "kehadiran": 75,
+        "ipk": 3.41,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015089",
+        "prodi": "Teknik Informatika",
+        "nama": "DIMAS FERDIAN ARYONO",
+        "kehadiran": 35,
+        "ipk": 3.35,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015090",
+        "prodi": "Teknik Informatika",
+        "nama": "DZAKI ALIF MAHROJA",
+        "kehadiran": 85,
+        "ipk": 3.72,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015091",
+        "prodi": "Teknik Informatika",
+        "nama": "HAIDAR HOWARI",
+        "kehadiran": 65,
+        "ipk": 3.42,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015092",
+        "prodi": "Teknik Informatika",
+        "nama": "AMMAR HAFIZH BAIHAQI",
+        "kehadiran": 75,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015093",
+        "prodi": "Teknik Informatika",
+        "nama": "ERGI SAEFUL AZIS",
+        "kehadiran": 90,
+        "ipk": 3.71,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015094",
+        "prodi": "Teknik Informatika",
+        "nama": "ABDUL BASIT LUBIS",
+        "kehadiran": 85,
+        "ipk": 3.27,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015095",
+        "prodi": "Teknik Informatika",
+        "nama": "GILANG PRAYOGI",
+        "kehadiran": 48,
+        "ipk": 3.39,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015097",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ZAHRAN FAWWAZ",
+        "kehadiran": 80,
+        "ipk": 3.32,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015098",
+        "prodi": "Teknik Informatika",
+        "nama": "RIFQI HAKIM",
+        "kehadiran": 95,
+        "ipk": 3.51,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015101",
+        "prodi": "Teknik Informatika",
+        "nama": "REFLI AFRIZAL MOKOGINTA",
+        "kehadiran": 100,
+        "ipk": 2.59,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015102",
+        "prodi": "Teknik Informatika",
+        "nama": "AHMAD RIVALDI JAYA UTARA",
+        "kehadiran": 35,
+        "ipk": 2.94,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015103",
+        "prodi": "Teknik Informatika",
+        "nama": "YUDO WIDAGDO",
+        "kehadiran": 75,
+        "ipk": 3.46,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015105",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD WILDAN NANDITYA",
+        "kehadiran": 60,
+        "ipk": 3.4,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015106",
+        "prodi": "Teknik Informatika",
+        "nama": "FAHMI NAZMA NASHUHA",
+        "kehadiran": 48,
+        "ipk": 3.23,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015107",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ELSYAF HERDIAN",
+        "kehadiran": 48,
+        "ipk": 3.2,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015108",
+        "prodi": "Teknik Informatika",
+        "nama": "MUGHNI FIRMANSYAH",
+        "kehadiran": 75,
+        "ipk": 1.85,
+        "sks": 92,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015109",
+        "prodi": "Teknik Informatika",
+        "nama": "TIA NURCHOLIFAH",
+        "kehadiran": 75,
+        "ipk": 3.42,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015110",
+        "prodi": "Teknik Informatika",
+        "nama": "FAIZ ABDURRAHMAN ALGHOZY",
+        "kehadiran": 60,
+        "ipk": 3.18,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015112",
+        "prodi": "Teknik Informatika",
+        "nama": "M. ABDUL ROHMAN",
+        "kehadiran": 45,
+        "ipk": 3.22,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015113",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD NUR WAHID",
+        "kehadiran": 95,
+        "ipk": 3.34,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015118",
+        "prodi": "Teknik Informatika",
+        "nama": "NAURAH FAIQAH HASAN",
+        "kehadiran": 55,
+        "ipk": 3.52,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015121",
+        "prodi": "Teknik Informatika",
+        "nama": "DITO CAHYO SYAHPUTRA",
+        "kehadiran": 75,
+        "ipk": 3.28,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015122",
+        "prodi": "Teknik Informatika",
+        "nama": "HERYAN SETIAWAN",
+        "kehadiran": 80,
+        "ipk": 3.25,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015123",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD DIKY FIRMANSYAH",
+        "kehadiran": 95,
+        "ipk": 3.37,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015125",
+        "prodi": "Teknik Informatika",
+        "nama": "FADYA PUSPA RATRI",
+        "kehadiran": 75,
+        "ipk": 3.48,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015126",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMAD SYAFRIZAL IKHSAN",
+        "kehadiran": 95,
+        "ipk": 2.98,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015127",
+        "prodi": "Teknik Informatika",
+        "nama": "RIZMA MAULANI ISKANDAR",
+        "kehadiran": 65,
+        "ipk": 3.46,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015128",
+        "prodi": "Teknik Informatika",
+        "nama": "SYAHRUL BASSAM YUSUF",
+        "kehadiran": 70,
+        "ipk": 3.5,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015131",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD FIRMANSYAH",
+        "kehadiran": 75,
+        "ipk": 2.82,
+        "sks": 96,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015132",
+        "prodi": "Teknik Informatika",
+        "nama": "FAHRI RASYIDIN",
+        "kehadiran": 80,
+        "ipk": 3.34,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015134",
+        "prodi": "Teknik Informatika",
+        "nama": "NANDA GUSTAMA WICAKSONO",
+        "kehadiran": 48,
+        "ipk": 3.13,
+        "sks": 95,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015135",
+        "prodi": "Teknik Informatika",
+        "nama": "ADISYAH INDAH NURKUSUMA",
+        "kehadiran": 60,
+        "ipk": 3.26,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015136",
+        "prodi": "Teknik Informatika",
+        "nama": "ARDI SETIAWAN",
+        "kehadiran": 80,
+        "ipk": 3.56,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015138",
+        "prodi": "Teknik Informatika",
+        "nama": "RACHIESA YAZID AUDI",
+        "kehadiran": 85,
+        "ipk": 2.74,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015140",
+        "prodi": "Teknik Informatika",
+        "nama": "NAUFAL DARMA RAFIF",
+        "kehadiran": 100,
+        "ipk": 3.7,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015141",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD ARYA PRAKASA",
+        "kehadiran": 75,
+        "ipk": 2.97,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303015143",
+        "prodi": "Teknik Informatika",
+        "nama": "REZA FAHLEVI",
+        "kehadiran": 80,
+        "ipk": 3.31,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015144",
+        "prodi": "Teknik Informatika",
+        "nama": "ALI RIDHO",
+        "kehadiran": 40,
+        "ipk": 3.35,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015147",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD IRFAN",
+        "kehadiran": 75,
+        "ipk": 3.57,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015149",
+        "prodi": "Teknik Informatika",
+        "nama": "ADI SURYA ATMAJA",
+        "kehadiran": 95,
+        "ipk": 3.46,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015150",
+        "prodi": "Teknik Informatika",
+        "nama": "IMAM MAULA",
+        "kehadiran": 60,
+        "ipk": 3.38,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015152",
+        "prodi": "Teknik Informatika",
+        "nama": "RAZIF RAIHAN AL MUHSI",
+        "kehadiran": 35,
+        "ipk": 3.31,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303015153",
+        "prodi": "Teknik Informatika",
+        "nama": "DINDA SILVIANA PUTRI",
+        "kehadiran": 80,
+        "ipk": 3.14,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303015154",
+        "prodi": "Teknik Informatika",
+        "nama": "MOH. AKSAN SIDIK",
+        "kehadiran": 55,
+        "ipk": 3.07,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303019002",
+        "prodi": "Teknik Informatika",
+        "nama": "ATIKAH SAFIRA VRIYANTI DEWI",
+        "kehadiran": 45,
+        "ipk": 3.51,
+        "sks": 91,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303019004",
+        "prodi": "Teknik Informatika",
+        "nama": "MUHAMMAD RIZKY TAOFIK",
+        "kehadiran": 80,
+        "ipk": 2.91,
+        "sks": 51,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303019005",
+        "prodi": "Teknik Informatika",
+        "nama": "LUQMAN HAKIM",
+        "kehadiran": 60,
+        "ipk": 2.93,
+        "sks": 81,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303019007",
+        "prodi": "Teknik Informatika",
+        "nama": "AGIANDIKA SASTRAMIJAYA",
+        "kehadiran": 75,
+        "ipk": 3.56,
+        "sks": 70,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303019008",
+        "prodi": "Teknik Informatika",
+        "nama": "WINASIS HARDI SAPUTRO",
+        "kehadiran": 65,
+        "ipk": 3.47,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303019009",
+        "prodi": "Teknik Informatika",
+        "nama": "LUTFI TRIYULI EVANA RIZKI",
+        "kehadiran": 80,
+        "ipk": 3.33,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035001",
+        "prodi": "Teknik Mesin",
+        "nama": "AMANDA SETIAWAN",
+        "kehadiran": 48,
+        "ipk": 3.58,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035002",
+        "prodi": "Teknik Mesin",
+        "nama": "AHMAD FAIZ RAHMATULLAH",
+        "kehadiran": 75,
+        "ipk": 3.51,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035003",
+        "prodi": "Teknik Mesin",
+        "nama": "AGIL HIDAYATULLOH",
+        "kehadiran": 40,
+        "ipk": 3.35,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035007",
+        "prodi": "Teknik Mesin",
+        "nama": "PANDU KUSUMA PANGESTU",
+        "kehadiran": 75,
+        "ipk": 3.47,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035008",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD CIPTA",
+        "kehadiran": 65,
+        "ipk": 3.44,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035009",
+        "prodi": "Teknik Mesin",
+        "nama": "DIMAS MAHA SAPUTRA",
+        "kehadiran": 55,
+        "ipk": 3.33,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035010",
+        "prodi": "Teknik Mesin",
+        "nama": "RAKHA ZAINURI MUSTHAFA",
+        "kehadiran": 85,
+        "ipk": 3.67,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035011",
+        "prodi": "Teknik Mesin",
+        "nama": "FAZAR PRIMA WARDANA",
+        "kehadiran": 65,
+        "ipk": 3.22,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035014",
+        "prodi": "Teknik Mesin",
+        "nama": "ZULFIKRI",
+        "kehadiran": 40,
+        "ipk": 3.33,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035015",
+        "prodi": "Teknik Mesin",
+        "nama": "NAUFAL EKA PRASETYA",
+        "kehadiran": 75,
+        "ipk": 3.4,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035016",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD FADILAH RAFLI",
+        "kehadiran": 95,
+        "ipk": 3.12,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035017",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD HAIKAL",
+        "kehadiran": 45,
+        "ipk": 3.27,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035019",
+        "prodi": "Teknik Mesin",
+        "nama": "REYHAN MARTIN FIRNANDA",
+        "kehadiran": 55,
+        "ipk": 3.38,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035020",
+        "prodi": "Teknik Mesin",
+        "nama": "GAZA JULIYANTO",
+        "kehadiran": 45,
+        "ipk": 3.11,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035021",
+        "prodi": "Teknik Mesin",
+        "nama": "FIKI ARDIYANSYAH",
+        "kehadiran": 90,
+        "ipk": 3.03,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035022",
+        "prodi": "Teknik Mesin",
+        "nama": "ZAKI MULIA ADILLA",
+        "kehadiran": 80,
+        "ipk": 2.79,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203035023",
+        "prodi": "Teknik Mesin",
+        "nama": "AHMAD AHDANI",
+        "kehadiran": 95,
+        "ipk": 3.64,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035024",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FAQIH",
+        "kehadiran": 95,
+        "ipk": 3.43,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035025",
+        "prodi": "Teknik Mesin",
+        "nama": "ADAM JAMAS ASSYIFA",
+        "kehadiran": 70,
+        "ipk": 3.24,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035027",
+        "prodi": "Teknik Mesin",
+        "nama": "RIZKI ROMADON SIREGAR",
+        "kehadiran": 80,
+        "ipk": 3.27,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035028",
+        "prodi": "Teknik Mesin",
+        "nama": "SURI ALGHIFARI",
+        "kehadiran": 95,
+        "ipk": 3.23,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035029",
+        "prodi": "Teknik Mesin",
+        "nama": "ALFAN APRILIAN",
+        "kehadiran": 80,
+        "ipk": 3.08,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035030",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD IRFAN",
+        "kehadiran": 80,
+        "ipk": 3.21,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035032",
+        "prodi": "Teknik Mesin",
+        "nama": "ARIF BUDI ABDULLAH",
+        "kehadiran": 75,
+        "ipk": 3.57,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035033",
+        "prodi": "Teknik Mesin",
+        "nama": "ENRICO CHIESA VIRGIANTO",
+        "kehadiran": 80,
+        "ipk": 3.03,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035035",
+        "prodi": "Teknik Mesin",
+        "nama": "JENAR WIDYANTORO",
+        "kehadiran": 65,
+        "ipk": 3.51,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035036",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FAHMI NURHIDAYAT",
+        "kehadiran": 60,
+        "ipk": 3.42,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035037",
+        "prodi": "Teknik Mesin",
+        "nama": "ANDI MUH. ZAKI ZHAFRAN ARMA",
+        "kehadiran": 55,
+        "ipk": 3.47,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035038",
+        "prodi": "Teknik Mesin",
+        "nama": "KURNIA SANDI OKTARIS",
+        "kehadiran": 95,
+        "ipk": 3.26,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035040",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD ALFARABI MUKTI",
+        "kehadiran": 75,
+        "ipk": 3.17,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035042",
+        "prodi": "Teknik Mesin",
+        "nama": "ANDY RIANATA",
+        "kehadiran": 100,
+        "ipk": 3.29,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035043",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD ALFI ALFARIZZI",
+        "kehadiran": 100,
+        "ipk": 3.36,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035044",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FATHURRAHMAN",
+        "kehadiran": 48,
+        "ipk": 3.39,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035045",
+        "prodi": "Teknik Mesin",
+        "nama": "SALMAN AL FARIZ",
+        "kehadiran": 75,
+        "ipk": 3.3,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035046",
+        "prodi": "Teknik Mesin",
+        "nama": "AHMAD MUFLIH ADZAR",
+        "kehadiran": 70,
+        "ipk": 3.08,
+        "sks": 96,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035047",
+        "prodi": "Teknik Mesin",
+        "nama": "IRFAN MAULANA YUSUF",
+        "kehadiran": 80,
+        "ipk": 3.33,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035048",
+        "prodi": "Teknik Mesin",
+        "nama": "M. RAVI CAHYA FIRDAUS",
+        "kehadiran": 55,
+        "ipk": 3.28,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035049",
+        "prodi": "Teknik Mesin",
+        "nama": "GENTA PRASTANADIRA",
+        "kehadiran": 70,
+        "ipk": 3.55,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035050",
+        "prodi": "Teknik Mesin",
+        "nama": "BAGAS PRAMUDITHA NURHAVIFA",
+        "kehadiran": 60,
+        "ipk": 3.42,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035051",
+        "prodi": "Teknik Mesin",
+        "nama": "SAMSUL ARIFIN",
+        "kehadiran": 85,
+        "ipk": 3.46,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035052",
+        "prodi": "Teknik Mesin",
+        "nama": "GANT RENO ADRIAN NOOR",
+        "kehadiran": 70,
+        "ipk": 3.43,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035053",
+        "prodi": "Teknik Mesin",
+        "nama": "AKHMAD AKBAR",
+        "kehadiran": 90,
+        "ipk": 3.29,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035055",
+        "prodi": "Teknik Mesin",
+        "nama": "YUDI NUGROHO",
+        "kehadiran": 100,
+        "ipk": 3.76,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035056",
+        "prodi": "Teknik Mesin",
+        "nama": "SIGIT MAULANA MALIK",
+        "kehadiran": 75,
+        "ipk": 3.53,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035057",
+        "prodi": "Teknik Mesin",
+        "nama": "DEDE KARIM ROSADI",
+        "kehadiran": 75,
+        "ipk": 3.34,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035058",
+        "prodi": "Teknik Mesin",
+        "nama": "DIMAS ADITYA BASKORO",
+        "kehadiran": 75,
+        "ipk": 3.43,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203035060",
+        "prodi": "Teknik Mesin",
+        "nama": "HANAD ARIZAL",
+        "kehadiran": 70,
+        "ipk": 3.34,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203035062",
+        "prodi": "Teknik Mesin",
+        "nama": "PRAMUDYA WICAKSONO",
+        "kehadiran": 100,
+        "ipk": 3.51,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035001",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD RIZKY EFENDY",
+        "kehadiran": 70,
+        "ipk": 3.34,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035002",
+        "prodi": "Teknik Mesin",
+        "nama": "AGUNG TRI HARYANTO",
+        "kehadiran": 100,
+        "ipk": 3.32,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035003",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD AAN SUVIYANTO",
+        "kehadiran": 95,
+        "ipk": 3.41,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035004",
+        "prodi": "Teknik Mesin",
+        "nama": "FADLI REZQI RAMDANI",
+        "kehadiran": 45,
+        "ipk": 3.42,
+        "sks": 96,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035005",
+        "prodi": "Teknik Mesin",
+        "nama": "RIO SAPUTRA",
+        "kehadiran": 95,
+        "ipk": 3.35,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035006",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD IBNU FARHAN",
+        "kehadiran": 85,
+        "ipk": 3.51,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035007",
+        "prodi": "Teknik Mesin",
+        "nama": "ALDO FURQAN UHUM TAMBUNAN",
+        "kehadiran": 40,
+        "ipk": 3.19,
+        "sks": 95,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035008",
+        "prodi": "Teknik Mesin",
+        "nama": "AVIVO ARDIANSYAH",
+        "kehadiran": 85,
+        "ipk": 3.62,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035009",
+        "prodi": "Teknik Mesin",
+        "nama": "NASHRULLOH FIRDAUS",
+        "kehadiran": 95,
+        "ipk": 3.2,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035010",
+        "prodi": "Teknik Mesin",
+        "nama": "WIDYA DWI TANTRI",
+        "kehadiran": 95,
+        "ipk": 3.34,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035011",
+        "prodi": "Teknik Mesin",
+        "nama": "RAHMAD MISBAHUL ANAM",
+        "kehadiran": 85,
+        "ipk": 3.26,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035013",
+        "prodi": "Teknik Mesin",
+        "nama": "LUTHFI ABDULLAH",
+        "kehadiran": 85,
+        "ipk": 3.33,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035015",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FAJAR AULIA",
+        "kehadiran": 85,
+        "ipk": 3.23,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035016",
+        "prodi": "Teknik Mesin",
+        "nama": "FARRELL ABHINAYA ACHMAD S",
+        "kehadiran": 100,
+        "ipk": 3.41,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035017",
+        "prodi": "Teknik Mesin",
+        "nama": "PRASETYO ANDI NUGROHO",
+        "kehadiran": 100,
+        "ipk": 3.5,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035018",
+        "prodi": "Teknik Mesin",
+        "nama": "AHMAD SIDQI",
+        "kehadiran": 48,
+        "ipk": 3.32,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035019",
+        "prodi": "Teknik Mesin",
+        "nama": "BAGUS TIRTA ASMARA",
+        "kehadiran": 80,
+        "ipk": 3.17,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035020",
+        "prodi": "Teknik Mesin",
+        "nama": "NAUFAL FADHLURROHMAN",
+        "kehadiran": 55,
+        "ipk": 3.75,
+        "sks": 96,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035021",
+        "prodi": "Teknik Mesin",
+        "nama": "MOHAMMAD GHIFFAR SISTANI",
+        "kehadiran": 65,
+        "ipk": 3.22,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035022",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD AFZAL RASHID JUANDA",
+        "kehadiran": 70,
+        "ipk": 3.49,
+        "sks": 95,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035023",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD RIFKI YULISTIANSYAH",
+        "kehadiran": 48,
+        "ipk": 3.37,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035024",
+        "prodi": "Teknik Mesin",
+        "nama": "ABDUL DZAKI NAUFAL HANIF",
+        "kehadiran": 45,
+        "ipk": 3.23,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035025",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD LUTFI AUFA",
+        "kehadiran": 48,
+        "ipk": 3.12,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035027",
+        "prodi": "Teknik Mesin",
+        "nama": "SAYID AKBAR RIFALDI",
+        "kehadiran": 80,
+        "ipk": 3.12,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035029",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FAKHRI ALFIAN",
+        "kehadiran": 95,
+        "ipk": 3.59,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035031",
+        "prodi": "Teknik Mesin",
+        "nama": "FITO DEANOVA",
+        "kehadiran": 75,
+        "ipk": 3.48,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035032",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD ZULVAN",
+        "kehadiran": 100,
+        "ipk": 3.52,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035033",
+        "prodi": "Teknik Mesin",
+        "nama": "DANIEL HARKIANSYAH",
+        "kehadiran": 95,
+        "ipk": 3.51,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035036",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD HILAL RAMADHAN ZUHRI",
+        "kehadiran": 75,
+        "ipk": 3.58,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035038",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD FAIZAL HAFID",
+        "kehadiran": 35,
+        "ipk": 3.44,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035039",
+        "prodi": "Teknik Mesin",
+        "nama": "FITRAH RIDHO PAMUNGKAS",
+        "kehadiran": 60,
+        "ipk": 3.25,
+        "sks": 95,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035040",
+        "prodi": "Teknik Mesin",
+        "nama": "DEWA",
+        "kehadiran": 60,
+        "ipk": 3.37,
+        "sks": 96,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035043",
+        "prodi": "Teknik Mesin",
+        "nama": "DHANI RANGGA SAPUTRA",
+        "kehadiran": 100,
+        "ipk": 3.53,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035044",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD DAFA ANGGARA PUTRA SAUGI",
+        "kehadiran": 65,
+        "ipk": 3.32,
+        "sks": 97,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303035045",
+        "prodi": "Teknik Mesin",
+        "nama": "M. IKHWAN TANTOWI",
+        "kehadiran": 80,
+        "ipk": 3.53,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035046",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD ARIF GUNAWAN",
+        "kehadiran": 90,
+        "ipk": 3.49,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035047",
+        "prodi": "Teknik Mesin",
+        "nama": "SYAJRI AKBAR MUSTIKA",
+        "kehadiran": 100,
+        "ipk": 3.25,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035048",
+        "prodi": "Teknik Mesin",
+        "nama": "YUSFI TSANI IRFAULLOH",
+        "kehadiran": 80,
+        "ipk": 3.53,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035049",
+        "prodi": "Teknik Mesin",
+        "nama": "RIZKY SUBAGYA FIRDAUSY",
+        "kehadiran": 100,
+        "ipk": 3.3,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035050",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD IQBAL",
+        "kehadiran": 80,
+        "ipk": 3.28,
+        "sks": 95,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035051",
+        "prodi": "Teknik Mesin",
+        "nama": "DANDI ANASTULLOH",
+        "kehadiran": 100,
+        "ipk": 3.24,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035052",
+        "prodi": "Teknik Mesin",
+        "nama": "AMAR ASHURA",
+        "kehadiran": 90,
+        "ipk": 3.5,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035053",
+        "prodi": "Teknik Mesin",
+        "nama": "DERMAWAN SANDY RAMADHAN",
+        "kehadiran": 100,
+        "ipk": 3.13,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035054",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMAD AKROM SOFYAN",
+        "kehadiran": 85,
+        "ipk": 3.29,
+        "sks": 97,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035055",
+        "prodi": "Teknik Mesin",
+        "nama": "ABDUL ROJZAK PONCO SUWARNO",
+        "kehadiran": 95,
+        "ipk": 3.58,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303035056",
+        "prodi": "Teknik Mesin",
+        "nama": "MUHAMMAD AKBAR MAULANA",
+        "kehadiran": 75,
+        "ipk": 3.3,
+        "sks": 98,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303039001",
+        "prodi": "Teknik Mesin",
+        "nama": "RULAN FAZRIAWAN",
+        "kehadiran": 45,
+        "ipk": 3.43,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303039002",
+        "prodi": "Teknik Mesin",
+        "nama": "ALDILA HIDAYAT BUDIPUTRA",
+        "kehadiran": 80,
+        "ipk": 3.17,
+        "sks": 96,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303039005",
+        "prodi": "Teknik Mesin",
+        "nama": "ODIH HIDAYAT",
+        "kehadiran": 85,
+        "ipk": 3.24,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025001",
+        "prodi": "Teknik Elektro",
+        "nama": "ADITYA BIMA SAKTI",
+        "kehadiran": 70,
+        "ipk": 3.18,
+        "sks": 108,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025003",
+        "prodi": "Teknik Elektro",
+        "nama": "ANA JEFRI HAMZAH",
+        "kehadiran": 95,
+        "ipk": 2.98,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203025004",
+        "prodi": "Teknik Elektro",
+        "nama": "PANJI LAKSANA",
+        "kehadiran": 85,
+        "ipk": 3.23,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025005",
+        "prodi": "Teknik Elektro",
+        "nama": "ADI TRI SISWANTO",
+        "kehadiran": 80,
+        "ipk": 3.09,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025006",
+        "prodi": "Teknik Elektro",
+        "nama": "NAUFAL FIRDAUS",
+        "kehadiran": 80,
+        "ipk": 3.02,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025007",
+        "prodi": "Teknik Elektro",
+        "nama": "FAIZA AULIA SUPRIATNA",
+        "kehadiran": 100,
+        "ipk": 3.46,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025008",
+        "prodi": "Teknik Elektro",
+        "nama": "AHMAD AMIRRUDIN MUKHTAR",
+        "kehadiran": 60,
+        "ipk": 3.74,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025009",
+        "prodi": "Teknik Elektro",
+        "nama": "REZHAR HAKEEM",
+        "kehadiran": 65,
+        "ipk": 2.86,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025010",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMMAD HAIKAL NUR ILHAM",
+        "kehadiran": 80,
+        "ipk": 2.83,
+        "sks": 108,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203025011",
+        "prodi": "Teknik Elektro",
+        "nama": "QOLIBU ROZAK AL TAIN",
+        "kehadiran": 80,
+        "ipk": 3.3,
+        "sks": 106,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025012",
+        "prodi": "Teknik Elektro",
+        "nama": "RURI THOHIR AKBAR",
+        "kehadiran": 90,
+        "ipk": 2.66,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203025014",
+        "prodi": "Teknik Elektro",
+        "nama": "YUDI AMRIL",
+        "kehadiran": 90,
+        "ipk": 3.21,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025016",
+        "prodi": "Teknik Elektro",
+        "nama": "FAUZAN NAJIB SUPRIYADI",
+        "kehadiran": 75,
+        "ipk": 2.96,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203025018",
+        "prodi": "Teknik Elektro",
+        "nama": "ARFA LAVINA GAZETA",
+        "kehadiran": 60,
+        "ipk": 3.82,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025019",
+        "prodi": "Teknik Elektro",
+        "nama": "GERRY SUHANDI",
+        "kehadiran": 70,
+        "ipk": 3.37,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025020",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMMAD FATHAN NUR ARIF",
+        "kehadiran": 45,
+        "ipk": 3.19,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025022",
+        "prodi": "Teknik Elektro",
+        "nama": "ELVIRA NURRAHMA",
+        "kehadiran": 60,
+        "ipk": 3.19,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025023",
+        "prodi": "Teknik Elektro",
+        "nama": "SEFTIYANI AGUSTIN",
+        "kehadiran": 90,
+        "ipk": 3.44,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025024",
+        "prodi": "Teknik Elektro",
+        "nama": "SUKRIA",
+        "kehadiran": 65,
+        "ipk": 3.43,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025025",
+        "prodi": "Teknik Elektro",
+        "nama": "JUJUN JUNAEDI",
+        "kehadiran": 95,
+        "ipk": 3.49,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025026",
+        "prodi": "Teknik Elektro",
+        "nama": "SILMI NURLAILI SUGARA",
+        "kehadiran": 55,
+        "ipk": 3.55,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2203025027",
+        "prodi": "Teknik Elektro",
+        "nama": "AKMAL SADIK",
+        "kehadiran": 75,
+        "ipk": 3.24,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025028",
+        "prodi": "Teknik Elektro",
+        "nama": "VICKY MAULANA MATONDANG",
+        "kehadiran": 75,
+        "ipk": 2.72,
+        "sks": 98,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2203025029",
+        "prodi": "Teknik Elektro",
+        "nama": "RAFFI AULIA ANANDA",
+        "kehadiran": 100,
+        "ipk": 3.16,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2203025031",
+        "prodi": "Teknik Elektro",
+        "nama": "WIJAYA RIZQI HIDAYAHTULLAH",
+        "kehadiran": 45,
+        "ipk": 3.22,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025002",
+        "prodi": "Teknik Elektro",
+        "nama": "GILANG FAJAR KURNIAWAN",
+        "kehadiran": 90,
+        "ipk": 3.4,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025003",
+        "prodi": "Teknik Elektro",
+        "nama": "ABIYYU MUFTI HANIF",
+        "kehadiran": 90,
+        "ipk": 3.39,
+        "sks": 107,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025004",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMAD HAMZAH",
+        "kehadiran": 90,
+        "ipk": 3.29,
+        "sks": 107,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025005",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMMAD AQIL FAUZAN",
+        "kehadiran": 60,
+        "ipk": 3.08,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025006",
+        "prodi": "Teknik Elektro",
+        "nama": "AHMAD YASSIN KUWABARA CHOLID",
+        "kehadiran": 70,
+        "ipk": 3.42,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025008",
+        "prodi": "Teknik Elektro",
+        "nama": "FAHSYA ADITYA",
+        "kehadiran": 75,
+        "ipk": 3.57,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025009",
+        "prodi": "Teknik Elektro",
+        "nama": "GENTUR ARYO ARIYADI",
+        "kehadiran": 95,
+        "ipk": 3.34,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025010",
+        "prodi": "Teknik Elektro",
+        "nama": "ADITYA ILHAM MAULANA",
+        "kehadiran": 95,
+        "ipk": 2.95,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303025012",
+        "prodi": "Teknik Elektro",
+        "nama": "RIFKI FADHILLAH",
+        "kehadiran": 85,
+        "ipk": 3.23,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025013",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMAD SATRIO EDSA SAPUTRA",
+        "kehadiran": 65,
+        "ipk": 3.23,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025014",
+        "prodi": "Teknik Elektro",
+        "nama": "WASIS EKA RESHENDY",
+        "kehadiran": 70,
+        "ipk": 3.21,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025015",
+        "prodi": "Teknik Elektro",
+        "nama": "MUTHIA LATHIFA",
+        "kehadiran": 95,
+        "ipk": 3.19,
+        "sks": 107,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025016",
+        "prodi": "Teknik Elektro",
+        "nama": "WISNU PUTRA HIDAYAH",
+        "kehadiran": 80,
+        "ipk": 2.51,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303025017",
+        "prodi": "Teknik Elektro",
+        "nama": "HAIKAL AMRI",
+        "kehadiran": 60,
+        "ipk": 3.02,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025018",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMAD KEVIN IMSA",
+        "kehadiran": 40,
+        "ipk": 3.14,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025019",
+        "prodi": "Teknik Elektro",
+        "nama": "HERU SURAHMAN",
+        "kehadiran": 75,
+        "ipk": 3.24,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025020",
+        "prodi": "Teknik Elektro",
+        "nama": "REKSA CAHYA ADIPUTRA",
+        "kehadiran": 95,
+        "ipk": 3.32,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025021",
+        "prodi": "Teknik Elektro",
+        "nama": "AULIA AFGAN",
+        "kehadiran": 45,
+        "ipk": 3.36,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025022",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMMAD SAGAF ABIANSYAH",
+        "kehadiran": 95,
+        "ipk": 3.62,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025023",
+        "prodi": "Teknik Elektro",
+        "nama": "AUNULLAH PIRDAUS",
+        "kehadiran": 55,
+        "ipk": 3.54,
+        "sks": 99,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025025",
+        "prodi": "Teknik Elektro",
+        "nama": "DONI SUPRIYATNO",
+        "kehadiran": 60,
+        "ipk": 3.19,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303025026",
+        "prodi": "Teknik Elektro",
+        "nama": "MUHAMMAD EBI FIRDAUS",
+        "kehadiran": 75,
+        "ipk": 2.84,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 2
+    },
+    {
+        "nim": "2303025028",
+        "prodi": "Teknik Elektro",
+        "nama": "RAKHA AFIF HARIRI DURIVA",
+        "kehadiran": 90,
+        "ipk": 3.24,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025029",
+        "prodi": "Teknik Elektro",
+        "nama": "ARIEF GUNAWAN",
+        "kehadiran": 90,
+        "ipk": 3.24,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303025030",
+        "prodi": "Teknik Elektro",
+        "nama": "REYNALDI CHANDRA NUGRAHA",
+        "kehadiran": 100,
+        "ipk": 3.23,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303029002",
+        "prodi": "Teknik Elektro",
+        "nama": "KHAIRUL RAHMAN",
+        "kehadiran": 80,
+        "ipk": 3.45,
+        "sks": 100,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045001",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MOHAMMAD RAFLI NUGROHO",
+        "kehadiran": 65,
+        "ipk": 3.44,
+        "sks": 105,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045002",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMAD RAFLY AGUSMANSYAH",
+        "kehadiran": 90,
+        "ipk": 3.15,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045003",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "SAFFANAH AZKA FITRI",
+        "kehadiran": 55,
+        "ipk": 3.52,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045005",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "NISYA PUTRI RAHMADANI",
+        "kehadiran": 90,
+        "ipk": 3.53,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045006",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ILHAM CAESAR DWIANTO PRAKOSO",
+        "kehadiran": 75,
+        "ipk": 3.26,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045007",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "YOBI FAZRI RINANDI",
+        "kehadiran": 90,
+        "ipk": 3.54,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045008",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "NASYWAA PUTRICIA ANANDA",
+        "kehadiran": 48,
+        "ipk": 3.41,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045009",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "RIYAN ADRIYANSYAH",
+        "kehadiran": 65,
+        "ipk": 3.66,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045010",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "SANDY GIO ALANZA",
+        "kehadiran": 45,
+        "ipk": 3.44,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045011",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "WINANDA WAHYUNING TIYAS",
+        "kehadiran": 40,
+        "ipk": 3.63,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045012",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ANITA RAHAYU",
+        "kehadiran": 80,
+        "ipk": 3.61,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045013",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ILYAS FAKHREZA",
+        "kehadiran": 70,
+        "ipk": 3.53,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045014",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMMAD RIZQY ZUFARREL",
+        "kehadiran": 90,
+        "ipk": 3.43,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045015",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "NADIA YULIA SARI",
+        "kehadiran": 75,
+        "ipk": 3.26,
+        "sks": 105,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045016",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMMAD ADRIAN",
+        "kehadiran": 75,
+        "ipk": 3.44,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045017",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "FARIDZ ADIANSYAH",
+        "kehadiran": 95,
+        "ipk": 3.36,
+        "sks": 104,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045018",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "NAUFAL ADITYA PUTRA",
+        "kehadiran": 75,
+        "ipk": 3.24,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045019",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "DIMAS BIRRU PALGUNADI",
+        "kehadiran": 90,
+        "ipk": 3.29,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045022",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "SHEVA ILHAM MAULANA",
+        "kehadiran": 55,
+        "ipk": 3.38,
+        "sks": 103,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045023",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MELA REVANIA",
+        "kehadiran": 90,
+        "ipk": 3.6,
+        "sks": 106,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045025",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ADE AKMAL HIBATULLAH",
+        "kehadiran": 70,
+        "ipk": 3.37,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045026",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "RIZKY PUTRA PRATAMA",
+        "kehadiran": 40,
+        "ipk": 3.44,
+        "sks": 104,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045027",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "WARDA SOFIA",
+        "kehadiran": 35,
+        "ipk": 3.35,
+        "sks": 100,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045028",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "EGI BAYU SETIAWAN",
+        "kehadiran": 90,
+        "ipk": 3.26,
+        "sks": 101,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045029",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMMAD RAFA KUSWANTO",
+        "kehadiran": 75,
+        "ipk": 3.48,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045030",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "SANIYA ATMARIANI SETYOWATI",
+        "kehadiran": 40,
+        "ipk": 3.63,
+        "sks": 106,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045031",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUFQI ANDIKA PANGESTU",
+        "kehadiran": 90,
+        "ipk": 3.16,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045032",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "AHMETH MAULANA ISHAQ",
+        "kehadiran": 65,
+        "ipk": 3.2,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045035",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ALIFHA YASHINTA RACHMAN",
+        "kehadiran": 40,
+        "ipk": 3.44,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045036",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMMAD ILHAM",
+        "kehadiran": 70,
+        "ipk": 3.28,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045037",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ANGELICA INDAH DESVIYANI",
+        "kehadiran": 75,
+        "ipk": 3.66,
+        "sks": 107,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045038",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "ARYA AGILTRIAWAN",
+        "kehadiran": 45,
+        "ipk": 3.28,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045040",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "RINDITYA PUTRI MAULANA",
+        "kehadiran": 95,
+        "ipk": 3.42,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045042",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "LUTHFIAH AZ ZAHRA",
+        "kehadiran": 35,
+        "ipk": 3.48,
+        "sks": 101,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045043",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "RAIHAN WAKASARA",
+        "kehadiran": 75,
+        "ipk": 3.02,
+        "sks": 103,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045044",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "NOOR FAIZZAN TSABAT PRIBADI",
+        "kehadiran": 70,
+        "ipk": 3.07,
+        "sks": 102,
+        "status": "Berisiko Terhambat",
+        "rule": 1
+    },
+    {
+        "nim": "2303045046",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "HILMAN SAHLAL ARIK",
+        "kehadiran": 85,
+        "ipk": 3.21,
+        "sks": 99,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    },
+    {
+        "nim": "2303045047",
+        "prodi": "Sistem dan Teknologi Informasi",
+        "nama": "MUHAMMAD IRSYAD",
+        "kehadiran": 85,
+        "ipk": 3.51,
+        "sks": 102,
+        "status": "Berpotensi Tepat Waktu",
+        "rule": 3
+    }
+]

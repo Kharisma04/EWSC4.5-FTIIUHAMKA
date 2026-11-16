@@ -1,8 +1,8 @@
-/**
+﻿/**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree model prediksi
+ * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -112,3 +112,4 @@ body {
   aside { display: none !important; }
   main { margin-left: 0 !important; width: 100% !important; padding: 0 !important; }
 }
+

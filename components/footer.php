@@ -1,15 +1,15 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
  * ====================================================================================
  * FILE       : components/footer.php
- * FUNGSI     : Komponen Footer modular, Modal Info Detail (â„¹ï¸), Modal Edit (âœï¸), & Scripts.
+ * FUNGSI     : Komponen Footer modular, Modal Info Detail (ℹ️), Modal Edit (✏️), & Scripts.
  * ====================================================================================
  */
 
@@ -21,10 +21,10 @@ if (!isset($root_path)) {
     <footer class="bg-white border-t border-slate-200/80 mt-auto text-xs text-slate-500 py-4 px-4 sm:px-8 no-print">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
-                Â© <?= APP_YEAR; ?> <b><?= FAKULTAS_NAME; ?> UHAMKA</b> â€¢ Program Studi <?= PRODI_NAME; ?>
+                © <?= APP_YEAR; ?> <b><?= FAKULTAS_NAME; ?> UHAMKA</b> • Program Studi <?= PRODI_NAME; ?>
             </div>
             <div>
-                Riset Skripsi: <b><?= RESEARCHER_NAME; ?></b> (NIM: <?= RESEARCHER_NIM; ?>) â€¢ Algoritma Decision Tree model prediksi
+                Riset Skripsi: <b><?= RESEARCHER_NAME; ?></b> (NIM: <?= RESEARCHER_NIM; ?>) • Algoritma Decision Tree C4.5
             </div>
         </div>
     </footer>
@@ -32,9 +32,9 @@ if (!isset($root_path)) {
 </div> <!-- Penutup Wrapper Konten Kanan -->
 
 <!-- ================================================================================ -->
-<!-- MODAL 1: INFO & DIAGNOSIS DETAIL MAHASISWA (â„¹ï¸)                                     -->
+<!-- MODAL 1: INFO & DIAGNOSIS DETAIL MAHASISWA (ℹ️)                                     -->
 <!-- Menjabarkan mengapa mahasiswa tersebut berisiko terhambat atau berpotensi tepat  -->
-<!-- waktu berdasarkan parameter kehadiran, IPK, aturan model prediksi, dan rekomendasi DPA.     -->
+<!-- waktu berdasarkan parameter kehadiran, IPK, aturan C4.5, dan rekomendasi DPA.     -->
 <!-- ================================================================================ -->
 <div id="studentInfoModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity">
     <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95" id="infoModalCard">
@@ -50,7 +50,7 @@ if (!isset($root_path)) {
                 <div id="infoStudentNim" class="text-xs text-slate-500 font-mono mt-0.5"></div>
             </div>
             <button onclick="closeInfoModal()" class="p-2 rounded-xl text-slate-400 hover:text-[#004b87] hover:bg-white transition border border-transparent hover:border-slate-200">
-                âœ•
+                ✕
             </button>
         </div>
 
@@ -73,9 +73,9 @@ if (!isset($root_path)) {
                 </div>
             </div>
 
-            <!-- Aturan Pohon Keputusan model prediksi yang Terpicu -->
+            <!-- Aturan Pohon Keputusan C4.5 yang Terpicu -->
             <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Aturan model prediksi yang Terpicu:</div>
+                <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Aturan C4.5 yang Terpicu:</div>
                 <div id="infoRuleTitle" class="text-xs font-black text-slate-900 mt-1"></div>
                 <div id="infoCoverage" class="text-[11px] font-semibold text-[#004b87] mt-0.5"></div>
             </div>
@@ -83,7 +83,7 @@ if (!isset($root_path)) {
             <!-- Penjabaran Penyebab / Alasan Status -->
             <div>
                 <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
-                    <span>ðŸ”</span> Penjabaran Kondisi Studi Mahasiswa:
+                    <span>🔍</span> Penjabaran Kondisi Studi Mahasiswa:
                 </h4>
                 <p id="infoReason" class="text-xs text-slate-600 bg-white p-3.5 rounded-2xl border border-slate-200 leading-relaxed font-medium">
                 </p>
@@ -92,7 +92,7 @@ if (!isset($root_path)) {
             <!-- Rekomendasi Tindakan DPA -->
             <div>
                 <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
-                    <span>ðŸ’¡</span> Rekomendasi Tindakan Dosen Pembimbing Akademik (DPA):
+                    <span>💡</span> Rekomendasi Tindakan Dosen Pembimbing Akademik (DPA):
                 </h4>
                 <p id="infoRecommendation" class="text-xs text-slate-800 bg-blue-50/70 p-3.5 rounded-2xl border border-blue-200/80 leading-relaxed font-semibold">
                 </p>
@@ -111,9 +111,9 @@ if (!isset($root_path)) {
 </div>
 
 <!-- ================================================================================ -->
-<!-- MODAL 2: FORM EDIT DATA MAHASISWA (âœï¸)                                            -->
+<!-- MODAL 2: FORM EDIT DATA MAHASISWA (✏️)                                            -->
 <!-- Memungkinkan pengguna mengubah parameter NIM, Nama, Kehadiran, IPK, SKS,         -->
-<!-- dan otomatis menghitung ulang status model prediksi secara instan.                        -->
+<!-- dan otomatis menghitung ulang status C4.5 secara instan.                        -->
 <!-- ================================================================================ -->
 <div id="studentEditModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity">
     <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95" id="editModalCard">
@@ -122,15 +122,15 @@ if (!isset($root_path)) {
         <div class="p-5 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-slate-50 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
                 <div class="w-9 h-9 rounded-xl bg-blue-100 text-[#004b87] flex items-center justify-center font-bold text-sm">
-                    âœï¸
+                    ✏️
                 </div>
                 <div>
                     <h3 class="text-sm font-black text-slate-900">Perbarui Parameter Mahasiswa</h3>
-                    <p class="text-[11px] text-slate-500">Status model prediksi akan otomatis dikalkulasi ulang</p>
+                    <p class="text-[11px] text-slate-500">Status C4.5 akan otomatis dikalkulasi ulang</p>
                 </div>
             </div>
             <button onclick="closeEditModal()" class="p-2 rounded-xl text-slate-400 hover:text-[#004b87] hover:bg-white transition border border-transparent hover:border-slate-200">
-                âœ•
+                ✕
             </button>
         </div>
 
@@ -166,10 +166,10 @@ if (!isset($root_path)) {
                 </div>
             </div>
 
-            <!-- Informasi Pembaruan Prediksi model prediksi -->
+            <!-- Informasi Pembaruan Prediksi C4.5 -->
             <div class="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs text-slate-700 flex items-center gap-2.5">
-                <span class="text-base">ðŸ’¡</span>
-                <span class="text-[11px] leading-relaxed">Status kelulusan dan aturan pohon keputusan model prediksi akan otomatis dikalkulasi ulang dan diperbarui saat Anda menekan tombol <b>Simpan Perubahan</b>.</span>
+                <span class="text-base">💡</span>
+                <span class="text-[11px] leading-relaxed">Status kelulusan dan aturan pohon keputusan C4.5 akan otomatis dikalkulasi ulang dan diperbarui saat Anda menekan tombol <b>Simpan Perubahan</b>.</span>
             </div>
 
             <!-- Tombol Aksi Simpan / Batal -->
@@ -178,7 +178,7 @@ if (!isset($root_path)) {
                     Batal
                 </button>
                 <button type="submit" class="px-5 py-2 bg-[#004b87] hover:bg-[#003b6b] text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
-                    <span>ðŸ’¾</span> Simpan Perubahan
+                    <span>💾</span> Simpan Perubahan
                 </button>
             </div>
 
@@ -196,4 +196,3 @@ if (!isset($root_path)) {
 
 </body>
 </html>
-

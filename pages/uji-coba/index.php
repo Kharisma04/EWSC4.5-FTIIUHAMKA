@@ -1,15 +1,15 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
  * ====================================================================================
  * FILE       : pages/uji-coba/index.php
- * FUNGSI     : Fitur Khusus Form Simulasi & Uji Coba Data Mahasiswa Mandiri model prediksi.
+ * FUNGSI     : Fitur Khusus Form Simulasi & Uji Coba Data Mahasiswa Mandiri C4.5.
  * ====================================================================================
  */
 
@@ -18,10 +18,10 @@ require_once __DIR__ . '/../../app/config.php';
 require_once __DIR__ . '/../../app/c45_engine.php';
 require_once __DIR__ . '/../../app/student_service.php';
 
-$page_title = 'Simulasi & Uji Prediksi model prediksi';
+$page_title = 'Simulasi & Uji Prediksi C4.5';
 $active_page = 'uji-coba';
 $nav_category = 'Klasifikasi Real-Time';
-$nav_title = 'Form Simulasi & Uji Prediksi Mandiri model prediksi';
+$nav_title = 'Form Simulasi & Uji Prediksi Mandiri C4.5';
 
 // Penanganan Form POST (Jika disubmit via standar PHP)
 $saved_message = null;
@@ -40,7 +40,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['btn_save_manu
             'ipk' => $ipk,
             'sks' => $sks
         ]);
-        $saved_message = "âœ… Data mahasiswa <b>{$nama} ({$nim})</b> berhasil disimpan ke database pangkalan data!";
+        $saved_message = "✅ Data mahasiswa <b>{$nama} ({$nim})</b> berhasil disimpan ke database pangkalan data!";
     }
 }
 
@@ -62,7 +62,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs sm:text-sm font-semibold flex items-center justify-between shadow-sm">
                 <span><?= $saved_message; ?></span>
                 <a href="<?= $root_path; ?>index.php" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition">
-                    Lihat di Dashboard â†’
+                    Lihat di Dashboard →
                 </a>
             </div>
         <?php endif; ?>
@@ -71,11 +71,11 @@ require_once __DIR__ . '/../../components/sidebar.php';
         <div class="bg-gradient-to-r from-blue-50/90 via-slate-50 to-blue-50/90 p-6 sm:p-8 rounded-3xl border border-blue-200/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-[#004b87] text-xs font-extrabold border border-blue-300 mb-2">
-                    <span>ðŸŽ¯</span> Fitur Uji Coba Mandiri
+                    <span>🎯</span> Fitur Uji Coba Mandiri
                 </div>
-                <h2 class="text-xl sm:text-2xl font-black text-slate-900">Simulasi & Uji Prediksi model prediksi</h2>
+                <h2 class="text-xl sm:text-2xl font-black text-slate-900">Simulasi & Uji Prediksi C4.5</h2>
                 <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-                    Uji parameter akademik mahasiswa baru secara langsung. Sistem secara otomatis menerapkan pohon keputusan model prediksi dari hasil riset skripsi dan menyusun rekomendasi tindakan intervensi bagi Dosen PA.
+                    Uji parameter akademik mahasiswa baru secara langsung. Sistem secara otomatis menerapkan pohon keputusan C4.5 dari hasil riset skripsi dan menyusun rekomendasi tindakan intervensi bagi Dosen PA.
                 </p>
             </div>
             <div class="text-xs font-bold text-slate-600 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm self-start md:self-center">
@@ -93,22 +93,22 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <div class="card-modern p-5">
                     <div class="text-xs font-bold text-slate-800 mb-3 flex items-center justify-between">
                         <span class="flex items-center gap-1.5">
-                            <span>âš¡</span> <b>Simulasi Cepat 1-Klik:</b>
+                            <span>⚡</span> <b>Simulasi Cepat 1-Klik:</b>
                         </span>
                         <span class="text-[11px] text-[#004b87] font-semibold">Klik salah satu skenario</span>
                     </div>
                     <div class="flex flex-wrap gap-2.5 text-xs">
                         <!-- Skenario 1: Presensi Rendah -->
                         <button type="button" onclick="fillSimulationPreset(60.0, 3.71, 101, 'Budi Santoso (Simulasi Presensi)')" class="px-3.5 py-2 bg-rose-50 hover:bg-rose-100 text-rose-900 font-bold rounded-xl border border-rose-300 transition flex items-center gap-1.5 shadow-sm">
-                            <span>ðŸ”´</span> Presensi Rendah (60% | IPK 3.71)
+                            <span>🔴</span> Presensi Rendah (60% | IPK 3.71)
                         </button>
                         <!-- Skenario 2: IPK Rendah -->
                         <button type="button" onclick="fillSimulationPreset(85.0, 2.70, 95, 'Siti Nurhaliza (Simulasi IPK)')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-950 font-bold rounded-xl border border-amber-300 transition flex items-center gap-1.5 shadow-sm">
-                            <span>ðŸŸ¡</span> IPK Rendah (85% | IPK 2.70)
+                            <span>🟡</span> IPK Rendah (85% | IPK 2.70)
                         </button>
                         <!-- Skenario 3: Kondisi Aman -->
                         <button type="button" onclick="fillSimulationPreset(94.0, 3.85, 103, 'Ahmad Fauzan (Simulasi Aman)')" class="px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-950 font-bold rounded-xl border border-emerald-300 transition flex items-center gap-1.5 shadow-sm">
-                            <span>ðŸŸ¢</span> Jalur Aman (94% | IPK 3.85)
+                            <span>🟢</span> Jalur Aman (94% | IPK 3.85)
                         </button>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <!-- Form Isian Parameter Mahasiswa -->
                 <div class="card-modern p-6">
                     <h3 class="text-base font-extrabold text-slate-900 mb-4 flex items-center gap-2">
-                        <span>ðŸ“</span> Parameter Data Mahasiswa yang Diuji
+                        <span>📝</span> Parameter Data Mahasiswa yang Diuji
                     </h3>
 
                     <form id="simForm" onsubmit="handleLiveSimSubmit(event)" class="space-y-4">
@@ -162,10 +162,10 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
                         <div class="pt-3 flex flex-wrap items-center gap-3">
                             <button type="submit" id="btnHitungSim" class="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-[#004b87] to-blue-600 hover:from-[#003b6b] hover:to-blue-700 text-white font-extrabold text-sm shadow-md shadow-blue-900/20 transition flex items-center justify-center gap-2">
-                                <span>âš¡</span> Hitung Prediksi model prediksi
+                                <span>⚡</span> Hitung Prediksi C4.5
                             </button>
                             <button type="button" onclick="resetSimForm()" class="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition border border-slate-300">
-                                ðŸ”„ Bersihkan
+                                🔄 Bersihkan
                             </button>
                         </div>
                     </form>
@@ -179,23 +179,23 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <!-- Placeholder saat belum ada data input -->
                 <div id="simPlaceholder" class="card-modern p-8 text-center border-dashed border-2 border-slate-200">
                     <div class="w-16 h-16 rounded-3xl bg-blue-50 text-[#004b87] flex items-center justify-center text-3xl mx-auto mb-3 shadow-inner">
-                        ðŸŽ¯
+                        🎯
                     </div>
                     <h4 id="simPlaceholderTitle" class="text-base font-extrabold text-slate-800">Menunggu Eksekusi Prediksi</h4>
                     <p id="simPlaceholderDesc" class="text-xs text-slate-500 mt-1.5 leading-relaxed max-w-sm mx-auto">
-                        Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi model prediksi</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.
+                        Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi C4.5</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.
                     </p>
                     <div class="mt-5 pt-4 border-t border-slate-100 text-[11px] text-slate-400 font-medium flex items-center justify-center gap-1.5">
-                        <span>ðŸ”’ Klasifikasi Berbasis Algoritma Decision Tree model prediksi</span>
+                        <span>🔒 Klasifikasi Berbasis Algoritma Decision Tree C4.5</span>
                     </div>
                 </div>
 
-                <!-- Kartu Hasil Prediksi Live model prediksi -->
+                <!-- Kartu Hasil Prediksi Live C4.5 -->
                 <div id="simResultSection" class="hidden card-modern overflow-hidden border-2 border-blue-300 shadow-xl">
                     
                     <div class="bg-gradient-to-r from-blue-50 to-slate-50 p-5 border-b border-blue-200">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="text-xs font-black uppercase tracking-wider text-[#004b87]">Hasil Klasifikasi model prediksi</span>
+                            <span class="text-xs font-black uppercase tracking-wider text-[#004b87]">Hasil Klasifikasi C4.5</span>
                             <span id="resStatusBadge" class="px-3.5 py-1.5 rounded-full font-extrabold text-xs border inline-flex items-center gap-1.5"></span>
                         </div>
                         <h3 id="resStudentName" class="text-lg font-black text-slate-900 mt-2"></h3>
@@ -213,7 +213,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         <!-- Analisis Kondisi Akademik -->
                         <div>
                             <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1 flex items-center gap-1.5">
-                                <span>ðŸ”</span> Analisis Kondisi Studi Mahasiswa:
+                                <span>🔍</span> Analisis Kondisi Studi Mahasiswa:
                             </h4>
                             <p id="resReason" class="text-xs text-slate-600 bg-white p-3.5 rounded-2xl border border-slate-200 leading-relaxed font-medium">
                             </p>
@@ -222,7 +222,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         <!-- Rekomendasi Tindakan Intervensi DPA -->
                         <div>
                             <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1 flex items-center gap-1.5">
-                                <span>ðŸ’¡</span> Rekomendasi Tindakan Dosen Pembimbing Akademik (DPA):
+                                <span>💡</span> Rekomendasi Tindakan Dosen Pembimbing Akademik (DPA):
                             </h4>
                             <p id="resAction" class="text-xs text-slate-800 bg-blue-50/70 p-3.5 rounded-2xl border border-blue-200 font-semibold leading-relaxed">
                             </p>
@@ -231,7 +231,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         <!-- Tombol Simpan Hasil ke Pangkalan Data -->
                         <div class="pt-2 border-t border-slate-100">
                             <button type="button" id="btnSaveSimToDb" onclick="saveSimResultToDatabase()" class="w-full py-3 px-4 rounded-xl bg-[#004b87] hover:bg-[#003b6b] text-white font-extrabold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
-                                <span>ðŸ’¾</span> Simpan Hasil ke Pangkalan Data Mahasiswa
+                                <span>💾</span> Simpan Hasil ke Pangkalan Data Mahasiswa
                             </button>
                             <p class="text-[10px] text-slate-400 text-center mt-2">
                                 Data tersimpan ke pangkalan data dan dapat dilihat langsung di Dashboard.
@@ -267,7 +267,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             const descEl = document.getElementById('simPlaceholderDesc');
             if (titleEl && descEl) {
                 titleEl.innerText = 'Skenario Siap Dihitung';
-                descEl.innerHTML = `Parameter simulasi <b>${nama}</b> telah dimasukkan ke formulir. Silakan klik tombol <b>Hitung Prediksi model prediksi</b> untuk melihat hasil analisis.`;
+                descEl.innerHTML = `Parameter simulasi <b>${nama}</b> telah dimasukkan ke formulir. Silakan klik tombol <b>Hitung Prediksi C4.5</b> untuk melihat hasil analisis.`;
             }
 
             // Beri fokus ke tombol hitung agar intuitif
@@ -314,7 +314,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             // Tampilkan efek loading sejenak pada tombol agar responsif & profesional
             const btn = document.getElementById('btnHitungSim');
             const origText = btn.innerHTML;
-            btn.innerHTML = '<span>â³</span> Memproses Prediksi model prediksi...';
+            btn.innerHTML = '<span>⏳</span> Memproses Prediksi C4.5...';
             btn.disabled = true;
 
             setTimeout(() => {
@@ -332,7 +332,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             }, 200);
         }
 
-        // Mengkalkulasi dan menampilkan kartu hasil prediksi model prediksi
+        // Mengkalkulasi dan menampilkan kartu hasil prediksi C4.5
         function calculateAndDisplay(kehadiran, ipk, sks, nama, nim) {
             const res = classifyC45Client(kehadiran, ipk);
             currentSimResult = {
@@ -377,7 +377,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             const descEl = document.getElementById('simPlaceholderDesc');
             if (titleEl && descEl) {
                 titleEl.innerText = 'Menunggu Eksekusi Prediksi';
-                descEl.innerHTML = 'Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi model prediksi</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.';
+                descEl.innerHTML = 'Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi C4.5</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.';
             }
         }
 
@@ -394,7 +394,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             const descEl = document.getElementById('simPlaceholderDesc');
                             if (titleEl && descEl) {
                                 titleEl.innerText = 'Parameter Diubah';
-                                descEl.innerHTML = 'Data pada formulir telah diubah. Silakan klik kembali tombol <b>Hitung Prediksi model prediksi</b> untuk memperbarui hasil prediksi.';
+                                descEl.innerHTML = 'Data pada formulir telah diubah. Silakan klik kembali tombol <b>Hitung Prediksi C4.5</b> untuk memperbarui hasil prediksi.';
                             }
                         }
                     });
@@ -404,7 +404,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
         async function saveSimResultToDatabase() {
             if (!currentSimResult) {
-                alert('Silakan lakukan perhitungan prediksi terlebih dahulu dengan menekan tombol Hitung Prediksi model prediksi.');
+                alert('Silakan lakukan perhitungan prediksi terlebih dahulu dengan menekan tombol Hitung Prediksi C4.5.');
                 return;
             }
 
@@ -420,7 +420,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 const res = await fetch(apiUrl, { method: 'POST', body: formData });
                 const json = await res.json();
                 if (json.success) {
-                    alert(`âœ… Data mahasiswa ${currentSimResult.nama} (${currentSimResult.nim}) berhasil disimpan ke database pangkalan data!`);
+                    alert(`✅ Data mahasiswa ${currentSimResult.nama} (${currentSimResult.nim}) berhasil disimpan ke database pangkalan data!`);
                     window.location.href = (window.APP_ROOT || '../../') + 'index.php';
                 } else {
                     alert('Gagal menyimpan data: ' + (json.message || 'Terjadi kesalahan.'));
@@ -435,4 +435,3 @@ require_once __DIR__ . '/../../components/sidebar.php';
 <?php
 require_once __DIR__ . '/../../components/footer.php';
 ?>
-

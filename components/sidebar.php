@@ -1,77 +1,68 @@
 <?php
 /**
- * ====================================================================================
- * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
- *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
- * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
- * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
- * ====================================================================================
  * FILE       : components/sidebar.php
- * FUNGSI     : Komponen Sidebar Navigasi Samping (Menu Fitur, Branding FTII, Profil).
- * ====================================================================================
+ * FUNGSI     : Komponen Sidebar Navigasi Samping.
  */
 
 $active_page = isset($active_page) ? $active_page : 'dashboard';
 ?>
-<!-- Sidebar Navigasi Kiri (Modern SaaS Style) -->
-<aside id="appSidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white border-r border-slate-200/90 flex flex-col justify-between transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg md:shadow-none no-print">
-    
-    <!-- Bagian Atas: Branding & Logo Kampus UHAMKA -->
-    <div class="p-5 border-b border-slate-100 bg-white">
-        <div class="flex items-center justify-between">
-            <a href="<?= $root_path; ?>index.php" class="flex items-center gap-2 group block" title="Universitas Muhammadiyah Prof. DR. HAMKA">
-                <img src="<?= $root_path; ?>assets/images/uhamka-logo-horizontal.webp" alt="Logo UHAMKA" class="h-10 w-auto object-contain transition group-hover:opacity-90">
-            </a>
+<!-- Sidebar Navigasi Kiri -->
+<aside id="appSidebar" class="fixed inset-y-0 left-0 z-50 w-[260px] bg-white border-r border-slate-200 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out no-print" aria-label="Navigasi samping">
 
-            <!-- Tombol Tutup Mobile -->
-            <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-[#004b87] hover:bg-blue-50 transition" title="Tutup Navigasi">
-                ✕
+    <!-- Branding -->
+    <div class="p-5 border-b border-slate-100">
+        <div class="flex items-center justify-between">
+            <a href="<?= $root_path; ?>index.php" class="flex items-center gap-2 group" title="EWS FTII UHAMKA">
+                <img src="<?= $root_path; ?>assets/images/uhamka-logo-horizontal.webp" alt="Logo UHAMKA" class="h-9 w-auto object-contain">
+            </a>
+            <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-[#004b87] hover:bg-blue-50 transition focus-visible:outline-2 focus-visible:outline-[#004b87]" aria-label="Tutup navigasi">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
             </button>
         </div>
-
-        <div class="mt-3 text-[11px] text-slate-600 font-medium leading-relaxed bg-blue-50/70 p-2.5 rounded-xl border border-blue-100/80">
-            <div class="flex items-center gap-1.5 font-bold text-[#004b87]">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>EWS C4.5 FTII UHAMKA</span>
-            </div>
-            <p class="text-[10px] text-slate-500 mt-0.5">Early Warning System Keberhasilan Studi Mahasiswa</p>
+        <div class="mt-3 text-[11px] text-slate-500 font-medium leading-snug">
+            Sistem Peringatan Dini Keberhasilan Studi
         </div>
     </div>
 
-    <!-- Menu Utama Aplikasi -->
-    <div class="p-4 flex-1 overflow-y-auto space-y-1.5">
-        <div class="px-3 py-1.5 text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">
-            Menu Utama
-        </div>
+    <!-- Menu Utama -->
+    <nav class="p-3 flex-1 overflow-y-auto space-y-1" aria-label="Menu utama">
+        <div class="px-2 py-2 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Menu</div>
 
-        <!-- 1. Menu Dashboard -->
-        <a href="<?= $root_path; ?>index.php" class="sidebar-link <?= $active_page === 'dashboard' ? 'active' : ''; ?> text-xs sm:text-sm">
-            <span class="text-base">📊</span>
-            <span>Dashboard & Data Mhs</span>
+        <a href="<?= $root_path; ?>index.php"
+           class="sidebar-link <?= $active_page === 'dashboard' ? 'active' : ''; ?>"
+           <?= $active_page === 'dashboard' ? 'aria-current="page"' : ''; ?>>
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            <span>Dashboard</span>
         </a>
 
-        <!-- 2. Menu Form Uji Coba -->
-        <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="sidebar-link <?= $active_page === 'uji-coba' ? 'active' : ''; ?> text-xs sm:text-sm">
-            <span class="text-base">🎯</span>
-            <span>Form Simulasi & Uji C4.5</span>
+        <a href="<?= $root_path; ?>pages/uji-coba/index.php"
+           class="sidebar-link <?= $active_page === 'uji-coba' ? 'active' : ''; ?>"
+           <?= $active_page === 'uji-coba' ? 'aria-current="page"' : ''; ?>>
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            <span>Form Simulasi</span>
         </a>
 
-    </div>
 
-    <!-- Bagian Bawah: Profil Peneliti Skripsi -->
-    <div class="p-4 border-t border-slate-100 bg-slate-50/70">
-        <div class="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#004b87] to-blue-600 text-white font-extrabold flex items-center justify-center text-xs shadow-sm">
+    </nav>
+
+    <!-- Profil Peneliti -->
+    <div class="p-4 border-t border-slate-100">
+        <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="w-8 h-8 rounded-lg bg-[#004b87] text-white font-extrabold flex items-center justify-center text-xs shrink-0">
                 KR
             </div>
-            <div class="flex-1 min-w-0">
-                <div class="text-xs font-bold text-slate-900 truncate"><?= RESEARCHER_NAME; ?></div>
-                <div class="text-[10px] text-slate-500 font-mono">NIM: <?= RESEARCHER_NIM; ?></div>
+            <div class="min-w-0">
+                <div class="text-xs font-bold text-slate-800 truncate"><?= RESEARCHER_NAME; ?></div>
+                <div class="text-[10px] text-slate-500 ">NIM <?= RESEARCHER_NIM; ?></div>
             </div>
         </div>
-        <div class="mt-2 text-[10px] text-center text-slate-400 font-medium">
+        <div class="mt-2 text-[10px] text-center text-slate-400">
             <?= PRODI_NAME; ?> • FTII UHAMKA © <?= APP_YEAR; ?>
         </div>
     </div>

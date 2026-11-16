@@ -1,19 +1,19 @@
-<?php
+﻿<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree model prediksi
+ * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
  * ====================================================================================
  * FILE       : app/c45_engine.php
- * FUNGSI     : Mesin Logika Inti Perhitungan Rumus Algoritma Decision Tree C4.5:
+ * FUNGSI     : Mesin Logika Inti Perhitungan Rumus Algoritma Decision Tree model prediksi:
  *              1. Perhitungan matematis Entropy & Information Gain.
  *              2. Pohon Keputusan (Root Node Kehadiran 72.50% & Internal Node IPK 2.995).
  *              3. Penjabaran alasan akademik mendalam & rekomendasi intervensi DPA.
- *              4. Evaluasi model: Matriks Konfusi, Error Alpha (α) & Beta (β).
+ *              4. Evaluasi model: Matriks Konfusi, Error Alpha (Î±) & Beta (Î²).
  * ====================================================================================
  */
 
@@ -65,7 +65,7 @@ function c45_calculate_gain($entropy_total, $subsets) {
 
 /**
  * ------------------------------------------------------------------------------------
- * KLASIFIKASI KELULUSAN MAHASISWA BERBASIS POHON KEPUTUSAN C4.5
+ * KLASIFIKASI KELULUSAN MAHASISWA BERBASIS POHON KEPUTUSAN model prediksi
  * ------------------------------------------------------------------------------------
  * Pohon Keputusan Terbentuk Berdasarkan Riset Skripsi (Bab 4):
  * - Simpul Akar (Root Node)   : Kehadiran (Gain = 0.720, tertinggi di antara semua atribut)
@@ -92,15 +92,15 @@ function c45_classify($kehadiran, $ipk, $sks = 0) {
         return [
             'status' => 'Berisiko Terhambat',
             'rule_number' => 1,
-            'rule_title' => 'Aturan 1 (Root Node): Kehadiran ≤ 72,50%',
+            'rule_title' => 'Aturan 1 (Root Node): Kehadiran â‰¤ 72,50%',
             'coverage' => 'Indikator Kritis: Kedisiplinan Presensi Kuliah',
             'is_at_risk' => true,
-            'reason' => 'Mahasiswa ini berstatus Berisiko Terhambat karena persentase kehadiran kuliah hanya ' . number_format($kehadiran, 1, ',', '.') . '% (di bawah batas ambang 72,50%). Dalam pohon keputusan C4.5, kehadiran merupakan indikator penentu utama yang membuktikan penurunan presensi merupakan sinyal dini sebelum nilai akademik merosot.',
+            'reason' => 'Mahasiswa ini berstatus Berisiko Terhambat karena persentase kehadiran kuliah hanya ' . number_format($kehadiran, 1, ',', '.') . '% (di bawah batas ambang 72,50%). Dalam pohon keputusan model prediksi, kehadiran merupakan indikator penentu utama yang membuktikan penurunan presensi merupakan sinyal dini sebelum nilai akademik merosot.',
             'recommendation' => 'Panggilan konseling wajib oleh Dosen Pembimbing Akademik (DPA), peringatan batas syarat kehadiran ujian minimal 75%, serta investigasi kendala personal/sakit/pekerjaan yang dihadapi mahasiswa.',
             'badge_class' => 'bg-rose-100 text-rose-800 border-rose-300',
             'border_class' => 'border-rose-300',
             'bg_light' => 'bg-rose-50/80',
-            'icon' => '🚨'
+            'icon' => 'ðŸš¨'
         ];
     }
     
@@ -110,7 +110,7 @@ function c45_classify($kehadiran, $ipk, $sks = 0) {
         return [
             'status' => 'Berisiko Terhambat',
             'rule_number' => 2,
-            'rule_title' => 'Aturan 2 (Internal Node): Kehadiran > 72,50% & IPK ≤ 2,995',
+            'rule_title' => 'Aturan 2 (Internal Node): Kehadiran > 72,50% & IPK â‰¤ 2,995',
             'coverage' => 'Indikator Kritis: Capaian Nilai Akademik (IPK)',
             'is_at_risk' => true,
             'reason' => 'Mahasiswa ini berstatus Berisiko Terhambat karena meskipun kedisiplinan hadir sudah baik (' . number_format($kehadiran, 1, ',', '.') . '%), rata-rata IPK yang diperoleh (' . number_format($ipk, 2, ',', '.') . ') belum mencapai batas aman standar kelulusan tepat waktu (2,995).',
@@ -118,7 +118,7 @@ function c45_classify($kehadiran, $ipk, $sks = 0) {
             'badge_class' => 'bg-amber-100 text-amber-900 border-amber-300',
             'border_class' => 'border-amber-300',
             'bg_light' => 'bg-amber-50/80',
-            'icon' => '⚠️'
+            'icon' => 'âš ï¸'
         ];
     }
     
@@ -136,14 +136,14 @@ function c45_classify($kehadiran, $ipk, $sks = 0) {
             'badge_class' => 'bg-emerald-100 text-emerald-800 border-emerald-300',
             'border_class' => 'border-emerald-300',
             'bg_light' => 'bg-emerald-50/80',
-            'icon' => '✅'
+            'icon' => 'âœ…'
         ];
     }
 }
 
 /**
  * ------------------------------------------------------------------------------------
- * EVALUASI MODEL & PERHITUNGAN ERROR ALPHA (α) & BETA (β)
+ * EVALUASI MODEL & PERHITUNGAN ERROR ALPHA (Î±) & BETA (Î²)
  * ------------------------------------------------------------------------------------
  * Berdasarkan hasil pengujian 87 data testing skripsi menggunakan RapidMiner &
  * landasan teori metrik evaluasi machine learning (Rainio, 2024 / Bab 4.4 Skripsi):
@@ -154,16 +154,16 @@ function c45_classify($kehadiran, $ipk, $sks = 0) {
  * - False Positive (FP) = 0  (Mahasiswa tepat waktu salah divonis berisiko -> ALARM PALSU)
  * - True Negative  (TN) = 48 (Mahasiswa tepat waktu diprediksi benar oleh sistem)
  *
- * 1. Error Alpha (α, Type I Error / False Alarm Rate):
- *    α = FP / (FP + TN) = 0 / (0 + 48) = 0.00%
+ * 1. Error Alpha (Î±, Type I Error / False Alarm Rate):
+ *    Î± = FP / (FP + TN) = 0 / (0 + 48) = 0.00%
  *    Artinya: Sistem EWS memiliki tingkat alarm palsu 0% (tidak pernah membebani DPA).
  *
- * 2. Error Beta (β, Type II Error / Missed Detection Rate):
- *    β = FN / (TP + FN) = 5 / (34 + 5) = 5 / 39 = 12.82%
+ * 2. Error Beta (Î², Type II Error / Missed Detection Rate):
+ *    Î² = FN / (TP + FN) = 5 / (34 + 5) = 5 / 39 = 12.82%
  *    Artinya: Dari seluruh mahasiswa yang bermasalah, hanya 12.82% yang luput dari deteksi.
  *
- * 3. Daya Uji Deteksi / Power of Test (Sensitivitas = 1 - β):
- *    Power = 1 - β = 100% - 12.82% = 87.18%
+ * 3. Daya Uji Deteksi / Power of Test (Sensitivitas = 1 - Î²):
+ *    Power = 1 - Î² = 100% - 12.82% = 87.18%
  *    Artinya: Sensitivitas sistem dalam menjaring mahasiswa berisiko mencapai 87.18%.
  *
  * 4. Akurasi Global Model:
@@ -235,3 +235,4 @@ function c45_get_evaluation_metrics() {
         ]
     ];
 }
+

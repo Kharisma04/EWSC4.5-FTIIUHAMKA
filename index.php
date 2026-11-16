@@ -137,73 +137,75 @@ require_once __DIR__ . '/components/sidebar.php';
                 </div>
             </div>
 
-            <!-- 3 Kriteria Ambang Batas C4.5 (7/12) -->
+            <!-- Ambang Batas Aturan C4.5 (7/12) - Ringkas, Rapi, & Hemat Ruang -->
             <div class="card-modern p-5 lg:col-span-7 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3.5">
                         <div>
-                            <h3 class="font-extrabold text-slate-900 text-sm">Kriteria & Ambang Batas Klasifikasi</h3>
-                            <p class="text-[11px] text-slate-500">Berdasarkan hasil pohon keputusan model C4.5 FTII UHAMKA</p>
+                            <h3 class="font-extrabold text-slate-900 text-sm">Kriteria & Ambang Batas C4.5</h3>
+                            <p class="text-[11px] text-slate-500">Kaidah klasifikasi status keberhasilan studi</p>
                         </div>
-                        <span class="text-xs font-extrabold text-blue-800 bg-blue-50 px-3 py-1 rounded-xl border border-blue-200">
-                            Pohon Keputusan C4.5
-                        </span>
+                        <a href="<?= $root_path; ?>pages/rumus-c45/index.php" class="text-xs font-bold text-[#004b87] hover:underline flex items-center gap-1" title="Lihat diagram pohon keputusan lengkap">
+                            <span>Alur Keputusan →</span>
+                        </a>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        
-                        <!-- Rule 1 -->
-                        <div class="p-4 rounded-2xl border border-rose-200 bg-rose-50/70 flex flex-col justify-between">
-                            <div>
-                                <div class="text-[10px] font-black text-rose-800 uppercase tracking-wide">Kriteria 1 (Presensi)</div>
-                                <div class="text-sm font-mono font-black text-rose-950 mt-1">Kehadiran ≤ 72,50%</div>
-                                <div class="text-xs font-bold text-rose-700 mt-1">Status: Berisiko Terhambat</div>
-                                <div class="text-[11px] text-slate-600 mt-2 leading-relaxed">
-                                    Presensi kurang dari 72,50% langsung menjadi pemicu alarm dini bagi DPA.
+                    <div class="space-y-2.5">
+                        <!-- Rule 1: Presensi -->
+                        <div class="p-3 rounded-2xl bg-rose-50/70 border border-rose-200 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 font-black text-xs flex items-center justify-center shrink-0">
+                                    R1
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-black text-slate-900 font-mono">Kehadiran ≤ 72,50%</div>
+                                    <div class="text-[11px] text-slate-500 truncate">Indikator utama kedisiplinan presensi kuliah</div>
                                 </div>
                             </div>
-                            <div class="mt-3 pt-2 border-t border-rose-200/60 text-[10px] text-rose-700 font-bold">
-                                Indikator Utama Presensi
-                            </div>
+                            <span class="px-2.5 py-1 text-[11px] font-extrabold rounded-full bg-rose-100 text-rose-800 border border-rose-300 shrink-0">
+                                Berisiko Terhambat
+                            </span>
                         </div>
 
-                        <!-- Rule 2 -->
-                        <div class="p-4 rounded-2xl border border-amber-200 bg-amber-50/70 flex flex-col justify-between">
-                            <div>
-                                <div class="text-[10px] font-black text-amber-900 uppercase tracking-wide">Kriteria 2 (Akademik)</div>
-                                <div class="text-sm font-mono font-black text-amber-950 mt-1">Hadir > 72,5% & IPK ≤ 2,995</div>
-                                <div class="text-xs font-bold text-amber-800 mt-1">Status: Berisiko Terhambat</div>
-                                <div class="text-[11px] text-slate-600 mt-2 leading-relaxed">
-                                    Rajin hadir namun nilai IPK belum memenuhi batas aman kelulusan 2,995.
+                        <!-- Rule 2: Akademik -->
+                        <div class="p-3 rounded-2xl bg-amber-50/70 border border-amber-200 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 font-black text-xs flex items-center justify-center shrink-0">
+                                    R2
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-black text-slate-900 font-mono">Hadir > 72,50% & IPK ≤ 2,995</div>
+                                    <div class="text-[11px] text-slate-500 truncate">Indikator capaian nilai akademik semester</div>
                                 </div>
                             </div>
-                            <div class="mt-3 pt-2 border-t border-amber-200/60 text-[10px] text-amber-800 font-bold">
-                                Indikator Nilai Akademik
-                            </div>
+                            <span class="px-2.5 py-1 text-[11px] font-extrabold rounded-full bg-amber-100 text-amber-900 border border-amber-300 shrink-0">
+                                Berisiko Terhambat
+                            </span>
                         </div>
 
-                        <!-- Rule 3 -->
-                        <div class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 flex flex-col justify-between">
-                            <div>
-                                <div class="text-[10px] font-black text-emerald-900 uppercase tracking-wide">Kriteria 3 (Jalur Aman)</div>
-                                <div class="text-sm font-mono font-black text-emerald-950 mt-1">Hadir > 72,5% & IPK > 2,995</div>
-                                <div class="text-xs font-bold text-emerald-800 mt-1">Status: Tepat Waktu</div>
-                                <div class="text-[11px] text-slate-600 mt-2 leading-relaxed">
-                                    Presensi dan IPK memenuhi kriteria kelulusan tepat waktu 4 tahun.
+                        <!-- Rule 3: Jalur Aman -->
+                        <div class="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 font-black text-xs flex items-center justify-center shrink-0">
+                                    R3
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-black text-slate-900 font-mono">Hadir > 72,50% & IPK > 2,995</div>
+                                    <div class="text-[11px] text-slate-500 truncate">Jalur aman kelulusan tepat waktu 4 tahun</div>
                                 </div>
                             </div>
-                            <div class="mt-3 pt-2 border-t border-emerald-200/60 text-[10px] text-emerald-800 font-bold">
-                                Jalur Hijau Studi
-                            </div>
+                            <span class="px-2.5 py-1 text-[11px] font-extrabold rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 shrink-0">
+                                Tepat Waktu
+                            </span>
                         </div>
-
                     </div>
                 </div>
 
-                <div class="mt-4 p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span>💡 Klik tombol <b>ℹ (Info)</b> di samping nama mahasiswa untuk melihat analisis studi dan saran DPA.</span>
-                    <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="text-[#004b87] font-bold hover:underline self-start sm:self-auto">
-                        Uji Coba Data Mahasiswa Baru →
+                <!-- Footer Baris Ringkas -->
+                <div class="mt-3.5 pt-3 border-t border-slate-100 text-xs text-slate-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span class="text-[11px]">💡 Klik <b>ℹ</b> pada nama mahasiswa untuk melihat analisis bimbingan DPA.</span>
+                    <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="text-xs text-[#004b87] font-bold hover:underline shrink-0">
+                        Uji Mahasiswa Baru →
                     </a>
                 </div>
             </div>

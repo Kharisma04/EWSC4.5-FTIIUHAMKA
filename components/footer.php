@@ -21,8 +21,8 @@ if (!isset($root_path)) { $root_path = './'; }
      ===================================================================== -->
 <div id="studentInfoModal"
      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
-     role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
-    <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+     role="dialog" aria-modal="true" aria-labelledby="infoStudentName">
+    <div id="infoModalCard" class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95">
 
         <!-- Header Modal -->
         <div id="infoModalHeader" class="p-5 border-b border-slate-100 bg-slate-50 flex items-start justify-between gap-3">
@@ -31,7 +31,7 @@ if (!isset($root_path)) { $root_path = './'; }
                     <span class="text-[10px] font-black uppercase tracking-widest text-[#004b87]">Status Studi</span>
                     <span id="infoStatusBadge" class="px-2.5 py-0.5 rounded-full font-bold text-[11px] border"></span>
                 </div>
-                <h3 id="infoModalTitle" class="text-base font-black text-slate-900 leading-tight"></h3>
+                <h3 id="infoStudentName" class="text-base font-black text-slate-900 leading-tight"></h3>
                 <div id="infoStudentNim" class="text-xs text-slate-400 mt-0.5"></div>
             </div>
             <button onclick="closeInfoModal()"
@@ -99,7 +99,7 @@ if (!isset($root_path)) { $root_path = './'; }
 <div id="studentEditModal"
      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
      role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
-    <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+    <div id="editModalCard" class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95">
 
         <!-- Header Modal Edit -->
         <div class="p-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between">

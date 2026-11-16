@@ -151,12 +151,12 @@ if (!isset($root_path)) {
             <div class="grid grid-cols-3 gap-3">
                 <div>
                     <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1">Kehadiran (%) <span class="text-rose-600">*</span></label>
-                    <input type="number" step="0.1" min="0" max="100" id="editKehadiran" required oninput="previewEditCalculation()" class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
+                    <input type="number" step="0.1" min="0" max="100" id="editKehadiran" required class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
                     <span class="text-[9px] text-slate-400 block mt-0.5">Batas: > 72,50%</span>
                 </div>
                 <div>
                     <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1">Rata-rata IPK <span class="text-rose-600">*</span></label>
-                    <input type="number" step="0.01" min="0" max="4.00" id="editIpk" required oninput="previewEditCalculation()" class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
+                    <input type="number" step="0.01" min="0" max="4.00" id="editIpk" required class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
                     <span class="text-[9px] text-slate-400 block mt-0.5">Batas: > 2,995</span>
                 </div>
                 <div>
@@ -166,13 +166,10 @@ if (!isset($root_path)) {
                 </div>
             </div>
 
-            <!-- Preview Live Status Baru C4.5 -->
-            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs flex items-center justify-between">
-                <div>
-                    <span class="text-slate-500 font-bold block text-[10px] uppercase">Prediksi Status Baru:</span>
-                    <span id="editPreviewRule" class="text-slate-700 text-[11px] font-medium"></span>
-                </div>
-                <span id="editPreviewBadge" class="px-3 py-1 rounded-full font-extrabold text-xs border"></span>
+            <!-- Informasi Pembaruan Prediksi C4.5 -->
+            <div class="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs text-slate-700 flex items-center gap-2.5">
+                <span class="text-base">💡</span>
+                <span class="text-[11px] leading-relaxed">Status kelulusan dan aturan pohon keputusan C4.5 akan otomatis dikalkulasi ulang dan diperbarui saat Anda menekan tombol <b>Simpan Perubahan</b>.</span>
             </div>
 
             <!-- Tombol Aksi Simpan / Batal -->

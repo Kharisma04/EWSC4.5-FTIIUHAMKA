@@ -58,19 +58,6 @@ $active_page = isset($active_page) ? $active_page : 'dashboard';
             <span>Form Simulasi & Uji C4.5</span>
         </a>
 
-        <!-- Kotak Info Performa Model EWS -->
-        <div class="mt-6 p-4 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-slate-50 border border-blue-100 shadow-sm">
-            <div class="flex items-center gap-2 text-[#004b87] font-extrabold text-xs mb-1.5">
-                <span>⚡</span> Akurasi Model: 94,25%
-            </div>
-            <p class="text-[11px] text-slate-600 leading-relaxed">
-                Diuji pada 87 data testing dengan <b>Error α = 0,00%</b> (bebas alarm palsu) dan <b>Daya Deteksi = 87,18%</b>.
-            </p>
-            <div class="mt-2.5 pt-2 border-t border-blue-100 text-[10px] text-blue-700 font-bold flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>Kriteria Utama: Kehadiran & Nilai IPK</span>
-            </div>
-        </div>
     </div>
 
     <!-- Bagian Bawah: Profil Peneliti Skripsi -->

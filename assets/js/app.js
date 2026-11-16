@@ -338,8 +338,6 @@ function openEditModal(student) {
   document.getElementById('editIpk').value = student.ipk;
   document.getElementById('editSks').value = student.sks;
 
-  previewEditCalculation();
-
   modal.classList.remove('hidden');
   setTimeout(() => {
     card.classList.remove('scale-95');
@@ -355,20 +353,6 @@ function closeEditModal() {
   card.classList.remove('scale-100');
   card.classList.add('scale-95');
   setTimeout(() => modal.classList.add('hidden'), 150);
-}
-
-function previewEditCalculation() {
-  const h = parseFloat(document.getElementById('editKehadiran').value) || 0;
-  const i = parseFloat(document.getElementById('editIpk').value) || 0;
-  const res = classifyC45Client(h, i);
-
-  const badge = document.getElementById('editPreviewBadge');
-  const rule = document.getElementById('editPreviewRule');
-  if (badge && rule) {
-    badge.className = `px-3 py-1 rounded-full font-extrabold text-xs border ${res.badgeClass}`;
-    badge.innerText = res.status;
-    rule.innerText = res.ruleTitle;
-  }
 }
 
 /**

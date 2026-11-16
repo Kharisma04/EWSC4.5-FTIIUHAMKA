@@ -103,15 +103,15 @@ require_once __DIR__ . '/components/sidebar.php';
                 </div>
             </div>
 
-            <!-- KPI 4: Performa Model C4.5 -->
+            <!-- KPI 4: Akurasi Model C4.5 -->
             <div class="card-modern p-5 flex items-center justify-between border-l-4 border-l-purple-500">
                 <div>
-                    <div class="text-[11px] font-bold text-purple-700 uppercase tracking-wider">Akurasi C4.5 (87 Uji)</div>
+                    <div class="text-[11px] font-bold text-purple-700 uppercase tracking-wider">Akurasi Model C4.5</div>
                     <div class="text-3xl font-black text-purple-700 mt-1 font-mono">94,25%</div>
-                    <div class="text-[11px] text-purple-600 mt-0.5 font-medium">Error α = 0,00% (Zero False Alarm)</div>
+                    <div class="text-[11px] text-purple-600 mt-0.5 font-medium">Model Teruji & Valid</div>
                 </div>
                 <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold border border-purple-200">
-                    ⚡
+                    🎯
                 </div>
             </div>
 
@@ -146,7 +146,7 @@ require_once __DIR__ . '/components/sidebar.php';
                             <p class="text-[11px] text-slate-500">Berdasarkan hasil pohon keputusan model C4.5 FTII UHAMKA</p>
                         </div>
                         <span class="text-xs font-extrabold text-blue-800 bg-blue-50 px-3 py-1 rounded-xl border border-blue-200">
-                            Terverifikasi Akurasi 94,25%
+                            Pohon Keputusan C4.5
                         </span>
                     </div>
 

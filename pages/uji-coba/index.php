@@ -141,14 +141,14 @@ require_once __DIR__ . '/../../components/sidebar.php';
                                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">
                                     Kehadiran (%) <span class="text-rose-600">*</span>
                                 </label>
-                                <input type="number" step="0.1" min="0" max="100" id="simKehadiran" required placeholder="0 - 100" oninput="triggerInstantCalculation()" class="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 font-mono font-bold transition">
+                                <input type="number" step="0.1" min="0" max="100" id="simKehadiran" required placeholder="0 - 100" class="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 font-mono font-bold transition">
                                 <span class="text-[10px] text-slate-400 mt-1 block font-medium">Batas Aman: > 72,50%</span>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">
                                     Rata-rata IPK <span class="text-rose-600">*</span>
                                 </label>
-                                <input type="number" step="0.01" min="0" max="4.00" id="simIpk" required placeholder="0.00 - 4.00" oninput="triggerInstantCalculation()" class="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 font-mono font-bold transition">
+                                <input type="number" step="0.01" min="0" max="4.00" id="simIpk" required placeholder="0.00 - 4.00" class="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 font-mono font-bold transition">
                                 <span class="text-[10px] text-slate-400 mt-1 block font-medium">Batas Aman: > 2,995</span>
                             </div>
                             <div>
@@ -161,7 +161,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         </div>
 
                         <div class="pt-3 flex flex-wrap items-center gap-3">
-                            <button type="submit" class="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-[#004b87] to-blue-600 hover:from-[#003b6b] hover:to-blue-700 text-white font-extrabold text-sm shadow-md shadow-blue-900/20 transition flex items-center justify-center gap-2">
+                            <button type="submit" id="btnHitungSim" class="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-[#004b87] to-blue-600 hover:from-[#003b6b] hover:to-blue-700 text-white font-extrabold text-sm shadow-md shadow-blue-900/20 transition flex items-center justify-center gap-2">
                                 <span>⚡</span> Hitung Prediksi C4.5
                             </button>
                             <button type="button" onclick="resetSimForm()" class="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition border border-slate-300">
@@ -181,12 +181,12 @@ require_once __DIR__ . '/../../components/sidebar.php';
                     <div class="w-16 h-16 rounded-3xl bg-blue-50 text-[#004b87] flex items-center justify-center text-3xl mx-auto mb-3 shadow-inner">
                         🎯
                     </div>
-                    <h4 class="text-base font-extrabold text-slate-800">Menunggu Input Parameter</h4>
-                    <p class="text-xs text-slate-500 mt-1.5 leading-relaxed max-w-sm mx-auto">
-                        Masukkan parameter kehadiran dan IPK di formulir sebelah kiri atau klik salah satu tombol preset untuk melihat status prediksi dan rekomendasi DPA di panel ini.
+                    <h4 id="simPlaceholderTitle" class="text-base font-extrabold text-slate-800">Menunggu Eksekusi Prediksi</h4>
+                    <p id="simPlaceholderDesc" class="text-xs text-slate-500 mt-1.5 leading-relaxed max-w-sm mx-auto">
+                        Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi C4.5</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.
                     </p>
                     <div class="mt-5 pt-4 border-t border-slate-100 text-[11px] text-slate-400 font-medium flex items-center justify-center gap-1.5">
-                        <span>🔒 Model tervalidasi dengan akurasi 94,25%</span>
+                        <span>🔒 Klasifikasi Berbasis Algoritma Decision Tree C4.5</span>
                     </div>
                 </div>
 
@@ -252,6 +252,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
     <script>
         let currentSimResult = null;
 
+        // Memuat skenario simulasi preset tanpa otomatis memunculkan hasil prediksi
         function fillSimulationPreset(kehadiran, ipk, sks, nama) {
             document.getElementById('simNim').value = '2303015' + Math.floor(100 + Math.random() * 900);
             document.getElementById('simNama').value = nama;
@@ -259,37 +260,79 @@ require_once __DIR__ . '/../../components/sidebar.php';
             document.getElementById('simIpk').value = ipk;
             document.getElementById('simSks').value = sks;
 
-            calculateAndDisplay(kehadiran, ipk, sks, nama, document.getElementById('simNim').value);
-        }
+            // Sembunyikan hasil lama & arahkan user untuk menekan tombol
+            hideSimResult();
+            
+            const titleEl = document.getElementById('simPlaceholderTitle');
+            const descEl = document.getElementById('simPlaceholderDesc');
+            if (titleEl && descEl) {
+                titleEl.innerText = 'Skenario Siap Dihitung';
+                descEl.innerHTML = `Parameter simulasi <b>${nama}</b> telah dimasukkan ke formulir. Silakan klik tombol <b>Hitung Prediksi C4.5</b> untuk melihat hasil analisis.`;
+            }
 
-        function triggerInstantCalculation() {
-            const h = parseFloat(document.getElementById('simKehadiran').value);
-            const i = parseFloat(document.getElementById('simIpk').value);
-            const s = parseInt(document.getElementById('simSks').value) || 0;
-            const nama = document.getElementById('simNama').value || 'Mahasiswa Uji Coba';
-            const nim = document.getElementById('simNim').value || '2303015...';
-
-            if (!isNaN(h) && !isNaN(i)) {
-                calculateAndDisplay(h, i, s, nama, nim);
+            // Beri fokus ke tombol hitung agar intuitif
+            const btn = document.getElementById('btnHitungSim');
+            if (btn) {
+                btn.focus();
+                btn.classList.add('ring-4', 'ring-blue-300');
+                setTimeout(() => btn.classList.remove('ring-4', 'ring-blue-300'), 1000);
             }
         }
 
+        // Penanganan Submit Form: Hasil HANYA muncul setelah user klik tombol
         function handleLiveSimSubmit(e) {
             e.preventDefault();
+            const nim = document.getElementById('simNim').value.trim();
+            const nama = document.getElementById('simNama').value.trim();
             const h = parseFloat(document.getElementById('simKehadiran').value);
             const i = parseFloat(document.getElementById('simIpk').value);
             const s = parseInt(document.getElementById('simSks').value);
-            const nama = document.getElementById('simNama').value;
-            const nim = document.getElementById('simNim').value;
 
-            if (isNaN(h) || isNaN(i) || isNaN(s)) {
-                alert('Harap isi data kehadiran, IPK, dan SKS dengan angka valid!');
+            if (!nim || !nama) {
+                alert('Harap lengkapi Nomor Induk Mahasiswa (NIM) dan Nama Mahasiswa terlebih dahulu!');
                 return;
             }
 
-            calculateAndDisplay(h, i, s, nama, nim);
+            if (isNaN(h) || h < 0 || h > 100) {
+                alert('Harap isi persentase kehadiran dengan angka valid antara 0% hingga 100%!');
+                document.getElementById('simKehadiran').focus();
+                return;
+            }
+
+            if (isNaN(i) || i < 0 || i > 4.00) {
+                alert('Harap isi nilai IPK dengan angka valid antara 0,00 hingga 4,00!');
+                document.getElementById('simIpk').focus();
+                return;
+            }
+
+            if (isNaN(s) || s < 0) {
+                alert('Harap isi total SKS dengan angka bulat yang valid!');
+                document.getElementById('simSks').focus();
+                return;
+            }
+
+            // Tampilkan efek loading sejenak pada tombol agar responsif & profesional
+            const btn = document.getElementById('btnHitungSim');
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<span>⏳</span> Memproses Prediksi C4.5...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+                calculateAndDisplay(h, i, s, nama, nim);
+
+                // Scroll halus ke kartu hasil pada layar mobile/tablet
+                if (window.innerWidth < 1024) {
+                    const sec = document.getElementById('simResultSection');
+                    if (sec) {
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }, 200);
         }
 
+        // Mengkalkulasi dan menampilkan kartu hasil prediksi C4.5
         function calculateAndDisplay(kehadiran, ipk, sks, nama, nim) {
             const res = classifyC45Client(kehadiran, ipk);
             currentSimResult = {
@@ -318,16 +361,50 @@ require_once __DIR__ . '/../../components/sidebar.php';
             document.getElementById('resAction').innerText = res.recommendation;
         }
 
+        // Menyembunyikan hasil prediksi & menampilkan kembali placeholder awal
+        function hideSimResult() {
+            currentSimResult = null;
+            const sec = document.getElementById('simResultSection');
+            const placeholder = document.getElementById('simPlaceholder');
+            if (sec) sec.classList.add('hidden');
+            if (placeholder) placeholder.classList.remove('hidden');
+        }
+
         function resetSimForm() {
             document.getElementById('simForm').reset();
-            document.getElementById('simPlaceholder').classList.remove('hidden');
-            document.getElementById('simResultSection').classList.add('hidden');
-            currentSimResult = null;
+            hideSimResult();
+            const titleEl = document.getElementById('simPlaceholderTitle');
+            const descEl = document.getElementById('simPlaceholderDesc');
+            if (titleEl && descEl) {
+                titleEl.innerText = 'Menunggu Eksekusi Prediksi';
+                descEl.innerHTML = 'Silakan isi data mahasiswa dan parameter akademik pada formulir di sebelah kiri (atau klik salah satu skenario preset), kemudian klik tombol <b>Hitung Prediksi C4.5</b> untuk menampilkan hasil analisis dan rekomendasi tindakan DPA.';
+            }
         }
+
+        // Jika user mengubah nilai input setelah prediksi muncul, sembunyikan hasil lama agar tidak rancu
+        document.addEventListener('DOMContentLoaded', () => {
+            const formInputs = ['simNim', 'simNama', 'simKehadiran', 'simIpk', 'simSks'];
+            formInputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        if (currentSimResult !== null) {
+                            hideSimResult();
+                            const titleEl = document.getElementById('simPlaceholderTitle');
+                            const descEl = document.getElementById('simPlaceholderDesc');
+                            if (titleEl && descEl) {
+                                titleEl.innerText = 'Parameter Diubah';
+                                descEl.innerHTML = 'Data pada formulir telah diubah. Silakan klik kembali tombol <b>Hitung Prediksi C4.5</b> untuk memperbarui hasil prediksi.';
+                            }
+                        }
+                    });
+                }
+            });
+        });
 
         async function saveSimResultToDatabase() {
             if (!currentSimResult) {
-                alert('Silakan lakukan pengujian terlebih dahulu.');
+                alert('Silakan lakukan perhitungan prediksi terlebih dahulu dengan menekan tombol Hitung Prediksi C4.5.');
                 return;
             }
 

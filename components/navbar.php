@@ -42,18 +42,8 @@ $nav_title = isset($nav_title) ? $nav_title : 'Dashboard & Pangkalan Data Mahasi
         </div>
     </div>
 
-    <!-- Bagian Kanan: Status Akurasi, Nilai Alpha, & Tombol Cetak -->
+    <!-- Bagian Kanan: Tombol Cetak Laporan -->
     <div class="flex items-center gap-2.5">
-        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>EWS: <b>Aktif</b></span>
-        </div>
-        <div class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200" title="Akurasi model C4.5 pada 87 data testing">
-            <span>Akurasi: <b>94,25%</b></span>
-        </div>
-        <div class="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 text-purple-800 text-xs font-bold border border-purple-200" title="Tingkat kesalahan Tipe I (False Alarm Rate) = 0.00%">
-            <span>Error α: <b>0,00%</b></span>
-        </div>
         <button onclick="window.print()" class="px-3.5 py-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl border border-slate-300 transition flex items-center gap-1.5 shadow-sm">
             <span>🖨️</span> <span class="hidden sm:inline">Cetak Laporan</span>
         </button>

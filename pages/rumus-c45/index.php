@@ -1,15 +1,15 @@
-<?php
+﻿<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree model prediksi
+ * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
  * ====================================================================================
  * FILE       : pages/rumus-c45/index.php
- * FUNGSI     : Panduan Alur Keputusan C4.5, Pohon Keputusan, dan Evaluasi Model.
+ * FUNGSI     : Panduan Alur Keputusan model prediksi, Pohon Keputusan, dan Evaluasi Model.
  *              Disajikan secara ringkas, intuitif, dan ramah pengguna umum.
  * ====================================================================================
  */
@@ -21,7 +21,7 @@ require_once __DIR__ . '/../../app/c45_engine.php';
 $page_title = 'Panduan Alur Keputusan & Evaluasi Model';
 $active_page = 'rumus-c45';
 $nav_category = 'Panduan & Evaluasi';
-$nav_title = 'Alur Keputusan C4.5 & Evaluasi Model EWS';
+$nav_title = 'Alur Keputusan model prediksi & Evaluasi Model EWS';
 
 $eval = c45_get_evaluation_metrics();
 
@@ -42,13 +42,13 @@ require_once __DIR__ . '/../../components/sidebar.php';
         <div class="bg-gradient-to-r from-[#003366] via-[#004b87] to-[#0284c7] p-6 sm:p-8 rounded-3xl text-white shadow-xl shadow-blue-900/15 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-extrabold backdrop-blur-sm mb-3 border border-white/20">
-                    <span>💡</span> Panduan Alur Keputusan & Kinerja Sistem
+                    <span>ðŸ’¡</span> Panduan Alur Keputusan & Kinerja Sistem
                 </div>
                 <h2 class="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight">
                     Alur Logika Pohon Keputusan & Hasil Evaluasi
                 </h2>
                 <p class="text-blue-100 text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-                    Penjelasan sederhana mengenai cara kerja model <b>Decision Tree C4.5</b> dalam mengklasifikasikan status kelulusan mahasiswa, dilengkapi matriks evaluasi pengujian pada <b>87 data testing</b>.
+                    Penjelasan sederhana mengenai cara kerja model <b>Decision Tree model prediksi</b> dalam mengklasifikasikan status kelulusan mahasiswa, dilengkapi matriks evaluasi pengujian pada <b>87 data testing</b>.
                 </p>
             </div>
             <div class="flex flex-col gap-2 self-start md:self-center">
@@ -56,13 +56,13 @@ require_once __DIR__ . '/../../components/sidebar.php';
                     Peneliti: <b><?= RESEARCHER_NAME; ?></b>
                 </div>
                 <div class="px-4 py-2 bg-white/10 rounded-2xl border border-white/20 text-xs text-blue-100 font-mono">
-                    NIM: <b><?= RESEARCHER_NIM; ?></b> • FTII UHAMKA
+                    NIM: <b><?= RESEARCHER_NIM; ?></b> â€¢ FTII UHAMKA
                 </div>
             </div>
         </div>
 
         <!-- ======================================================================== -->
-        <!-- BAGIAN 1: PENJELASAN KRITERIA KEPUTUSAN C4.5                             -->
+        <!-- BAGIAN 1: PENJELASAN KRITERIA KEPUTUSAN model prediksi                             -->
         <!-- ======================================================================== -->
         <div class="card-modern p-6 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
@@ -81,17 +81,17 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <div class="p-5 rounded-2xl bg-blue-50/70 border border-blue-200 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-black uppercase text-[#004b87] tracking-wider">Tahap 1 • Prioritas Utama</span>
+                            <span class="text-[10px] font-black uppercase text-[#004b87] tracking-wider">Tahap 1 â€¢ Prioritas Utama</span>
                             <span class="px-2 py-0.5 rounded text-[10px] font-black bg-rose-100 text-rose-800 border border-rose-200">Kritis</span>
                         </div>
                         <h4 class="text-sm font-black text-slate-900">Kedisiplinan Kehadiran Kuliah</h4>
                         <div class="text-xs font-mono font-bold text-rose-700 mt-1">Batas Aman: > 72,50%</div>
                         <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
-                            Kehadiran merupakan indikator perilaku awal (*leading indicator*). Jika kehadiran mahasiswa <b>≤ 72,50%</b>, sistem langsung mengelompokkannya sebagai <b>Berisiko Terhambat</b> tanpa memandang nilai IPK, karena ketidakhadiran berisiko menggugurkan hak ujian akhir.
+                            Kehadiran merupakan indikator perilaku awal (*leading indicator*). Jika kehadiran mahasiswa <b>â‰¤ 72,50%</b>, sistem langsung mengelompokkannya sebagai <b>Berisiko Terhambat</b> tanpa memandang nilai IPK, karena ketidakhadiran berisiko menggugurkan hak ujian akhir.
                         </p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-blue-200/80 text-[11px] text-[#004b87] font-semibold flex items-center gap-1.5">
-                        <span>🎯</span> Simpul Utama (Root Node)
+                        <span>ðŸŽ¯</span> Simpul Utama (Root Node)
                     </div>
                 </div>
 
@@ -99,17 +99,17 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <div class="p-5 rounded-2xl bg-amber-50/70 border border-amber-200 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-black uppercase text-amber-900 tracking-wider">Tahap 2 • Prestasi Nilai</span>
+                            <span class="text-[10px] font-black uppercase text-amber-900 tracking-wider">Tahap 2 â€¢ Prestasi Nilai</span>
                             <span class="px-2 py-0.5 rounded text-[10px] font-black bg-amber-100 text-amber-900 border border-amber-200">Akademik</span>
                         </div>
                         <h4 class="text-sm font-black text-slate-900">Capaian Indeks Prestasi Kumulatif</h4>
                         <div class="text-xs font-mono font-bold text-amber-800 mt-1">Batas Aman: > 2,995</div>
                         <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
-                            Bagi mahasiswa yang kehadirannya sudah tertib (> 72,50%), sistem mengevaluasi pencapaian IPK. Mahasiswa dengan IPK <b>≤ 2,995</b> tetap dikategorikan <b>Berisiko Terhambat</b> dan disarankan mendapat bimbingan belajar remedial.
+                            Bagi mahasiswa yang kehadirannya sudah tertib (> 72,50%), sistem mengevaluasi pencapaian IPK. Mahasiswa dengan IPK <b>â‰¤ 2,995</b> tetap dikategorikan <b>Berisiko Terhambat</b> dan disarankan mendapat bimbingan belajar remedial.
                         </p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-amber-200/80 text-[11px] text-amber-800 font-semibold flex items-center gap-1.5">
-                        <span>📊</span> Simpul Cabang (Node 2)
+                        <span>ðŸ“Š</span> Simpul Cabang (Node 2)
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 <div class="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-black uppercase text-emerald-900 tracking-wider">Tahap 3 • Jalur Aman</span>
+                            <span class="text-[10px] font-black uppercase text-emerald-900 tracking-wider">Tahap 3 â€¢ Jalur Aman</span>
                             <span class="px-2 py-0.5 rounded text-[10px] font-black bg-emerald-100 text-emerald-900 border border-emerald-200">Aman</span>
                         </div>
                         <h4 class="text-sm font-black text-slate-900">Kelulusan Tepat Waktu 4 Tahun</h4>
@@ -127,7 +127,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         </p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-emerald-200/80 text-[11px] text-emerald-800 font-semibold flex items-center gap-1.5">
-                        <span>✅</span> Jalur Hijau Studi
+                        <span>âœ…</span> Jalur Hijau Studi
                     </div>
                 </div>
 
@@ -135,12 +135,12 @@ require_once __DIR__ . '/../../components/sidebar.php';
         </div>
 
         <!-- ======================================================================== -->
-        <!-- BAGIAN 2: DIAGRAM ALUR POHON KEPUTUSAN C4.5                              -->
+        <!-- BAGIAN 2: DIAGRAM ALUR POHON KEPUTUSAN model prediksi                              -->
         <!-- ======================================================================== -->
         <div class="card-modern p-6 space-y-5">
             <div class="border-b border-slate-100 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
-                    <h3 class="text-base font-black text-slate-900">Diagram Alur Pohon Keputusan C4.5</h3>
+                    <h3 class="text-base font-black text-slate-900">Diagram Alur Pohon Keputusan model prediksi</h3>
                     <p class="text-xs text-slate-500">Representasi visual alur pemeriksaan kondisi mahasiswa</p>
                 </div>
                 <span class="text-xs font-bold text-slate-500">FTII UHAMKA</span>
@@ -161,7 +161,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                     <!-- Cabang Kiri: Kehadiran <= 72.50% -->
                     <div class="flex flex-col items-center space-y-3">
                         <div class="text-xs font-mono font-black text-rose-700 bg-rose-100 px-3.5 py-1.5 rounded-full border border-rose-300">
-                            Kehadiran ≤ 72,50%
+                            Kehadiran â‰¤ 72,50%
                         </div>
                         <div class="w-0.5 h-6 bg-rose-300"></div>
                         <div class="p-4 rounded-2xl bg-rose-100 border-2 border-rose-400 text-center w-full shadow-sm">
@@ -190,7 +190,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             <!-- IPK <= 2.995 -->
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="text-[10px] font-mono font-black text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
-                                    IPK ≤ 2,995
+                                    IPK â‰¤ 2,995
                                 </div>
                                 <div class="p-3 rounded-xl bg-rose-100 border border-rose-300 text-center w-full">
                                     <span class="text-[9px] font-bold uppercase text-rose-700 block">Aturan 2</span>
@@ -227,7 +227,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
                 <div>
                     <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-[#004b87] text-xs font-extrabold mb-1">
-                        <span>🧪</span> Evaluasi Model & Uji Validasi
+                        <span>ðŸ§ª</span> Evaluasi Model & Uji Validasi
                     </div>
                     <h3 class="text-lg font-black text-slate-900">Hasil Pengujian Model EWS (87 Data Uji)</h3>
                     <p class="text-xs text-slate-500">
@@ -285,19 +285,19 @@ require_once __DIR__ . '/../../components/sidebar.php';
                     </div>
 
                     <div class="text-[11px] text-slate-600 leading-relaxed bg-white p-3.5 rounded-xl border border-slate-200 space-y-1">
-                        <div>✅ Prediksi Tepat: <b>34 + 48 = 82 data (94,25%)</b></div>
-                        <div>⚠️ Koreksi/Luput: <b>5 data (5,75%)</b></div>
+                        <div>âœ… Prediksi Tepat: <b>34 + 48 = 82 data (94,25%)</b></div>
+                        <div>âš ï¸ Koreksi/Luput: <b>5 data (5,75%)</b></div>
                     </div>
                 </div>
 
                 <!-- Penjelasan Kinerja Sistem (7/12) -->
                 <div class="lg:col-span-7 space-y-3.5">
                     
-                    <!-- Kartu Error Alpha (α) -->
+                    <!-- Kartu Error Alpha (Î±) -->
                     <div class="p-4 rounded-2xl bg-blue-50/80 border border-blue-200">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-black text-[#004b87] uppercase tracking-wide">
-                                1. Bebas Alarm Palsu (Error Alpha / α = 0,00%)
+                                1. Bebas Alarm Palsu (Error Alpha / Î± = 0,00%)
                             </span>
                             <span class="text-base font-black text-[#004b87] font-mono">0,00%</span>
                         </div>
@@ -306,11 +306,11 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         </p>
                     </div>
 
-                    <!-- Kartu Error Beta (β) -->
+                    <!-- Kartu Error Beta (Î²) -->
                     <div class="p-4 rounded-2xl bg-amber-50/80 border border-amber-200">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-black text-amber-950 uppercase tracking-wide">
-                                2. Tingkat Luput Deteksi (Error Beta / β = 12,82%)
+                                2. Tingkat Luput Deteksi (Error Beta / Î² = 12,82%)
                             </span>
                             <span class="text-base font-black text-amber-800 font-mono">12,82%</span>
                         </div>
@@ -343,3 +343,4 @@ require_once __DIR__ . '/../../components/sidebar.php';
 <?php
 require_once __DIR__ . '/../../components/footer.php';
 ?>
+

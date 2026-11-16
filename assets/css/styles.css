@@ -1,0 +1,114 @@
+/**
+ * ====================================================================================
+ * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
+ *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
+ * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
+ * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
+ * ====================================================================================
+ * FILE       : assets/css/styles.css
+ * FUNGSI     : Stylesheet CSS Kustom (Glassmorphism, Card Modern, Badge, Print Format).
+ * ====================================================================================
+ */
+
+:root {
+  --uhamka-blue: #004b87;
+  --uhamka-blue-dark: #003366;
+  --uhamka-blue-light: #e0f2fe;
+  --uhamka-yellow: #f59e0b;
+  --uhamka-green: #10b981;
+  --rose-primary: #ef4444;
+  --rose-dark: #b91c1c;
+  --rose-light: #fee2e2;
+  --bg-page: #f8fafc;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Sidebar Navigasi Link Style */
+.sidebar-link {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #475569;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.875rem;
+  border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+  background-color: #f0f7ff;
+  color: #004b87;
+  border-color: #bae6fd;
+  transform: translateX(2px);
+}
+
+.sidebar-link.active {
+  background: linear-gradient(135deg, #004b87, #0284c7);
+  color: #ffffff !important;
+  font-weight: 700;
+  border-color: #004b87;
+  box-shadow: 0 4px 14px -2px rgba(0, 75, 135, 0.35);
+}
+
+/* Card Modern Berkontras */
+.card-modern {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.04), 0 2px 6px -2px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-modern:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -3px rgba(0, 0, 0, 0.02);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth Fade In Animation */
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Format Ramah Cetak (Print View) */
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  body { background-color: #ffffff; }
+  aside { display: none !important; }
+  main { margin-left: 0 !important; width: 100% !important; padding: 0 !important; }
+}

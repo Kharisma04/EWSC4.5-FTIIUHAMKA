@@ -1,112 +1,115 @@
-/**
- * ====================================================================================
- * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
- *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
- * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
- * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
- * ====================================================================================
- * FILE       : assets/css/styles.css
- * FUNGSI     : Stylesheet CSS Kustom (Glassmorphism, Card Modern, Badge, Print Format).
- * ====================================================================================
- */
+/* ===================================================================================
+ * Early Warning System (EWS) - Stylesheet Utama
+ * FTII UHAMKA | Program Studi Teknik Informatika
+ * =================================================================================== */
 
 :root {
   --uhamka-blue: #004b87;
   --uhamka-blue-dark: #003366;
+  --uhamka-blue-mid: #0369a1;
   --uhamka-blue-light: #e0f2fe;
   --uhamka-yellow: #f59e0b;
   --uhamka-green: #10b981;
-  --rose-primary: #ef4444;
-  --rose-dark: #b91c1c;
-  --rose-light: #fee2e2;
-  --bg-page: #f8fafc;
+  --bg-page: #f1f5f9;
+  --sidebar-width: 260px;
 }
 
+/* ==========================================
+   BASE & TYPOGRAPHY
+   ========================================== */
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background-color: #f8fafc;
+  background-color: var(--bg-page);
   color: #0f172a;
   letter-spacing: -0.01em;
 }
 
-/* Glassmorphism Header */
-.glass-header {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Override monospace: pakai font utama agar angka tidak kaku */
+.font-mono,
+input[type="number"],
+input[type="text"].font-mono {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: -0.01em;
 }
 
-/* Sidebar Navigasi Link Style */
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+.glass-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ==========================================
+   SIDEBAR LINKS
+   ========================================== */
 .sidebar-link {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #475569;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #64748b;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.875rem;
+  gap: 0.625rem;
+  padding: 0.65rem 0.875rem;
+  border-radius: 0.75rem;
   border: 1px solid transparent;
+  font-size: 0.8125rem;
 }
 
 .sidebar-link:hover {
   background-color: #f0f7ff;
-  color: #004b87;
+  color: var(--uhamka-blue);
   border-color: #bae6fd;
-  transform: translateX(2px);
 }
 
 .sidebar-link.active {
-  background: linear-gradient(135deg, #004b87, #0284c7);
+  background: var(--uhamka-blue);
   color: #ffffff !important;
   font-weight: 700;
-  border-color: #004b87;
-  box-shadow: 0 4px 14px -2px rgba(0, 75, 135, 0.35);
+  box-shadow: 0 4px 12px -2px rgba(0, 75, 135, 0.3);
 }
 
-/* Card Modern Berkontras */
+.sidebar-link:focus-visible {
+  outline: 2px solid var(--uhamka-blue);
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   CARDS
+   ========================================== */
 .card-modern {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.04), 0 2px 6px -2px rgba(0, 0, 0, 0.02);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
 }
 
-.card-modern:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -3px rgba(0, 0, 0, 0.02);
+/* ==========================================
+   CUSTOM SCROLLBAR
+   ========================================== */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ==========================================
+   FADE ANIMATION
+   ========================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Smooth Fade In Animation */
 .fade-in {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  animation: fadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Format Ramah Cetak (Print View) */
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
 @media print {
-  .no-print { display: none !important; }
+  .no-print  { display: none !important; }
   .print-only { display: block !important; }
   body { background-color: #ffffff; }
   aside { display: none !important; }

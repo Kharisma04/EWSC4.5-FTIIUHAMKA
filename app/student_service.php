@@ -1,18 +1,18 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
  * ====================================================================================
  * FILE       : app/student_service.php
- * FUNGSI     : Layanan Pengelolaan Data Mahasiswa (CRUD, Persistence, & Integrasi model prediksi):
+ * FUNGSI     : Layanan Pengelolaan Data Mahasiswa (CRUD, Persistence, & Integrasi C4.5):
  *              - Membaca data mahasiswa dari pangkalan data JSON skripsi.
  *              - Menyimpan data pengujian baru dari form uji coba.
- *              - Mengedit parameter mahasiswa & otomatis mengkalkulasi ulang model prediksi.
+ *              - Mengedit parameter mahasiswa & otomatis mengkalkulasi ulang C4.5.
  *              - Menghapus data & mereset pangkalan data ke kondisi awal skripsi.
  * ====================================================================================
  */
@@ -41,7 +41,7 @@ function student_get_all() {
 }
 
 /**
- * Mencari data mahasiswa berdasarkan NIM beserta detail analisis model prediksi lengkap
+ * Mencari data mahasiswa berdasarkan NIM beserta detail analisis C4.5 lengkap
  * 
  * @param string $nim Nomor Induk Mahasiswa
  * @return array|null Data mahasiswa lengkap atau null jika tidak ditemukan
@@ -50,7 +50,7 @@ function student_find_by_nim($nim) {
     $students = student_get_all();
     foreach ($students as $std) {
         if ($std['nim'] === $nim) {
-            // Gabungkan dengan kalkulasi analisis model prediksi
+            // Gabungkan dengan kalkulasi analisis C4.5
             $c45_res = c45_classify($std['kehadiran'], $std['ipk'], $std['sks']);
             return array_merge($std, ['c45' => $c45_res]);
         }
@@ -62,7 +62,7 @@ function student_find_by_nim($nim) {
  * Menyimpan data mahasiswa baru hasil uji coba ke dalam database JSON
  * 
  * @param array $input Data formulir (nim, nama, prodi, kehadiran, ipk, sks)
- * @return array Hasil penyimpanan dan status klasifikasi model prediksi
+ * @return array Hasil penyimpanan dan status klasifikasi C4.5
  */
 function student_save($input) {
     $students = student_get_all();
@@ -71,7 +71,7 @@ function student_save($input) {
     $ipk = round((float)($input['ipk'] ?? 0), 2);
     $sks = (int)($input['sks'] ?? 0);
 
-    // Hitung status menggunakan model prediksi Engine
+    // Hitung status menggunakan C4.5 Engine
     $c45_res = c45_classify($kehadiran, $ipk, $sks);
 
     $new_student = [
@@ -100,7 +100,7 @@ function student_save($input) {
 
 /**
  * Memperbarui (Edit) data mahasiswa yang sudah ada dan langsung
- * menghitung ulang status kelulusan berdasarkan rumus Decision Tree model prediksi
+ * menghitung ulang status kelulusan berdasarkan rumus Decision Tree C4.5
  * 
  * @param string $nim_target NIM mahasiswa yang akan diupdate
  * @param array  $input      Data pembaruan (nama, kehadiran, ipk, sks)
@@ -117,7 +117,7 @@ function student_update($nim_target, $input) {
             $ipk = round((float)($input['ipk'] ?? $std['ipk']), 2);
             $sks = (int)($input['sks'] ?? $std['sks']);
 
-            // Kalkulasi ulang model prediksi dengan parameter yang baru diedit
+            // Kalkulasi ulang C4.5 dengan parameter yang baru diedit
             $c45_res = c45_classify($kehadiran, $ipk, $sks);
 
             $std['nama'] = trim($input['nama'] ?? $std['nama']);
@@ -202,4 +202,3 @@ function student_get_kpis() {
         'pct_berisiko' => $total > 0 ? round(($berisiko / $total) * 100, 1) : 0
     ];
 }
-

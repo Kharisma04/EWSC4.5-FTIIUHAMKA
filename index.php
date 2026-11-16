@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -48,18 +48,18 @@ require_once __DIR__ . '/components/sidebar.php';
         <div class="bg-gradient-to-r from-[#003366] via-[#004b87] to-[#0284c7] rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-blue-900/15 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-extrabold backdrop-blur-sm mb-3 border border-white/20">
-                    <span>ðŸŽ“</span> Early Warning System Mahasiswa FTII UHAMKA
+                    <span>🎓</span> Early Warning System Mahasiswa FTII UHAMKA
                 </div>
                 <h2 class="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight">
                     Sistem Pemantauan Status Keberhasilan Studi
                 </h2>
                 <p class="text-blue-100 text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-                    Sistem peringatan dini deteksi kelulusan mahasiswa Teknik Informatika berbasis Algoritma <b>Decision Tree model prediksi</b>. Membantu Dosen Pembimbing Akademik (DPA) memberikan intervensi dini secara akurat dan tepat sasaran.
+                    Sistem peringatan dini deteksi kelulusan mahasiswa Teknik Informatika berbasis Algoritma <b>Decision Tree C4.5</b>. Membantu Dosen Pembimbing Akademik (DPA) memberikan intervensi dini secara akurat dan tepat sasaran.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-3 self-start md:self-center">
                 <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="px-5 py-3 bg-white text-[#004b87] font-extrabold text-xs sm:text-sm rounded-2xl shadow-lg hover:bg-blue-50 transition flex items-center gap-2">
-                    <span>ðŸŽ¯</span> Form Simulasi model prediksi
+                    <span>🎯</span> Form Simulasi C4.5
                 </a>
             </div>
         </div>
@@ -75,7 +75,7 @@ require_once __DIR__ . '/components/sidebar.php';
                     <div class="text-[11px] text-slate-500 mt-0.5 font-medium">Mahasiswa Aktif Terdata</div>
                 </div>
                 <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold border border-blue-200">
-                    ðŸ‘¥
+                    👥
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ require_once __DIR__ . '/components/sidebar.php';
                     <div class="text-[11px] text-emerald-600 mt-0.5 font-medium">Jalur Aman (<?= $kpis['pct_tepat']; ?>%)</div>
                 </div>
                 <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold border border-emerald-200">
-                    âœ…
+                    ✅
                 </div>
             </div>
 
@@ -99,25 +99,25 @@ require_once __DIR__ . '/components/sidebar.php';
                     <div class="text-[11px] text-rose-600 mt-0.5 font-semibold">Perlu Bimbingan DPA (<?= $kpis['pct_berisiko']; ?>%)</div>
                 </div>
                 <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-bold border border-rose-200">
-                    ðŸš¨
+                    🚨
                 </div>
             </div>
 
-            <!-- KPI 4: Akurasi Model model prediksi -->
+            <!-- KPI 4: Akurasi Model C4.5 -->
             <div class="card-modern p-5 flex items-center justify-between border-l-4 border-l-purple-500">
                 <div>
-                    <div class="text-[11px] font-bold text-purple-700 uppercase tracking-wider">Akurasi Model model prediksi</div>
+                    <div class="text-[11px] font-bold text-purple-700 uppercase tracking-wider">Akurasi Model C4.5</div>
                     <div class="text-3xl font-black text-purple-700 mt-1 font-mono">94,25%</div>
                     <div class="text-[11px] text-purple-600 mt-0.5 font-medium">Model Teruji & Valid</div>
                 </div>
                 <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold border border-purple-200">
-                    ðŸŽ¯
+                    🎯
                 </div>
             </div>
 
         </div>
 
-        <!-- 2 Kolom: Donut Chart Distribusi (Kiri) & Kriteria Ambang Batas EWS model prediksi (Kanan) -->
+        <!-- 2 Kolom: Donut Chart Distribusi (Kiri) & Kriteria Ambang Batas EWS C4.5 (Kanan) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
             <!-- Chart Donat (5/12) -->
@@ -137,16 +137,16 @@ require_once __DIR__ . '/components/sidebar.php';
                 </div>
             </div>
 
-            <!-- Ambang Batas Aturan model prediksi (7/12) - Ringkas, Rapi, & Hemat Ruang -->
+            <!-- Ambang Batas Aturan C4.5 (7/12) - Ringkas, Rapi, & Hemat Ruang -->
             <div class="card-modern p-5 lg:col-span-7 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3.5">
                         <div>
-                            <h3 class="font-extrabold text-slate-900 text-sm">Kriteria & Ambang Batas model prediksi</h3>
+                            <h3 class="font-extrabold text-slate-900 text-sm">Kriteria & Ambang Batas C4.5</h3>
                             <p class="text-[11px] text-slate-500">Kaidah klasifikasi status keberhasilan studi</p>
                         </div>
                         <a href="<?= $root_path; ?>pages/rumus-c45/index.php" class="text-xs font-bold text-[#004b87] hover:underline flex items-center gap-1" title="Lihat diagram pohon keputusan lengkap">
-                            <span>Alur Keputusan â†’</span>
+                            <span>Alur Keputusan →</span>
                         </a>
                     </div>
 
@@ -158,7 +158,7 @@ require_once __DIR__ . '/components/sidebar.php';
                                     R1
                                 </div>
                                 <div class="min-w-0">
-                                    <div class="text-xs font-black text-slate-900 font-mono">Kehadiran â‰¤ 72,50%</div>
+                                    <div class="text-xs font-black text-slate-900 font-mono">Kehadiran ≤ 72,50%</div>
                                     <div class="text-[11px] text-slate-500 truncate">Indikator utama kedisiplinan presensi kuliah</div>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@ require_once __DIR__ . '/components/sidebar.php';
                                     R2
                                 </div>
                                 <div class="min-w-0">
-                                    <div class="text-xs font-black text-slate-900 font-mono">Hadir > 72,50% & IPK â‰¤ 2,995</div>
+                                    <div class="text-xs font-black text-slate-900 font-mono">Hadir > 72,50% & IPK ≤ 2,995</div>
                                     <div class="text-[11px] text-slate-500 truncate">Indikator capaian nilai akademik semester</div>
                                 </div>
                             </div>
@@ -203,9 +203,9 @@ require_once __DIR__ . '/components/sidebar.php';
 
                 <!-- Footer Baris Ringkas -->
                 <div class="mt-3.5 pt-3 border-t border-slate-100 text-xs text-slate-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span class="text-[11px]">ðŸ’¡ Klik <b>â„¹</b> pada nama mahasiswa untuk melihat analisis bimbingan DPA.</span>
+                    <span class="text-[11px]">💡 Klik <b>ℹ</b> pada nama mahasiswa untuk melihat analisis bimbingan DPA.</span>
                     <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="text-xs text-[#004b87] font-bold hover:underline shrink-0">
-                        Uji Mahasiswa Baru â†’
+                        Uji Mahasiswa Baru →
                     </a>
                 </div>
             </div>
@@ -227,7 +227,7 @@ require_once __DIR__ . '/components/sidebar.php';
                 <div class="flex flex-wrap items-center gap-2.5">
                     <!-- Tombol Reset Data -->
                     <button onclick="resetStudents()" title="Kembalikan pangkalan data ke 438 data awal dari file skripsi Excel" class="text-xs px-3.5 py-2 bg-white hover:bg-blue-50 text-slate-700 hover:text-[#004b87] rounded-xl border border-slate-300 hover:border-blue-300 font-bold transition flex items-center gap-1.5 shadow-sm">
-                        <span>ðŸ”„</span> Reset Data Awal
+                        <span>🔄</span> Reset Data Awal
                     </button>
 
                     <!-- Filter Kategori Pill -->
@@ -240,7 +240,7 @@ require_once __DIR__ . '/components/sidebar.php';
                     <!-- Input Pencarian Instan -->
                     <div class="relative">
                         <input type="text" id="tableSearch" placeholder="Cari NIM atau Nama..." class="text-xs bg-white border border-slate-300 rounded-xl pl-3.5 pr-8 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-48 sm:w-60 text-slate-900 font-medium shadow-sm">
-                        <span class="absolute right-2.5 top-2 text-slate-400 text-xs">ðŸ”</span>
+                        <span class="absolute right-2.5 top-2 text-slate-400 text-xs">🔍</span>
                     </div>
                 </div>
             </div>
@@ -288,4 +288,3 @@ require_once __DIR__ . '/components/sidebar.php';
 // 5. Sertakan Footer & Modal
 require_once __DIR__ . '/components/footer.php';
 ?>
-

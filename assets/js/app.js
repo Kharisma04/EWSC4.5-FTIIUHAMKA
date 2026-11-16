@@ -1,8 +1,8 @@
-﻿/**
+/**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -19,12 +19,12 @@ let currentPage = 1;
 const pageSize = 15; // Jumlah data per halaman agar responsif dan cepat
 let riskChartInstance = null;
 
-// Ambang Batas Pohon Keputusan model prediksi (Berdasarkan Skripsi Bab 4)
+// Ambang Batas Pohon Keputusan C4.5 (Berdasarkan Skripsi Bab 4)
 const C45_THRESHOLD_KEHADIRAN = 72.50;
 const C45_THRESHOLD_IPK = 2.995;
 
 /**
- * Logika Klasifikasi model prediksi Client-Side untuk Real-Time Preview
+ * Logika Klasifikasi C4.5 Client-Side untuk Real-Time Preview
  */
 function classifyC45Client(kehadiran, ipk) {
   kehadiran = parseFloat(kehadiran);
@@ -35,9 +35,9 @@ function classifyC45Client(kehadiran, ipk) {
     return {
       status: 'Berisiko Terhambat',
       ruleNum: 1,
-      ruleTitle: 'Aturan 1 (Root Node): Kehadiran â‰¤ 72,50%',
+      ruleTitle: 'Aturan 1 (Root Node): Kehadiran ≤ 72,50%',
       coverage: 'Indikator Utama: Kedisiplinan Presensi Kuliah',
-      reason: `Persentase kehadiran mahasiswa sebesar ${kehadiran.toFixed(1)}% (di bawah batas aman 72,50%). Dalam model keputusan model prediksi, kehadiran merupakan indikator penentu utama kedisiplinan belajar.`,
+      reason: `Persentase kehadiran mahasiswa sebesar ${kehadiran.toFixed(1)}% (di bawah batas aman 72,50%). Dalam model keputusan C4.5, kehadiran merupakan indikator penentu utama kedisiplinan belajar.`,
       recommendation: 'Panggilan konseling wajib oleh Dosen Pembimbing Akademik (DPA), pengecekan syarat minimal ujian 75%, dan identifikasi kendala kehadiran mahasiswa.',
       badgeClass: 'bg-rose-100 text-rose-800 border-rose-300'
     };
@@ -47,7 +47,7 @@ function classifyC45Client(kehadiran, ipk) {
     return {
       status: 'Berisiko Terhambat',
       ruleNum: 2,
-      ruleTitle: 'Aturan 2 (Internal Node): Kehadiran > 72,50% & IPK â‰¤ 2,995',
+      ruleTitle: 'Aturan 2 (Internal Node): Kehadiran > 72,50% & IPK ≤ 2,995',
       coverage: 'Indikator Akademik: Capaian Nilai IPK',
       reason: `Mahasiswa disiplin hadir (${kehadiran.toFixed(1)}%), namun capaian IPK (${ipk.toFixed(2)}) belum mencapai batas aman 2,995 untuk kelulusan tepat waktu.`,
       recommendation: 'Bimbingan belajar remedial, pendampingan tutor sebaya pada mata kuliah berbobot besar/prasyarat, dan peninjauan beban SKS semester berikutnya.',
@@ -180,9 +180,9 @@ function renderTableRows() {
       <td class="py-3 px-3">
         <div class="flex items-center gap-1.5">
           <span class="font-bold text-slate-800">${std.nama}</span>
-          <!-- Ikon Info (â„¹ï¸): Menjabarkan Analisis Kondisi Studi & Rekomendasi DPA -->
+          <!-- Ikon Info (ℹ️): Menjabarkan Analisis Kondisi Studi & Rekomendasi DPA -->
           <button onclick="openInfoModal(${stdJson})" title="Klik untuk melihat penjabaran analisis kondisi studi mahasiswa" class="w-5 h-5 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-extrabold flex items-center justify-center text-[10px] border border-blue-200 transition shadow-sm">
-            â„¹
+            ℹ
           </button>
         </div>
       </td>
@@ -200,13 +200,13 @@ function renderTableRows() {
       </td>
       <td class="py-3 px-3 text-center">
         <div class="inline-flex items-center gap-1.5">
-          <!-- Ikon Edit (âœï¸): Membuka Modal Edit Parameter Mahasiswa -->
+          <!-- Ikon Edit (✏️): Membuka Modal Edit Parameter Mahasiswa -->
           <button onclick="openEditModal(${stdJson})" title="Edit Parameter Mahasiswa" class="px-2 py-1 text-xs font-semibold text-slate-700 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition flex items-center gap-1">
-            <span>âœï¸</span> <span class="hidden md:inline">Edit</span>
+            <span>✏️</span> <span class="hidden md:inline">Edit</span>
           </button>
-          <!-- Ikon Hapus (ðŸ—‘ï¸) -->
+          <!-- Ikon Hapus (🗑️) -->
           <button onclick="deleteStudent('${std.nim}')" title="Hapus Data Mahasiswa" class="px-2 py-1 text-xs font-semibold text-rose-600 hover:bg-rose-100 rounded-lg border border-rose-200 transition">
-            ðŸ—‘ï¸
+            🗑️
           </button>
         </div>
       </td>
@@ -237,10 +237,10 @@ function renderPagination(total) {
       </div>
       <div class="inline-flex items-center gap-1.5">
         <button onclick="goToPage(${currentPage - 1})" ${currentPage <= 1 ? 'disabled class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold transition"'}>
-          â† Sebelumnya
+          ← Sebelumnya
         </button>
         <button onclick="goToPage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold transition"'}>
-          Selanjutnya â†’
+          Selanjutnya →
         </button>
       </div>
     </div>
@@ -279,7 +279,7 @@ function filterTable(statusFilter) {
 
 /**
  * ====================================================================================
- * MODAL 1: BUKA & TUTUP INFO DETAIL DIAGNOSIS MAHASISWA (â„¹ï¸)
+ * MODAL 1: BUKA & TUTUP INFO DETAIL DIAGNOSIS MAHASISWA (ℹ️)
  * ====================================================================================
  */
 function openInfoModal(student) {
@@ -290,7 +290,7 @@ function openInfoModal(student) {
   const c45 = classifyC45Client(student.kehadiran, student.ipk);
 
   document.getElementById('infoStudentName').innerText = student.nama;
-  document.getElementById('infoStudentNim').innerText = `NIM: ${student.nim} â€¢ ${student.prodi || 'Teknik Informatika'}`;
+  document.getElementById('infoStudentNim').innerText = `NIM: ${student.nim} • ${student.prodi || 'Teknik Informatika'}`;
   
   const badge = document.getElementById('infoStatusBadge');
   badge.className = `px-3 py-1 rounded-full font-extrabold text-[11px] border ${c45.badgeClass}`;
@@ -324,7 +324,7 @@ function closeInfoModal() {
 
 /**
  * ====================================================================================
- * MODAL 2: BUKA & TUTUP FORM EDIT DATA MAHASISWA (âœï¸)
+ * MODAL 2: BUKA & TUTUP FORM EDIT DATA MAHASISWA (✏️)
  * ====================================================================================
  */
 function openEditModal(student) {
@@ -379,7 +379,7 @@ async function handleEditSubmit(e) {
     const res = await fetch(apiUrl, { method: 'POST', body: formData });
     const json = await res.json();
     if (json.success) {
-      alert(`âœ… Data mahasiswa ${nama} (${nim}) berhasil diperbarui dan status model prediksi telah dihitung ulang!`);
+      alert(`✅ Data mahasiswa ${nama} (${nim}) berhasil diperbarui dan status C4.5 telah dihitung ulang!`);
       closeEditModal();
       window.location.reload();
     } else {
@@ -427,7 +427,7 @@ async function resetStudents() {
     const res = await fetch(apiUrl);
     const json = await res.json();
     if (json.success) {
-      alert('âœ… Pangkalan data berhasil dikembalikan ke dataset awal file skripsi!');
+      alert('✅ Pangkalan data berhasil dikembalikan ke dataset awal file skripsi!');
       window.location.reload();
     } else {
       alert('Gagal mereset data.');
@@ -462,4 +462,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-

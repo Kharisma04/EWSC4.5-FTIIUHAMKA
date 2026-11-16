@@ -74,8 +74,13 @@ function student_save($input) {
     // Hitung status menggunakan C4.5 Engine
     $c45_res = c45_classify($kehadiran, $ipk, $sks);
 
+    $nim = trim((string)($input['nim'] ?? ''));
+    if ($nim === '') {
+        $nim = '2303015' . rand(100, 999);
+    }
+
     $new_student = [
-        'nim' => trim($input['nim'] ?? '2303015' . rand(100, 999)),
+        'nim' => $nim,
         'nama' => trim($input['nama'] ?? 'Mahasiswa Uji Coba'),
         'prodi' => trim($input['prodi'] ?? 'Teknik Informatika'),
         'kehadiran' => $kehadiran,
@@ -84,6 +89,11 @@ function student_save($input) {
         'status' => $c45_res['status'],
         'rule' => $c45_res['rule_number']
     ];
+
+    // Hapus data dengan NIM yang sama jika sudah ada sebelumnya agar tidak ganda
+    $students = array_values(array_filter($students, function($s) use ($nim) {
+        return trim((string)$s['nim']) !== $nim;
+    }));
 
     // Sisipkan di posisi paling atas agar langsung terlihat oleh user
     array_unshift($students, $new_student);
@@ -150,9 +160,10 @@ function student_update($nim_target, $input) {
 function student_delete($nim) {
     $students = student_get_all();
     $initial_count = count($students);
+    $target_nim = trim((string)$nim);
 
-    $filtered = array_values(array_filter($students, function($s) use ($nim) {
-        return $s['nim'] !== $nim;
+    $filtered = array_values(array_filter($students, function($s) use ($target_nim) {
+        return trim((string)$s['nim']) !== $target_nim;
     }));
 
     if (count($filtered) !== $initial_count) {

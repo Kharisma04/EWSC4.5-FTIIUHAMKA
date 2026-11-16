@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -45,9 +45,8 @@ $nav_title = isset($nav_title) ? $nav_title : 'Dashboard & Pangkalan Data Mahasi
     <!-- Bagian Kanan: Tombol Cetak Laporan -->
     <div class="flex items-center gap-2.5">
         <button onclick="window.print()" class="px-3.5 py-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl border border-slate-300 transition flex items-center gap-1.5 shadow-sm">
-            <span>ðŸ–¨ï¸</span> <span class="hidden sm:inline">Cetak Laporan</span>
+            <span>🖨️</span> <span class="hidden sm:inline">Cetak Laporan</span>
         </button>
     </div>
 
 </header>
-

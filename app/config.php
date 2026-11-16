@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -17,7 +17,7 @@
 date_default_timezone_set('Asia/Jakarta');
 
 // Metadata Skripsi & Aplikasi
-define('APP_NAME', 'EWS model prediksi FTII UHAMKA');
+define('APP_NAME', 'EWS C4.5 FTII UHAMKA');
 define('APP_VERSION', '2.0-Modular');
 define('APP_YEAR', '2026');
 
@@ -27,7 +27,7 @@ define('PRODI_NAME', 'Teknik Informatika');
 define('FAKULTAS_NAME', 'Fakultas Teknologi Industri dan Informatika (FTII)');
 define('CAMPUS_NAME', 'Universitas Muhammadiyah Prof. DR. HAMKA (UHAMKA)');
 
-// Ambang Batas Pohon Keputusan model prediksi (Berdasarkan Hasil Riset Bab 4 Skripsi)
+// Ambang Batas Pohon Keputusan C4.5 (Berdasarkan Hasil Riset Bab 4 Skripsi)
 define('C45_THRESHOLD_KEHADIRAN', 72.50); // Simpul Akar (Root Node) Kehadiran <= 72.50%
 define('C45_THRESHOLD_IPK', 2.995);       // Simpul Cabang (Internal Node) IPK <= 2.995
 
@@ -54,4 +54,3 @@ function get_root_path($current_dir) {
     $depth = count(explode('/', $rel));
     return str_repeat('../', $depth);
 }
-

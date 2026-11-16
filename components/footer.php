@@ -1,197 +1,175 @@
 <?php
 /**
- * ====================================================================================
- * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
- *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
- * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
- * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
- * ====================================================================================
  * FILE       : components/footer.php
- * FUNGSI     : Komponen Footer modular, Modal Info Detail (ℹ️), Modal Edit (✏️), & Scripts.
- * ====================================================================================
+ * FUNGSI     : Footer, Modal Detail, Modal Edit, Script JS.
  */
 
-if (!isset($root_path)) {
-    $root_path = './';
-}
+if (!isset($root_path)) { $root_path = './'; }
 ?>
-    <!-- Footer Bawah Halaman -->
-    <footer class="bg-white border-t border-slate-200/80 mt-auto text-xs text-slate-500 py-4 px-4 sm:px-8 no-print">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div>
-                © <?= APP_YEAR; ?> <b><?= FAKULTAS_NAME; ?> UHAMKA</b> • Program Studi <?= PRODI_NAME; ?>
-            </div>
-            <div>
-                Riset Skripsi: <b><?= RESEARCHER_NAME; ?></b> (NIM: <?= RESEARCHER_NIM; ?>) • Algoritma Decision Tree C4.5
-            </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-auto text-xs text-slate-400 py-3 px-6 no-print" role="contentinfo">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-1">
+            <span>© <?= APP_YEAR; ?> <b class="text-slate-600"><?= FAKULTAS_NAME; ?> UHAMKA</b> — <?= PRODI_NAME; ?></span>
+            <span><?= RESEARCHER_NAME; ?> (<?= RESEARCHER_NIM; ?>)</span>
         </div>
     </footer>
 
-</div> <!-- Penutup Wrapper Konten Kanan -->
+</div><!-- /content wrapper -->
 
-<!-- ================================================================================ -->
-<!-- MODAL 1: INFO & DIAGNOSIS DETAIL MAHASISWA (ℹ️)                                     -->
-<!-- Menjabarkan mengapa mahasiswa tersebut berisiko terhambat atau berpotensi tepat  -->
-<!-- waktu berdasarkan parameter kehadiran, IPK, aturan C4.5, dan rekomendasi DPA.     -->
-<!-- ================================================================================ -->
-<div id="studentInfoModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity">
-    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95" id="infoModalCard">
-        
+<!-- =====================================================================
+     MODAL: INFO DETAIL MAHASISWA
+     ===================================================================== -->
+<div id="studentInfoModal"
+     class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
+     role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+    <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+
         <!-- Header Modal -->
-        <div id="infoModalHeader" class="p-6 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-slate-50 flex items-start justify-between gap-3">
+        <div id="infoModalHeader" class="p-5 border-b border-slate-100 bg-slate-50 flex items-start justify-between gap-3">
             <div>
-                <div class="flex items-center gap-2">
-                    <span class="text-xs font-black uppercase tracking-wider text-[#004b87]">Diagnosis Status EWS</span>
-                    <span id="infoStatusBadge" class="px-3 py-1 rounded-full font-extrabold text-[11px] border"></span>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-[#004b87]">Status Studi</span>
+                    <span id="infoStatusBadge" class="px-2.5 py-0.5 rounded-full font-bold text-[11px] border"></span>
                 </div>
-                <h3 id="infoStudentName" class="text-lg font-black text-slate-900 mt-1.5 leading-tight"></h3>
-                <div id="infoStudentNim" class="text-xs text-slate-500 font-mono mt-0.5"></div>
+                <h3 id="infoModalTitle" class="text-base font-black text-slate-900 leading-tight"></h3>
+                <div id="infoStudentNim" class="text-xs text-slate-400 mt-0.5"></div>
             </div>
-            <button onclick="closeInfoModal()" class="p-2 rounded-xl text-slate-400 hover:text-[#004b87] hover:bg-white transition border border-transparent hover:border-slate-200">
-                ✕
+            <button onclick="closeInfoModal()"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition shrink-0"
+                    aria-label="Tutup modal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
             </button>
         </div>
 
         <!-- Body Modal -->
-        <div class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
-            
-            <!-- Parameter Riil Mahasiswa -->
-            <div class="grid grid-cols-3 gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center font-mono">
-                <div class="p-2 bg-white rounded-xl border border-slate-100 shadow-sm">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Kehadiran</span>
-                    <span id="infoKehadiranVal" class="text-sm font-black text-slate-800"></span>
+        <div class="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
+
+            <!-- Statistik -->
+            <div class="grid grid-cols-3 gap-2 text-center ">
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">Kehadiran</div>
+                    <div id="infoKehadiranVal" class="text-sm font-black text-slate-800"></div>
                 </div>
-                <div class="p-2 bg-white rounded-xl border border-slate-100 shadow-sm">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Rata-rata IPK</span>
-                    <span id="infoIpkVal" class="text-sm font-black text-slate-800"></span>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">IPK</div>
+                    <div id="infoIpkVal" class="text-sm font-black text-slate-800"></div>
                 </div>
-                <div class="p-2 bg-white rounded-xl border border-slate-100 shadow-sm">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Total SKS</span>
-                    <span id="infoSksVal" class="text-sm font-black text-slate-800"></span>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">SKS</div>
+                    <div id="infoSksVal" class="text-sm font-black text-slate-800"></div>
                 </div>
             </div>
 
-            <!-- Aturan Pohon Keputusan C4.5 yang Terpicu -->
-            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Aturan C4.5 yang Terpicu:</div>
-                <div id="infoRuleTitle" class="text-xs font-black text-slate-900 mt-1"></div>
-                <div id="infoCoverage" class="text-[11px] font-semibold text-[#004b87] mt-0.5"></div>
+            <!-- Aturan yang terpicu -->
+            <div class="p-3 rounded-xl bg-blue-50 border border-blue-200">
+                <div class="text-[10px] font-bold text-[#004b87] uppercase tracking-wider mb-1">Aturan Keputusan Terpicu</div>
+                <div id="infoRuleTitle" class="text-xs font-bold text-slate-900"></div>
+                <div id="infoCoverage" class="text-[11px] text-[#004b87] mt-0.5"></div>
             </div>
 
-            <!-- Penjabaran Penyebab / Alasan Status -->
+            <!-- Analisis -->
             <div>
-                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
-                    <span>🔍</span> Penjabaran Kondisi Studi Mahasiswa:
-                </h4>
-                <p id="infoReason" class="text-xs text-slate-600 bg-white p-3.5 rounded-2xl border border-slate-200 leading-relaxed font-medium">
-                </p>
+                <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Analisis Kondisi</div>
+                <p id="infoReason" class="text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 leading-relaxed"></p>
             </div>
 
-            <!-- Rekomendasi Tindakan DPA -->
+            <!-- Rekomendasi -->
             <div>
-                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
-                    <span>💡</span> Rekomendasi Tindakan Dosen Pembimbing Akademik (DPA):
-                </h4>
-                <p id="infoRecommendation" class="text-xs text-slate-800 bg-blue-50/70 p-3.5 rounded-2xl border border-blue-200/80 leading-relaxed font-semibold">
-                </p>
+                <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Rekomendasi Dosen PA</div>
+                <p id="infoRecommendation" class="text-xs text-slate-700 bg-blue-50 p-3 rounded-xl border border-blue-200 leading-relaxed font-medium"></p>
             </div>
-
         </div>
 
         <!-- Footer Modal -->
-        <div class="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
-            <button onclick="closeInfoModal()" class="px-5 py-2.5 bg-[#004b87] hover:bg-[#003b6b] text-white font-bold text-xs rounded-xl shadow-md transition">
-                Tutup Informasi
+        <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex justify-end">
+            <button onclick="closeInfoModal()"
+                    class="px-4 py-2 bg-[#004b87] hover:bg-[#003b6b] text-white font-bold text-xs rounded-lg transition">
+                Tutup
             </button>
         </div>
 
     </div>
 </div>
 
-<!-- ================================================================================ -->
-<!-- MODAL 2: FORM EDIT DATA MAHASISWA (✏️)                                            -->
-<!-- Memungkinkan pengguna mengubah parameter NIM, Nama, Kehadiran, IPK, SKS,         -->
-<!-- dan otomatis menghitung ulang status C4.5 secara instan.                        -->
-<!-- ================================================================================ -->
-<div id="studentEditModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity">
-    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 transform transition-transform duration-200 scale-95" id="editModalCard">
-        
+<!-- =====================================================================
+     MODAL: EDIT DATA MAHASISWA
+     ===================================================================== -->
+<div id="studentEditModal"
+     class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
+     role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+    <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+
         <!-- Header Modal Edit -->
-        <div class="p-5 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-slate-50 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-blue-100 text-[#004b87] flex items-center justify-center font-bold text-sm">
-                    ✏️
-                </div>
-                <div>
-                    <h3 class="text-sm font-black text-slate-900">Perbarui Parameter Mahasiswa</h3>
-                    <p class="text-[11px] text-slate-500">Status C4.5 akan otomatis dikalkulasi ulang</p>
-                </div>
+        <div class="p-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+            <div>
+                <h3 id="editModalTitle" class="text-sm font-black text-slate-900">Edit Data Mahasiswa</h3>
+                <p class="text-[11px] text-slate-400 mt-0.5">Status prediksi akan dihitung ulang otomatis</p>
             </div>
-            <button onclick="closeEditModal()" class="p-2 rounded-xl text-slate-400 hover:text-[#004b87] hover:bg-white transition border border-transparent hover:border-slate-200">
-                ✕
+            <button onclick="closeEditModal()"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition"
+                    aria-label="Tutup modal edit">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
             </button>
         </div>
 
-        <!-- Form Modal Edit -->
-        <form id="editStudentForm" onsubmit="handleEditSubmit(event)" class="p-6 space-y-4">
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Form Edit -->
+        <form id="editStudentForm" onsubmit="handleEditSubmit(event)" class="p-5 space-y-4">
+
+            <div class="grid grid-cols-2 gap-3">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">NIM Mahasiswa</label>
-                    <input type="text" id="editNim" readonly class="w-full text-xs font-mono bg-slate-100 border border-slate-200 rounded-xl px-3.5 py-2 text-slate-500 cursor-not-allowed font-bold">
+                    <label for="editNim" class="block text-[11px] font-bold text-slate-600 uppercase tracking-wide mb-1">NIM</label>
+                    <input type="text" id="editNim" readonly
+                           class="w-full text-xs bg-slate-100 border border-slate-200 rounded-lg px-3 py-2 text-slate-400 cursor-not-allowed">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">Nama Mahasiswa <span class="text-rose-600">*</span></label>
-                    <input type="text" id="editNama" required class="w-full text-xs bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
+                    <label for="editNama" class="block text-[11px] font-bold text-slate-600 uppercase tracking-wide mb-1">Nama <span class="text-rose-500">*</span></label>
+                    <input type="text" id="editNama" required
+                           class="w-full text-xs bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
             </div>
 
             <div class="grid grid-cols-3 gap-3">
                 <div>
-                    <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1">Kehadiran (%) <span class="text-rose-600">*</span></label>
-                    <input type="number" step="0.1" min="0" max="100" id="editKehadiran" required class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
-                    <span class="text-[9px] text-slate-400 block mt-0.5">Batas: > 72,50%</span>
+                    <label for="editKehadiran" class="block text-[11px] font-bold text-slate-600 uppercase tracking-wide mb-1">Kehadiran % <span class="text-rose-500">*</span></label>
+                    <input type="number" step="0.1" min="0" max="100" id="editKehadiran" required
+                           class="w-full text-xs bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="text-[9px] text-slate-400 mt-0.5 block">Aman: &gt; 72,50%</span>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1">Rata-rata IPK <span class="text-rose-600">*</span></label>
-                    <input type="number" step="0.01" min="0" max="4.00" id="editIpk" required class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
-                    <span class="text-[9px] text-slate-400 block mt-0.5">Batas: > 2,995</span>
+                    <label for="editIpk" class="block text-[11px] font-bold text-slate-600 uppercase tracking-wide mb-1">IPK <span class="text-rose-500">*</span></label>
+                    <input type="number" step="0.01" min="0" max="4.00" id="editIpk" required
+                           class="w-full text-xs bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="text-[9px] text-slate-400 mt-0.5 block">Aman: &gt; 2,995</span>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1">Total SKS <span class="text-rose-600">*</span></label>
-                    <input type="number" min="0" max="160" id="editSks" required class="w-full text-xs font-mono bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white">
-                    <span class="text-[9px] text-slate-400 block mt-0.5">SKS Lulus</span>
+                    <label for="editSks" class="block text-[11px] font-bold text-slate-600 uppercase tracking-wide mb-1">SKS <span class="text-rose-500">*</span></label>
+                    <input type="number" min="0" max="160" id="editSks" required
+                           class="w-full text-xs bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
             </div>
 
-            <!-- Informasi Pembaruan Prediksi C4.5 -->
-            <div class="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs text-slate-700 flex items-center gap-2.5">
-                <span class="text-base">💡</span>
-                <span class="text-[11px] leading-relaxed">Status kelulusan dan aturan pohon keputusan C4.5 akan otomatis dikalkulasi ulang dan diperbarui saat Anda menekan tombol <b>Simpan Perubahan</b>.</span>
-            </div>
-
-            <!-- Tombol Aksi Simpan / Batal -->
+            <!-- Tombol Aksi -->
             <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2">
-                <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+                <button type="button" onclick="closeEditModal()"
+                        class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-lg transition">
                     Batal
                 </button>
-                <button type="submit" class="px-5 py-2 bg-[#004b87] hover:bg-[#003b6b] text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
-                    <span>💾</span> Simpan Perubahan
+                <button type="submit"
+                        class="px-4 py-2 bg-[#004b87] hover:bg-[#003b6b] text-white font-bold text-xs rounded-lg shadow transition">
+                    Simpan Perubahan
                 </button>
             </div>
 
         </form>
-
     </div>
 </div>
 
-<!-- Global JavaScript Application Controller -->
-<script>
-    // Konfigurasi Path Root untuk akses API
-    window.APP_ROOT = '<?= $root_path; ?>';
-</script>
+<!-- Scripts -->
+<script>window.APP_ROOT = '<?= $root_path; ?>';</script>
 <script src="<?= $root_path; ?>assets/js/app.js"></script>
 
 </body>

@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -27,14 +27,14 @@ $active_page = isset($active_page) ? $active_page : 'dashboard';
 
             <!-- Tombol Tutup Mobile -->
             <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-[#004b87] hover:bg-blue-50 transition" title="Tutup Navigasi">
-                âœ•
+                ✕
             </button>
         </div>
 
         <div class="mt-3 text-[11px] text-slate-600 font-medium leading-relaxed bg-blue-50/70 p-2.5 rounded-xl border border-blue-100/80">
             <div class="flex items-center gap-1.5 font-bold text-[#004b87]">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>EWS model prediksi FTII UHAMKA</span>
+                <span>EWS C4.5 FTII UHAMKA</span>
             </div>
             <p class="text-[10px] text-slate-500 mt-0.5">Early Warning System Keberhasilan Studi Mahasiswa</p>
         </div>
@@ -48,14 +48,14 @@ $active_page = isset($active_page) ? $active_page : 'dashboard';
 
         <!-- 1. Menu Dashboard -->
         <a href="<?= $root_path; ?>index.php" class="sidebar-link <?= $active_page === 'dashboard' ? 'active' : ''; ?> text-xs sm:text-sm">
-            <span class="text-base">ðŸ“Š</span>
+            <span class="text-base">📊</span>
             <span>Dashboard & Data Mhs</span>
         </a>
 
         <!-- 2. Menu Form Uji Coba -->
         <a href="<?= $root_path; ?>pages/uji-coba/index.php" class="sidebar-link <?= $active_page === 'uji-coba' ? 'active' : ''; ?> text-xs sm:text-sm">
-            <span class="text-base">ðŸŽ¯</span>
-            <span>Form Simulasi & Uji model prediksi</span>
+            <span class="text-base">🎯</span>
+            <span>Form Simulasi & Uji C4.5</span>
         </a>
 
     </div>
@@ -72,9 +72,8 @@ $active_page = isset($active_page) ? $active_page : 'dashboard';
             </div>
         </div>
         <div class="mt-2 text-[10px] text-center text-slate-400 font-medium">
-            <?= PRODI_NAME; ?> â€¢ FTII UHAMKA Â© <?= APP_YEAR; ?>
+            <?= PRODI_NAME; ?> • FTII UHAMKA © <?= APP_YEAR; ?>
         </div>
     </div>
 
 </aside>
-

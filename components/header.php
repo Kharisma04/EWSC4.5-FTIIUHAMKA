@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * ====================================================================================
  * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree model prediksi
- * SKRIPSI    : Penerapan Algoritma Decision Tree model prediksi Sebagai Early Warning System 
+ * METODE     : Algoritma Decision Tree C4.5
+ * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
  *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
  * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
  * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
@@ -32,7 +32,7 @@ $page_title = isset($page_title) ? $page_title . ' - ' . APP_NAME : APP_NAME . '
     
     <!-- Meta Tag Akademik & Peneliti -->
     <meta name="author" content="<?= RESEARCHER_NAME; ?> (NIM: <?= RESEARCHER_NIM; ?>)">
-    <meta name="description" content="Early Warning System Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA berbasis Algoritma Decision Tree model prediksi">
+    <meta name="description" content="Early Warning System Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA berbasis Algoritma Decision Tree C4.5">
     
     <!-- Favicon Resmi UHAMKA -->
     <link rel="icon" type="image/webp" href="<?= $root_path; ?>assets/images/uhamka-logo-emblem.webp">
@@ -56,4 +56,3 @@ $page_title = isset($page_title) ? $page_title . ' - ' . APP_NAME : APP_NAME . '
 
     <!-- Mobile Sidebar Backdrop Overlay -->
     <div id="sidebarBackdrop" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
-

@@ -173,7 +173,8 @@ function renderTableRows() {
       <td class="py-3 px-3">
         <div class="flex items-center gap-1.5">
           <span class="font-semibold text-slate-800">${std.nama}</span>
-          <button onclick="openInfoModal(${stdJson})"
+          <button onclick="openInfoModalByNim('${std.nim}')"
+                  type="button"
                   aria-label="Lihat detail ${std.nama}"
                   class="w-5 h-5 rounded-full bg-blue-50 hover:bg-blue-100 text-[#004b87] flex items-center justify-center text-[10px] border border-blue-200 transition font-black shrink-0">
             ℹ
@@ -194,12 +195,14 @@ function renderTableRows() {
       </td>
       <td class="py-3 px-3 text-center">
         <div class="inline-flex items-center gap-1">
-          <button onclick="openEditModal(${stdJson})"
+          <button onclick="openEditModalByNim('${std.nim}')"
+                  type="button"
                   aria-label="Edit ${std.nama}"
                   class="px-2.5 py-1 text-[11px] font-bold text-slate-600 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition">
             Edit
           </button>
           <button onclick="deleteStudent('${std.nim}')"
+                  type="button"
                   aria-label="Hapus ${std.nama}"
                   class="px-2.5 py-1 text-[11px] font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 transition">
             Hapus
@@ -278,44 +281,74 @@ function filterTable(statusFilter) {
  * MODAL 1: BUKA & TUTUP INFO DETAIL DIAGNOSIS MAHASISWA (ℹ️)
  * ====================================================================================
  */
+function openInfoModalByNim(nim) {
+  const student = allStudents.find(s => String(s.nim) === String(nim));
+  if (student) {
+    openInfoModal(student);
+  }
+}
+
 function openInfoModal(student) {
   const modal = document.getElementById('studentInfoModal');
   const card = document.getElementById('infoModalCard');
-  if (!modal || !card) return;
+  if (!modal) return;
 
   const c45 = classifyC45Client(student.kehadiran, student.ipk);
 
-  document.getElementById('infoStudentName').innerText = student.nama;
-  document.getElementById('infoStudentNim').innerText = `NIM: ${student.nim} · ${student.prodi || 'Teknik Informatika'}`;
+  const nameEl = document.getElementById('infoStudentName') || document.getElementById('infoModalTitle');
+  if (nameEl) nameEl.innerText = student.nama;
+
+  const nimEl = document.getElementById('infoStudentNim');
+  if (nimEl) nimEl.innerText = `NIM: ${student.nim} · ${student.prodi || 'Teknik Informatika'}`;
   
   const badge = document.getElementById('infoStatusBadge');
-  badge.className = `px-3 py-1 rounded-full font-extrabold text-[11px] border ${c45.badgeClass}`;
-  badge.innerText = c45.status;
+  if (badge) {
+    badge.className = `px-2.5 py-0.5 rounded-full font-bold text-[11px] border ${c45.badgeClass}`;
+    badge.innerText = c45.status;
+  }
 
-  document.getElementById('infoKehadiranVal').innerText = `${parseFloat(student.kehadiran).toFixed(1)}%`;
-  document.getElementById('infoIpkVal').innerText = parseFloat(student.ipk).toFixed(2);
-  document.getElementById('infoSksVal').innerText = `${student.sks} SKS`;
+  const hEl = document.getElementById('infoKehadiranVal');
+  if (hEl) hEl.innerText = `${parseFloat(student.kehadiran).toFixed(1)}%`;
 
-  document.getElementById('infoRuleTitle').innerText = c45.ruleTitle;
-  document.getElementById('infoCoverage').innerText = c45.coverage;
-  document.getElementById('infoReason').innerText = c45.reason;
-  document.getElementById('infoRecommendation').innerText = c45.recommendation;
+  const ipkEl = document.getElementById('infoIpkVal');
+  if (ipkEl) ipkEl.innerText = parseFloat(student.ipk).toFixed(2);
+
+  const sksEl = document.getElementById('infoSksVal');
+  if (sksEl) sksEl.innerText = `${student.sks} SKS`;
+
+  const ruleEl = document.getElementById('infoRuleTitle');
+  if (ruleEl) ruleEl.innerText = c45.ruleTitle;
+
+  const covEl = document.getElementById('infoCoverage');
+  if (covEl) covEl.innerText = c45.coverage;
+
+  const reasonEl = document.getElementById('infoReason');
+  if (reasonEl) reasonEl.innerText = c45.reason;
+
+  const recEl = document.getElementById('infoRecommendation');
+  if (recEl) recEl.innerText = c45.recommendation;
 
   modal.classList.remove('hidden');
-  setTimeout(() => {
+  modal.classList.add('flex');
+  if (card) {
     card.classList.remove('scale-95');
     card.classList.add('scale-100');
-  }, 10);
+  }
 }
 
 function closeInfoModal() {
   const modal = document.getElementById('studentInfoModal');
   const card = document.getElementById('infoModalCard');
-  if (!modal || !card) return;
+  if (!modal) return;
 
-  card.classList.remove('scale-100');
-  card.classList.add('scale-95');
-  setTimeout(() => modal.classList.add('hidden'), 150);
+  if (card) {
+    card.classList.remove('scale-100');
+    card.classList.add('scale-95');
+  }
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }, 150);
 }
 
 /**
@@ -323,32 +356,54 @@ function closeInfoModal() {
  * MODAL 2: BUKA & TUTUP FORM EDIT DATA MAHASISWA (✏️)
  * ====================================================================================
  */
+function openEditModalByNim(nim) {
+  const student = allStudents.find(s => String(s.nim) === String(nim));
+  if (student) {
+    openEditModal(student);
+  }
+}
+
 function openEditModal(student) {
   const modal = document.getElementById('studentEditModal');
   const card = document.getElementById('editModalCard');
-  if (!modal || !card) return;
+  if (!modal) return;
 
-  document.getElementById('editNim').value = student.nim;
-  document.getElementById('editNama').value = student.nama;
-  document.getElementById('editKehadiran').value = student.kehadiran;
-  document.getElementById('editIpk').value = student.ipk;
-  document.getElementById('editSks').value = student.sks;
+  const nimEl = document.getElementById('editNim');
+  if (nimEl) nimEl.value = student.nim;
+
+  const namaEl = document.getElementById('editNama');
+  if (namaEl) namaEl.value = student.nama;
+
+  const hEl = document.getElementById('editKehadiran');
+  if (hEl) hEl.value = student.kehadiran;
+
+  const ipkEl = document.getElementById('editIpk');
+  if (ipkEl) ipkEl.value = student.ipk;
+
+  const sksEl = document.getElementById('editSks');
+  if (sksEl) sksEl.value = student.sks;
 
   modal.classList.remove('hidden');
-  setTimeout(() => {
+  modal.classList.add('flex');
+  if (card) {
     card.classList.remove('scale-95');
     card.classList.add('scale-100');
-  }, 10);
+  }
 }
 
 function closeEditModal() {
   const modal = document.getElementById('studentEditModal');
   const card = document.getElementById('editModalCard');
-  if (!modal || !card) return;
+  if (!modal) return;
 
-  card.classList.remove('scale-100');
-  card.classList.add('scale-95');
-  setTimeout(() => modal.classList.add('hidden'), 150);
+  if (card) {
+    card.classList.remove('scale-100');
+    card.classList.add('scale-95');
+  }
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }, 150);
 }
 
 /**
@@ -456,6 +511,20 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.remove('bg-white', 'text-slate-700');
       filterTable(btn.dataset.filter);
     });
+  });
+
+  // Event listener klik backdrop & keyboard Escape untuk menutup modal
+  document.getElementById('studentInfoModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'studentInfoModal') closeInfoModal();
+  });
+  document.getElementById('studentEditModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'studentEditModal') closeEditModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeInfoModal();
+      closeEditModal();
+    }
   });
 });
 

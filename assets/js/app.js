@@ -1,14 +1,7 @@
 /**
  * ====================================================================================
- * APLIKASI   : Early Warning System (EWS) Prediksi Keberhasilan Studi Mahasiswa
- * METODE     : Algoritma Decision Tree C4.5
- * SKRIPSI    : Penerapan Algoritma Decision Tree C4.5 Sebagai Early Warning System 
- *              Prediksi Keberhasilan Studi Mahasiswa FTII UHAMKA
- * PENELITI   : Kharisma Rahmawati Lubis (NIM: 2203015072)
- * INSTITUSI  : Program Studi Teknik Informatika, FTII UHAMKA Jakarta (2026)
- * ====================================================================================
- * FILE       : assets/js/app.js
- * FUNGSI     : Pengendali Interaktivitas Antarmuka (Chart, Filter, Modal Info & Edit).
+ * Early Warning System (EWS) — FTII UHAMKA
+ * FILE : assets/js/app.js
  * ====================================================================================
  */
 
@@ -19,12 +12,12 @@ let currentPage = 1;
 const pageSize = 15; // Jumlah data per halaman agar responsif dan cepat
 let riskChartInstance = null;
 
-// Ambang Batas Pohon Keputusan C4.5 (Berdasarkan Skripsi Bab 4)
+// Ambang Batas Klasifikasi (Berdasarkan Skripsi Bab 4)
 const C45_THRESHOLD_KEHADIRAN = 72.50;
 const C45_THRESHOLD_IPK = 2.995;
 
 /**
- * Logika Klasifikasi C4.5 Client-Side untuk Real-Time Preview
+ * Logika Klasifikasi model prediksi Client-Side untuk Real-Time Preview
  */
 function classifyC45Client(kehadiran, ipk) {
   kehadiran = parseFloat(kehadiran);
@@ -37,7 +30,7 @@ function classifyC45Client(kehadiran, ipk) {
       ruleNum: 1,
       ruleTitle: 'Aturan 1 (Root Node): Kehadiran ≤ 72,50%',
       coverage: 'Indikator Utama: Kedisiplinan Presensi Kuliah',
-      reason: `Persentase kehadiran mahasiswa sebesar ${kehadiran.toFixed(1)}% (di bawah batas aman 72,50%). Dalam model keputusan C4.5, kehadiran merupakan indikator penentu utama kedisiplinan belajar.`,
+      reason: `Persentase kehadiran mahasiswa sebesar ${kehadiran.toFixed(1)}% (di bawah batas aman 72,50%). Dalam model keputusan model prediksi, kehadiran merupakan indikator penentu utama kedisiplinan belajar.`,
       recommendation: 'Panggilan konseling wajib oleh Dosen Pembimbing Akademik (DPA), pengecekan syarat minimal ujian 75%, dan identifikasi kendala kehadiran mahasiswa.',
       badgeClass: 'bg-rose-100 text-rose-800 border-rose-300'
     };
@@ -173,40 +166,43 @@ function renderTableRows() {
     const stdJson = JSON.stringify(std).replace(/"/g, '&quot;');
 
     const tr = document.createElement('tr');
-    tr.className = 'border-b border-slate-100 hover:bg-rose-50/40 transition-colors text-xs sm:text-sm';
+    tr.className = 'hover:bg-slate-50 transition-colors text-xs';
     tr.innerHTML = `
-      <td class="py-3 px-3 text-xs font-mono text-slate-400 text-center font-bold">${rowIdx}</td>
-      <td class="py-3 px-3 font-mono font-bold text-slate-900">${std.nim}</td>
+      <td class="py-3 px-3 text-[11px] text-slate-400 text-center">${rowIdx}</td>
+      <td class="py-3 px-3 font-bold text-slate-700">${std.nim}</td>
       <td class="py-3 px-3">
         <div class="flex items-center gap-1.5">
-          <span class="font-bold text-slate-800">${std.nama}</span>
-          <!-- Ikon Info (ℹ️): Menjabarkan Analisis Kondisi Studi & Rekomendasi DPA -->
-          <button onclick="openInfoModal(${stdJson})" title="Klik untuk melihat penjabaran analisis kondisi studi mahasiswa" class="w-5 h-5 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-extrabold flex items-center justify-center text-[10px] border border-blue-200 transition shadow-sm">
+          <span class="font-semibold text-slate-800">${std.nama}</span>
+          <button onclick="openInfoModal(${stdJson})"
+                  aria-label="Lihat detail ${std.nama}"
+                  class="w-5 h-5 rounded-full bg-blue-50 hover:bg-blue-100 text-[#004b87] flex items-center justify-center text-[10px] border border-blue-200 transition font-black shrink-0">
             ℹ
           </button>
         </div>
       </td>
-      <td class="py-3 px-3 text-center font-mono">
-        <span class="font-bold ${std.kehadiran <= 72.5 ? 'text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200' : 'text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200'}">${parseFloat(std.kehadiran).toFixed(1)}%</span>
-      </td>
-      <td class="py-3 px-3 text-center font-mono">
-        <span class="font-bold ${std.ipk <= 2.995 ? 'text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200' : 'text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200'}">${parseFloat(std.ipk).toFixed(2)}</span>
-      </td>
-      <td class="py-3 px-3 text-center text-slate-700 font-mono font-medium">${std.sks}</td>
       <td class="py-3 px-3 text-center">
-        <span class="px-2.5 py-1 text-[11px] rounded-full font-bold border inline-block ${isHambat ? 'bg-rose-100 text-rose-800 border-rose-300' : 'bg-emerald-100 text-emerald-800 border-emerald-300'}">
+        <span class="font-bold text-xs ${std.kehadiran <= 72.5 ? 'text-rose-700 bg-rose-50 px-2 py-0.5 rounded-lg border border-rose-200' : 'text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200'}">${parseFloat(std.kehadiran).toFixed(1)}%</span>
+      </td>
+      <td class="py-3 px-3 text-center">
+        <span class="font-bold text-xs ${std.ipk <= 2.995 ? 'text-amber-700 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200' : 'text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200'}">${parseFloat(std.ipk).toFixed(2)}</span>
+      </td>
+      <td class="py-3 px-3 text-center text-slate-600">${std.sks}</td>
+      <td class="py-3 px-3 text-center">
+        <span class="px-2.5 py-1 text-[11px] rounded-full font-bold border inline-block ${isHambat ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'}">
           ${std.status}
         </span>
       </td>
       <td class="py-3 px-3 text-center">
-        <div class="inline-flex items-center gap-1.5">
-          <!-- Ikon Edit (✏️): Membuka Modal Edit Parameter Mahasiswa -->
-          <button onclick="openEditModal(${stdJson})" title="Edit Parameter Mahasiswa" class="px-2 py-1 text-xs font-semibold text-slate-700 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition flex items-center gap-1">
-            <span>✏️</span> <span class="hidden md:inline">Edit</span>
+        <div class="inline-flex items-center gap-1">
+          <button onclick="openEditModal(${stdJson})"
+                  aria-label="Edit ${std.nama}"
+                  class="px-2.5 py-1 text-[11px] font-bold text-slate-600 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition">
+            Edit
           </button>
-          <!-- Ikon Hapus (🗑️) -->
-          <button onclick="deleteStudent('${std.nim}')" title="Hapus Data Mahasiswa" class="px-2 py-1 text-xs font-semibold text-rose-600 hover:bg-rose-100 rounded-lg border border-rose-200 transition">
-            🗑️
+          <button onclick="deleteStudent('${std.nim}')"
+                  aria-label="Hapus ${std.nama}"
+                  class="px-2.5 py-1 text-[11px] font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 transition">
+            Hapus
           </button>
         </div>
       </td>
@@ -290,7 +286,7 @@ function openInfoModal(student) {
   const c45 = classifyC45Client(student.kehadiran, student.ipk);
 
   document.getElementById('infoStudentName').innerText = student.nama;
-  document.getElementById('infoStudentNim').innerText = `NIM: ${student.nim} • ${student.prodi || 'Teknik Informatika'}`;
+  document.getElementById('infoStudentNim').innerText = `NIM: ${student.nim} · ${student.prodi || 'Teknik Informatika'}`;
   
   const badge = document.getElementById('infoStatusBadge');
   badge.className = `px-3 py-1 rounded-full font-extrabold text-[11px] border ${c45.badgeClass}`;
@@ -379,7 +375,7 @@ async function handleEditSubmit(e) {
     const res = await fetch(apiUrl, { method: 'POST', body: formData });
     const json = await res.json();
     if (json.success) {
-      alert(`✅ Data mahasiswa ${nama} (${nim}) berhasil diperbarui dan status C4.5 telah dihitung ulang!`);
+      alert(`✅ Data mahasiswa ${nama} (${nim}) berhasil diperbarui dan status model prediksi telah dihitung ulang!`);
       closeEditModal();
       window.location.reload();
     } else {
@@ -462,3 +458,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+

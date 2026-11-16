@@ -1,15 +1,5 @@
 [
     {
-        "nim": "2203015072",
-        "nama": "Kharisma Rahmawati Lubis",
-        "prodi": "Teknik Informatika",
-        "kehadiran": 67,
-        "ipk": 2,
-        "sks": 100,
-        "status": "Berisiko Terhambat",
-        "rule": 1
-    },
-    {
         "nim": "2203015001",
         "prodi": "Teknik Informatika",
         "nama": "MALIK EMIR HAFTA",
@@ -565,16 +555,6 @@
         "nama": "RAFFI KAMAL IKHSAN",
         "kehadiran": 55,
         "ipk": 2.7,
-        "sks": 103,
-        "status": "Berisiko Terhambat",
-        "rule": 1
-    },
-    {
-        "nim": "2203015072",
-        "prodi": "Teknik Informatika",
-        "nama": "KHARISMA RAHMAWATI LUBIS",
-        "kehadiran": 45,
-        "ipk": 3.58,
         "sks": 103,
         "status": "Berisiko Terhambat",
         "rule": 1

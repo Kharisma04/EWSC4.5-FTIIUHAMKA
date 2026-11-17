@@ -15,6 +15,7 @@ $user_avatar_bg= $current_user['avatar_bg'] ?? 'bg-[#004b87]';
 
 // Algoritma aktif
 $active_algo = function_exists('get_active_algorithm') ? get_active_algorithm() : 'c45';
+$is_admin    = function_exists('auth_is_admin') ? auth_is_admin() : false;
 ?>
 <!-- Sidebar Navigasi Kiri -->
 <aside id="appSidebar" class="fixed inset-y-0 left-0 z-50 w-[260px] bg-white border-r border-slate-200 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out no-print" aria-label="Navigasi samping">
@@ -60,11 +61,12 @@ $active_algo = function_exists('get_active_algorithm') ? get_active_algorithm() 
             <span>Form Simulasi</span>
         </a>
 
-        <!-- Pilihan Model Algoritma -->
+        <!-- Pilihan Model Algoritma — hanya untuk Admin -->
+        <?php if ($is_admin): ?>
         <div class="pt-4 mt-3 border-t border-slate-100">
             <div class="px-2 py-1.5 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center justify-between">
                 <span>Model Algoritma</span>
-                <span class="text-[9px] px-1.5 py-0.2 bg-blue-50 text-blue-700 font-bold rounded">Pilih</span>
+                <span class="text-[9px] px-1.5 py-0.5 bg-blue-50 text-blue-700 font-bold rounded">Pilih</span>
             </div>
 
             <!-- C4.5 Selector -->
@@ -97,6 +99,7 @@ $active_algo = function_exists('get_active_algorithm') ? get_active_algorithm() 
                 </div>
             </a>
         </div>
+        <?php endif; ?>
 
         <!-- Menu Sesi & Otentikasi -->
         <div class="pt-4 mt-3 border-t border-slate-100">

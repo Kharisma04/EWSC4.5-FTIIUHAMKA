@@ -9,6 +9,7 @@ $nav_title    = isset($nav_title)    ? $nav_title    : 'Dashboard';
 $current_user = function_exists('auth_user') ? auth_user() : null;
 $active_algo  = function_exists('get_active_algorithm') ? get_active_algorithm() : 'c45';
 $algo_meta    = function_exists('get_algorithm_metadata') ? get_algorithm_metadata($active_algo) : [];
+$is_admin_nav = function_exists('auth_is_admin') ? auth_is_admin() : false;
 ?>
 <!-- Topbar -->
 <header class="glass-header sticky top-0 z-30 border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between no-print" aria-label="Navigasi atas">
@@ -38,7 +39,8 @@ $algo_meta    = function_exists('get_algorithm_metadata') ? get_algorithm_metada
     <!-- Aksi Kanan -->
     <div class="flex items-center gap-2 sm:gap-3">
 
-        <!-- Selector Algoritma (C4.5 vs Naive Bayes) -->
+        <!-- Selector Algoritma (hanya admin) -->
+        <?php if ($is_admin_nav): ?>
         <div class="inline-flex items-center p-0.5 sm:p-1 rounded-xl bg-slate-100 border border-slate-200">
             <a href="?algo=c45"
                class="px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition flex items-center gap-1 <?= $active_algo === 'c45' ? 'bg-[#004b87] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'; ?>"
@@ -57,6 +59,7 @@ $algo_meta    = function_exists('get_algorithm_metadata') ? get_algorithm_metada
                 <span>Naive Bayes</span>
             </a>
         </div>
+        <?php endif; ?>
 
         <!-- Tombol Cetak -->
         <button onclick="window.print()"

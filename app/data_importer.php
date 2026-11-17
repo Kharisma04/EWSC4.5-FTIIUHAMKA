@@ -192,22 +192,44 @@ function importer_read_xlsx($filepath) {
 }
 
 /**
- * Mencari indeks kolom berdasarkan daftar nama alias yang mungkin digunakan
+ * Mencari indeks kolom berdasarkan daftar nama alias yang mungkin digunakan.
+ * Menggunakan prioritas pencocokan persis (exact match) terlebih dahulu,
+ * lalu pencocokan parsial dengan mengabaikan kolom semester (ips1, ipk1, sks1).
  *
  * @param array $headers Header baris pertama
- * @param array $possible_names Nama-nama yang dicari
+ * @param array $exact_names Daftar nama persis yang diprioritaskan
+ * @param array $fallback_substrings Daftar kata kunci cadangan jika exact match tidak ditemukan
  * @return int|null Indeks kolom atau null
  */
-function importer_find_col_index($headers, $possible_names) {
+function importer_find_col_index($headers, $exact_names, $fallback_substrings = []) {
+    // Prioritas 1: Exact Match (Pencocokan Persis)
     foreach ($headers as $idx => $h) {
         $clean = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', (string)$h));
-        foreach ($possible_names as $p) {
+        foreach ($exact_names as $p) {
             $p_clean = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $p));
-            if ($clean === $p_clean || strpos($clean, $p_clean) !== false) {
+            if ($clean === $p_clean) {
                 return $idx;
             }
         }
     }
+
+    // Prioritas 2: Substring / Partial Match (abaikan kolom semester seperti ips1..5, ipk1..5, sks1..5)
+    foreach ($headers as $idx => $h) {
+        $clean = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', (string)$h));
+        
+        // Lewati kolom per-semester jika mencari nilai agregat/kumulatif
+        if (preg_match('/^(ips|ipk|sks)\d+$/', $clean)) {
+            continue;
+        }
+
+        foreach ($fallback_substrings as $p) {
+            $p_clean = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $p));
+            if (strpos($clean, $p_clean) !== false) {
+                return $idx;
+            }
+        }
+    }
+
     return null;
 }
 
@@ -248,13 +270,13 @@ function importer_process_file($file_upload, $mode = 'merge') {
     // Baris pertama sebagai header
     $headers = array_shift($raw_rows);
 
-    // Identifikasi kolom secara cerdas
-    $nim_idx       = importer_find_col_index($headers, ['nim', 'nomorinduk', 'nomor_mhs', 'no_mhs', 'id']);
-    $nama_idx      = importer_find_col_index($headers, ['nama', 'nama_mahasiswa', 'namalengkap', 'mahasiswa', 'name']);
-    $kehadiran_idx = importer_find_col_index($headers, ['kehadiran', 'presensi', 'absensi', 'hadir', 'kehadiran%']);
-    $ipk_idx       = importer_find_col_index($headers, ['ipk', 'gpa', 'indeksprestasi', 'ip']);
-    $sks_idx       = importer_find_col_index($headers, ['sks', 'totalsks', 'skslulus']);
-    $prodi_idx     = importer_find_col_index($headers, ['prodi', 'programstudi', 'jurusan']);
+    // Identifikasi kolom secara cerdas (mendukung format mentah SIAKAD/skripsi maupun format ringkas)
+    $nim_idx       = importer_find_col_index($headers, ['nim', 'nomorinduk', 'nomor_mhs', 'no_mhs', 'id'], ['nim', 'nomor']);
+    $nama_idx      = importer_find_col_index($headers, ['nama', 'nama_mahasiswa', 'namalengkap', 'mahasiswa', 'name'], ['nama', 'name']);
+    $kehadiran_idx = importer_find_col_index($headers, ['kehadiran', 'presensi', 'absensi', 'hadir', 'kehadiran%'], ['kehadiran', 'presensi', 'hadir']);
+    $ipk_idx       = importer_find_col_index($headers, ['rata_rata_ipk', 'ratarataipk', 'ipk_rata_rata', 'ipk_kumulatif', 'ipkkumulatif', 'ipk', 'gpa', 'indeksprestasi'], ['ipk', 'gpa', 'prestasi']);
+    $sks_idx       = importer_find_col_index($headers, ['total_sks', 'totalsks', 'sks_total', 'sks', 'skslulus', 'sks_kumulatif'], ['totalsks', 'sks']);
+    $prodi_idx     = importer_find_col_index($headers, ['prodi', 'programstudi', 'jurusan'], ['prodi', 'jurusan']);
 
     if ($kehadiran_idx === null || $ipk_idx === null) {
         return [

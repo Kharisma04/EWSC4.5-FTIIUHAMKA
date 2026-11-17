@@ -22,31 +22,37 @@ http://localhost/ews-uhamka/
 Aplikasi telah disusun rapi sesuai standar arsitektur profesional dan kaidah pemrograman bersih:
 
 ```text
-C:\xampp\htdocs\ews-uhamka\
+C:\laragon\www\EWSC4.5-FTIIUHAMKA\
 ├── index.php                      # Halaman Utama (Dashboard & Pangkalan Data Mahasiswa)
+├── login.php                      # Halaman Login Masuk Sistem (Autentikasi & Akun Demo)
+├── logout.php                     # Endpoint Logout dan Pembersihan Sesi
 ├── app/                           # Core Logic, Algoritma, & Layanan Data
 │   ├── config.php                 # Konfigurasi global & metadata akademik skripsi
-│   ├── c45_engine.php             # Logika inti perhitungan rumus C4.5, Entropy, Gain, Alpha & Beta
-│   ├── student_service.php        # Service CRUD & manipulasi data mahasiswa (JSON storage)
-│   ├── api_student.php            # Endpoint API untuk interaksi edit, hapus, dan simpan data
+│   ├── auth.php                   # Layanan otentikasi login, logout, dan penjaga sesi
+│   ├── c45_engine.php             # Logika inti rumus Decision Tree C4.5, Entropy, & Gain
+│   ├── naive_bayes_engine.php     # Logika klasifikasi Gaussian Naive Bayes & Probabilitas Posterior
+│   ├── algorithm_service.php      # Layanan pemilihan algoritma dinamis (C4.5 vs Naive Bayes)
+│   ├── student_service.php        # Service CRUD, validasi NIM FTII UHAMKA, & JSON persistence
+│   ├── data_importer.php          # Parser & pengimpor data berkas CSV & Excel (.xlsx)
+│   ├── api_student.php            # Endpoint REST/JSON API untuk operasi data & klasifikasi
 │   └── data/
-│       ├── students.json          # Database 438 data riil mahasiswa dari file Excel skripsi
+│       ├── users.json             # Data akun pengguna (admin & mahasiswa peneliti skripsi)
+│       ├── students.json          # Database 437 data riil mahasiswa dari file Excel skripsi
 │       └── students_default.json  # Salinan data cadangan asli untuk fitur Reset Data
 ├── components/                    # Komponen Tampilan Antarmuka Terpisah (Modular)
 │   ├── header.php                 # Tag <head>, konfigurasi CDN Tailwind, Chart.js, & fonts
-│   ├── navbar.php                 # Topbar navigasi atas, breadcrumb, status sistem, tombol cetak
-│   ├── sidebar.php                # Sidebar navigasi samping, logo FTII UHAMKA, identitas peneliti
-│   └── footer.php                 # Footer hak cipta, Modal Info Detail (ℹ️), & Modal Edit (✏️)
+│   ├── navbar.php                 # Topbar navigasi atas, pemilih algoritma, info pengguna, logout
+│   ├── sidebar.php                # Sidebar samping, logo UHAMKA, pemilih model, tombol logout
+│   └── footer.php                 # Footer, Modal Info Detail, Modal Edit, & Modal Upload Data
 ├── pages/                         # Direktori Fitur Khusus Berdasarkan Modul
-│   ├── uji-coba/                  # Fitur Khusus: Form Simulasi & Uji Coba Data Mahasiswa Mandiri
-│   │   └── index.php
-│   └── rumus-c45/                 # Fitur Khusus: Dokumentasi Rumus C4.5, Pohon Keputusan, & Evaluasi
+│   └── uji-coba/                  # Fitur: Form Simulasi Prediksi Mandiri (C4.5 & Naive Bayes)
 │       └── index.php
 └── assets/                        # Aset Statis
     ├── css/
-    │   └── styles.css             # Stylesheet kustom modern (glassmorphism & print view)
-    └── js/
-        └── app.js                 # Pengendali client-side (Chart.js, filter, pencarian, modals)
+    │   └── styles.css             # Stylesheet kustom modern
+    ├── js/
+    │   └── app.js                 # Pengendali client-side (Chart.js, filter, upload, client prediction)
+    └── template_mahasiswa.csv     # Berkas contoh format impor data mahasiswa
 ```
 
 ---
@@ -102,15 +108,37 @@ $$\text{Accuracy} = \frac{TP + TN}{\text{Total Data Uji}} = \frac{34 + 48}{87} =
 
 ## 🌟 Fitur Utama Sistem
 
-1. **Pangkalan Data 438 Mahasiswa Riil**:
-   * Data diimpor langsung dari file Excel penelitian: `dataset_final_status_akademik.xlsx`.
-2. **Ikon Info (ℹ️) di Setiap Nama Mahasiswa**:
-   * Ketika diklik, membuka modal yang **menjabarkan secara komprehensif kondisi studi mahasiswa**: mengapa dia berstatus berisiko/tepat waktu berdasarkan ambang batas kehadiran dan IPK, aturan C4.5 yang terpicu, serta rekomendasi intervensi konkret bagi Dosen PA.
-3. **Ikon Edit (✏️) di Kolom Aksi**:
-   * Membuka modal formulir untuk mengedit parameter mahasiswa (Nama, Kehadiran, IPK, SKS) dan sistem **langsung mengkalkulasi ulang status C4.5** serta memperbarui grafik dan tabel.
-4. **Form Simulasi & Uji Coba Mandiri C4.5 (`pages/uji-coba/`)**:
-   * Dilengkapi tombol preset 1-klik (Presensi Rendah, IPK Rendah, Jalur Aman), kalkulasi real-time, dan tombol simpan permanen ke pangkalan data.
-5. **Dokumentasi Rumus & Evaluasi Alpha-Beta (`pages/rumus-c45/`)**:
-   * Dilengkapi visualisasi diagram pohon keputusan dan matriks konfusi interaktif untuk presentasi sidang skripsi.
-6. **Format Cetak Dokumen Laporan**:
+1. **Autentikasi & Keamanan Sesi (`login.php` & `logout.php`)**:
+   * Sistem EWS kini terlindungi oleh halaman otentikasi resmi beridentitas FTII UHAMKA.
+   * Akun bawaan (*default demo*):
+     * **Dosen PA / Admin**: `admin` / `admin123`
+     * **Peneliti Skripsi**: `kharisma` / `uhamka2026`
+   * Tombol Logout mudah diakses melalui Menu Sidebar, Profil Pengguna di bawah Sidebar, dan Topbar.
+
+2. **Dukungan Multi-Model: Decision Tree C4.5 & Gaussian Naive Bayes**:
+   * Pengguna dapat memilih model klasifikasi yang ingin digunakan kapan saja via Navbar, Sidebar, atau Dashboard banner.
+   * **Dinamika Angka & Distribusi Terhitung Otomatis**:
+     * **C4.5 (94,25%)**: Berbasis aturan pohon keputusan (*Root Node* Kehadiran 72,50% & *Internal Node* IPK 2,995). Menghasilkan **241 Tepat Waktu (55,1%)** dan **196 Berisiko (44,9%)**.
+     * **Naive Bayes (91,80%)**: Berbasis probabilitas posterior Gaussian data riil 437 mahasiswa ($P(\text{Tepat Waktu}) = 55,15\%$, $P(\text{Berisiko}) = 44,85\%$). Menghasilkan **246 Tepat Waktu (56,3%)** dan **191 Berisiko (43,7%)**.
+   * Kartu KPI Dashboard, Donut Chart, baris tabel mahasiswa, dan Form Simulasi otomatis memperbarui angka dan persentase sesuai algoritma yang dipilih.
+   * **Komparasi Langsung (*Side-by-Side Model Comparison*)**: Form simulasi dan modal detail mahasiswa menyajikan perbandingan langsung antara keputusan C4.5 (Aturan Pohon) vs Naive Bayes (Probabilitas Posterior Gaussian), lengkap dengan notifikasi jika kedua model sepakat atau terdapat perbedaan pada zona batas.
+
+3. **Unggah Berkas Data CSV & Excel (.xlsx)**:
+   * Fitur unggah berkas langsung melalui tombol pada tabel dashboard.
+   * Mendukung mode **Gabungkan (Merge)** dan **Gantikan Semua (Replace)**.
+   * Menggunakan parser berkas murni mandiri tanpa dependensi luar.
+   * Tersedia template unduhan: `assets/template_mahasiswa.csv`.
+
+4. **Form Simulasi Mandiri & Validasi Ketat NIM FTII UHAMKA (`pages/uji-coba/`)**:
+   * Bidang SKS telah dihapus agar formulir fokus pada 2 parameter penentu: **Kehadiran (%)** dan **IPK**.
+   * **Pencegahan Data Kampus Luar**: Sistem memvalidasi kodefikasi NIM format FTII UHAMKA (`2x03015xxx`). NIM dari kampus lain otomatis ditolak dengan pesan peringatan eror.
+   * Auto-lookup nama mahasiswa yang sudah terdaftar di pangkalan data secara instan saat NIM dimasukkan.
+
+5. **Pangkalan Data 437 Mahasiswa Riil**:
+   * Data diimpor langsung dari file Excel penelitian skripsi.
+6. **Ikon Info (ℹ️) di Setiap Nama Mahasiswa**:
+   * Menjabarkan secara komprehensif kondisi studi mahasiswa sesuai algoritma yang sedang aktif, aturan/distribusi yang terpicu, dan rekomendasi intervensi DPA.
+7. **Ikon Edit (✏️) di Kolom Aksi**:
+   * Mengedit parameter mahasiswa dan sistem langsung mengkalkulasi ulang status kelulusan.
+8. **Format Cetak Dokumen Laporan**:
    * Tombol cetak langsung memformat tampilan dokumen bebas dari navigasi sidebar agar rapi di atas kertas A4/PDF.

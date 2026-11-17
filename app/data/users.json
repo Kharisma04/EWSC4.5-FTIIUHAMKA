@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "password": "$2y$10$pvOi.6NZF2BtGEw4Ueukce5N0Kre6uG2A0liMtbrOVOLO7ewV1UIu",
+        "nama": "Dosen Pembimbing Akademik \/ Admin",
+        "email": "dosen@uhamka.ac.id",
+        "nim": null,
+        "role": "Dosen PA \/ Administrator",
+        "inisial": "PA",
+        "avatar_bg": "bg-[#004b87]"
+    },
+    {
+        "id": 2,
+        "username": "kharisma",
+        "password": "$2y$10$N.y.4HlbZ3Bd8141JzyN.e8O\/OGvP7LtW9qFPmLD9xog.qUv\/TrrW",
+        "nama": "Kharisma Rahmawati Lubis",
+        "email": "kharisma@uhamka.ac.id",
+        "nim": "2203015072",
+        "role": "Peneliti Skripsi (Mahasiswa)",
+        "inisial": "KR",
+        "avatar_bg": "bg-emerald-600"
+    }
+]

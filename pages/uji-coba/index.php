@@ -199,7 +199,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                                         NIM Mahasiswa <span class="text-rose-500">*</span>
                                     </label>
                                     <span class="text-[10px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
-                                        Format: 2x03015xxx
+                                        Format: 10 Digit FTII UHAMKA
                                     </span>
                                 </div>
                                 <div class="relative">
@@ -466,18 +466,27 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 message: `NIM (${nim}) tidak valid! NIM mahasiswa FTII UHAMKA harus 10 digit angka.`
             };
         }
-        // Cek pola: XX03015XXX (03 = FTII, 015 = Teknik Informatika)
-        const match = nim.match(/^(\d{2})03015(\d{3})$/);
+        // Cek pola: XX03 (03 = FTII) + kode prodi (015, 019, 025, 035, 045) + 3 digit nomor
+        const match = nim.match(/^(\d{2})03(015|019|025|035|045)(\d{3})$/);
         if (!match) {
             return {
                 valid: false,
-                message: `Pencarian Error: NIM (${nim}) bukan mahasiswa FTII UHAMKA (Prodi Teknik Informatika)! Data dari kampus lain ditolak oleh sistem EWS.`
+                message: `Pencarian Error: NIM (${nim}) bukan mahasiswa FTII UHAMKA! Data dari kampus lain ditolak oleh sistem EWS.`
             };
         }
+        const prodiMap = {
+            '015': 'Teknik Informatika',
+            '019': 'Teknik Informatika (Pindahan)',
+            '025': 'Teknik Elektro',
+            '035': 'Teknik Mesin',
+            '045': 'Sistem dan Teknologi Informasi'
+        };
+        const prodiNama = prodiMap[match[2]] || 'FTII UHAMKA';
         return {
             valid: true,
             angkatan: '20' + match[1],
-            message: `NIM terverifikasi sebagai mahasiswa FTII UHAMKA (Angkatan 20${match[1]}).`
+            prodi: prodiNama,
+            message: `NIM terverifikasi sebagai mahasiswa ${prodiNama} (Angkatan 20${match[1]}).`
         };
     }
 

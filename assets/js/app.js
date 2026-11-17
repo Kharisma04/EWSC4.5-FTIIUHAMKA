@@ -222,7 +222,8 @@ function renderTableRows() {
   tbody.innerHTML = '';
 
   if (pageItems.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" class="text-center py-10 text-slate-400 font-medium">Tidak ada data mahasiswa yang cocok dengan kriteria pencarian.</td></tr>`;
+    const colCount = window.IS_ADMIN ? 8 : 7;
+    tbody.innerHTML = `<tr><td colspan="${colCount}" class="text-center py-10 text-slate-400 font-medium">Tidak ada data mahasiswa yang cocok dengan kriteria pencarian.</td></tr>`;
     renderPagination(0);
     return;
   }
@@ -232,19 +233,56 @@ function renderTableRows() {
     const rowIdx = startIdx + i + 1;
     const stdJson = JSON.stringify(std).replace(/"/g, '&quot;');
     const activeAlgo = window.ACTIVE_ALGORITHM || 'c45';
+    const isAdmin = window.IS_ADMIN === true;
 
+    // Sub-teks status — hanya untuk admin
     let statusSubText = '';
-    if (activeAlgo === 'naive_bayes') {
-      const probVal = isHambat ? (std.prob_berisiko || 50.0) : (std.prob_tepat || 50.0);
-      statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(${probVal}% peluang)</span>`;
-    } else {
-      statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(Aturan ${std.rule || (isHambat ? '1/2' : '3')})</span>`;
+    if (isAdmin) {
+      if (activeAlgo === 'naive_bayes') {
+        const probVal = isHambat ? (std.prob_berisiko || 50.0) : (std.prob_tepat || 50.0);
+        statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(${probVal}% peluang)</span>`;
+      } else {
+        statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(Aturan ${std.rule || (isHambat ? '1/2' : '3')})</span>`;
+      }
     }
 
-    const isModelMismatch = (std.c45_status && std.nb_status && std.c45_status !== std.nb_status);
+    // Badge Beda Model — hanya untuk admin
+    const isModelMismatch = isAdmin && (std.c45_status && std.nb_status && std.c45_status !== std.nb_status);
     const diffBadge = isModelMismatch
       ? `<span class="mt-1 inline-block text-[9px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-700 font-bold border border-purple-200" title="Hasil C4.5 & Naive Bayes berbeda">Beda Model</span>`
       : '';
+
+    // Kolom SKS — hanya untuk admin
+    const sksCell = isAdmin
+      ? `<td class="py-3 px-3 text-center text-slate-600">${std.sks}</td>`
+      : '';
+
+    // Kolom Aksi — edit/hapus untuk admin, hanya info untuk user
+    const aksiCell = isAdmin
+      ? `<td class="py-3 px-3 text-center">
+          <div class="inline-flex items-center gap-1">
+            <button onclick="openEditModalByNim('${std.nim}')"
+                    type="button"
+                    aria-label="Edit ${std.nama}"
+                    class="px-2.5 py-1 text-[11px] font-bold text-slate-600 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition">
+              Edit
+            </button>
+            <button onclick="deleteStudent('${std.nim}')"
+                    type="button"
+                    aria-label="Hapus ${std.nama}"
+                    class="px-2.5 py-1 text-[11px] font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 transition">
+              Hapus
+            </button>
+          </div>
+        </td>`
+      : `<td class="py-3 px-3 text-center">
+          <button onclick="openInfoModalByNim('${std.nim}')"
+                  type="button"
+                  aria-label="Lihat detail ${std.nama}"
+                  class="px-2.5 py-1 text-[11px] font-bold text-[#004b87] hover:bg-blue-50 rounded-lg border border-blue-200 transition">
+            Detail
+          </button>
+        </td>`;
 
     const tr = document.createElement('tr');
     tr.className = 'hover:bg-slate-50 transition-colors text-xs';
@@ -268,7 +306,7 @@ function renderTableRows() {
       <td class="py-3 px-3 text-center">
         <span class="font-bold text-xs ${std.ipk <= 2.995 ? 'text-amber-700 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200' : 'text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200'}">${parseFloat(std.ipk).toFixed(2)}</span>
       </td>
-      <td class="py-3 px-3 text-center text-slate-600">${std.sks}</td>
+      ${sksCell}
       <td class="py-3 px-3 text-center">
         <span class="px-2.5 py-1 text-[11px] rounded-full font-bold border inline-block ${isHambat ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'}">
           <span>${std.status}</span>
@@ -276,22 +314,7 @@ function renderTableRows() {
         </span>
         ${diffBadge}
       </td>
-      <td class="py-3 px-3 text-center">
-        <div class="inline-flex items-center gap-1">
-          <button onclick="openEditModalByNim('${std.nim}')"
-                  type="button"
-                  aria-label="Edit ${std.nama}"
-                  class="px-2.5 py-1 text-[11px] font-bold text-slate-600 hover:text-[#004b87] hover:bg-blue-50 rounded-lg border border-slate-200 transition">
-            Edit
-          </button>
-          <button onclick="deleteStudent('${std.nim}')"
-                  type="button"
-                  aria-label="Hapus ${std.nama}"
-                  class="px-2.5 py-1 text-[11px] font-bold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 transition">
-            Hapus
-          </button>
-        </div>
-      </td>
+      ${aksiCell}
     `;
     tbody.appendChild(tr);
   });
@@ -403,6 +426,7 @@ function openInfoModal(student) {
   const ipkEl = document.getElementById('infoIpkVal');
   if (ipkEl) ipkEl.innerText = parseFloat(student.ipk).toFixed(2);
 
+  // SKS hanya ada di modal admin
   const sksEl = document.getElementById('infoSksVal');
   if (sksEl) sksEl.innerText = `${student.sks} SKS`;
 

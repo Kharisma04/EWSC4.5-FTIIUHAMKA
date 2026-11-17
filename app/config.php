@@ -34,6 +34,7 @@ define('C45_THRESHOLD_IPK', 2.995);       // Simpul Cabang (Internal Node) IPK <
 // Path file data JSON
 define('STUDENT_DATA_FILE', __DIR__ . '/data/students.json');
 define('STUDENT_DEFAULT_FILE', __DIR__ . '/data/students_default.json');
+define('USER_DATA_FILE', __DIR__ . '/data/users.json');
 
 /**
  * Helper untuk menentukan path relatif root aplikasi agar CSS, JS, dan link 

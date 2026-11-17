@@ -119,7 +119,7 @@ $$\text{Accuracy} = \frac{TP + TN}{\text{Total Data Uji}} = \frac{34 + 48}{87} =
    * Pengguna dapat memilih model klasifikasi yang ingin digunakan kapan saja via Navbar, Sidebar, atau Dashboard banner.
    * **Dinamika Angka & Distribusi Terhitung Otomatis**:
      * **C4.5 (94,25%)**: Berbasis aturan pohon keputusan (*Root Node* Kehadiran 72,50% & *Internal Node* IPK 2,995). Menghasilkan **241 Tepat Waktu (55,1%)** dan **196 Berisiko (44,9%)**.
-     * **Naive Bayes (91,80%)**: Berbasis probabilitas posterior Gaussian data riil 437 mahasiswa ($P(\text{Tepat Waktu}) = 55,15\%$, $P(\text{Berisiko}) = 44,85\%$). Menghasilkan **246 Tepat Waktu (56,3%)** dan **191 Berisiko (43,7%)**.
+     * **Naive Bayes (82,76%)**: Berbasis probabilitas posterior Gaussian data riil 437 mahasiswa ($P(\text{Tepat Waktu}) = 55,15\%$, $P(\text{Berisiko}) = 44,85\%$). Akurasi pengujian RapidMiner: **82,76%**. Menghasilkan **246 Tepat Waktu (56,3%)** dan **191 Berisiko (43,7%)**.
    * Kartu KPI Dashboard, Donut Chart, baris tabel mahasiswa, dan Form Simulasi otomatis memperbarui angka dan persentase sesuai algoritma yang dipilih.
    * **Komparasi Langsung (*Side-by-Side Model Comparison*)**: Form simulasi dan modal detail mahasiswa menyajikan perbandingan langsung antara keputusan C4.5 (Aturan Pohon) vs Naive Bayes (Probabilitas Posterior Gaussian), lengkap dengan notifikasi jika kedua model sepakat atau terdapat perbedaan pada zona batas.
 

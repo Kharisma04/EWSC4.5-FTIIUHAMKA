@@ -16,11 +16,14 @@ require_once __DIR__ . '/../../app/student_service.php';
 
 $active_algo = get_active_algorithm();
 $algo_meta   = get_algorithm_metadata($active_algo);
+$is_admin    = auth_is_admin();
 
 $page_title   = 'Form Simulasi';
 $active_page  = 'uji-coba';
 $nav_category = 'Simulasi & Uji Coba';
-$nav_title    = 'Form Simulasi Prediksi (' . $algo_meta['short_name'] . ')';
+$nav_title    = $is_admin
+    ? 'Form Simulasi Prediksi (' . $algo_meta['short_name'] . ')'
+    : 'Form Simulasi Prediksi Kelulusan';
 
 // Ambil data seluruh mahasiswa untuk lookup NIM instan di sisi klien
 $all_students = student_get_all();
@@ -37,7 +40,7 @@ foreach ($all_students as $s) {
 $saved_message = null;
 $error_nim_message = null;
 
-if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['btn_save_manual'])) {
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['btn_save_manual']) && $is_admin) {
     $nim       = trim($_POST['nim'] ?? '');
     $nama      = trim($_POST['nama'] ?? '');
     $kehadiran = (float)($_POST['kehadiran'] ?? 0);
@@ -75,7 +78,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
     <main class="flex-1 p-4 sm:p-6 space-y-5">
 
-        <!-- Notifikasi Sukses Simpan -->
+        <!-- Notifikasi Sukses Simpan (Admin Only) -->
         <?php if ($saved_message): ?>
         <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-between gap-3 shadow-xs">
             <div class="flex items-center gap-2">
@@ -97,17 +100,18 @@ require_once __DIR__ . '/../../components/sidebar.php';
         </div>
         <?php endif; ?>
 
-        <!-- Banner & Selector Algoritma Simulasi -->
-        <div class="bg-gradient-to-r <?= $active_algo === 'naive_bayes' ? 'from-[#3b0764] via-[#581c87] to-[#1e1b4b]' : 'from-[#003366] via-[#004b87] to-[#0369a1]'; ?> rounded-2xl p-6 text-white shadow-lg shadow-blue-900/20 transition-all duration-300">
+        <!-- Banner Utama Simulasi -->
+        <div class="bg-gradient-to-r <?= $is_admin && $active_algo === 'naive_bayes' ? 'from-[#3b0764] via-[#581c87] to-[#1e1b4b]' : 'from-[#003366] via-[#004b87] to-[#0369a1]'; ?> rounded-2xl p-6 text-white shadow-lg shadow-blue-900/20 transition-all duration-300">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
                 <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-bold border border-white/20">
                     <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
-                    Simulasi Real-Time · Model: <?= $algo_meta['name']; ?>
+                    <?= $is_admin ? 'Simulasi Real-Time · Model: ' . $algo_meta['name'] : 'EWS FTII UHAMKA · Simulasi Mandiri'; ?>
                 </div>
 
-                <!-- Pemilih Model Algoritma Simulasi -->
+                <!-- Pemilih Model Algoritma — hanya untuk Admin -->
+                <?php if ($is_admin): ?>
                 <div class="inline-flex items-center p-1 rounded-xl bg-black/20 border border-white/15 text-xs font-bold">
                     <a href="?algo=c45" 
                        class="px-3 py-1 rounded-lg transition <?= $active_algo === 'c45' ? 'bg-white text-[#004b87] shadow-sm' : 'text-white/80 hover:text-white'; ?>">
@@ -118,13 +122,18 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         Naive Bayes
                     </a>
                 </div>
+                <?php endif; ?>
             </div>
 
             <h2 class="text-xl sm:text-2xl font-black tracking-tight">Form Simulasi Prediksi Kelulusan</h2>
             <p class="text-blue-100 text-xs sm:text-sm mt-1.5 max-w-xl leading-relaxed">
-                <?= $active_algo === 'c45' 
-                    ? 'Hasil prediksi dihitung secara rule-based melalui pohon keputusan C4.5 berdasarkan ambang batas kehadiran (72,50%) dan IPK (2,995).' 
-                    : 'Hasil prediksi dihitung secara probabilistik menggunakan Gaussian Naive Bayes berdasarkan kurva sebaran normal data riil FTII UHAMKA.'; ?>
+                <?php if ($is_admin): ?>
+                    <?= $active_algo === 'c45' 
+                        ? 'Hasil prediksi dihitung secara rule-based melalui pohon keputusan C4.5 berdasarkan ambang batas kehadiran (72,50%) dan IPK (2,995).' 
+                        : 'Hasil prediksi dihitung secara probabilistik menggunakan Gaussian Naive Bayes berdasarkan kurva sebaran normal data riil FTII UHAMKA.'; ?>
+                <?php else: ?>
+                    Masukkan NIM, kehadiran perkuliahan, dan IPK Anda saat ini untuk melihat prediksi status kelancaran studi secara real-time.
+                <?php endif; ?>
             </p>
         </div>
 
@@ -134,10 +143,11 @@ require_once __DIR__ . '/../../components/sidebar.php';
             <!-- KIRI: Form Input Parameter -->
             <div class="lg:col-span-7 space-y-4">
 
-                <!-- Preset Skenario Cepat -->
+                <!-- Skenario Uji Cepat — HANYA UNTUK ADMIN -->
+                <?php if ($is_admin): ?>
                 <div class="card-modern p-4">
                     <div class="text-xs font-bold text-slate-700 mb-2.5 flex items-center justify-between">
-                        <span>Skenario Uji Coba Cepat (FTII UHAMKA)</span>
+                        <span>Skenario Uji Coba Cepat (Admin / Riset)</span>
                         <span class="text-[10px] text-slate-400 font-medium">Klik untuk auto-fill parameter</span>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -163,17 +173,20 @@ require_once __DIR__ . '/../../components/sidebar.php';
                         </button>
                     </div>
                 </div>
+                <?php endif; ?>
 
-                <!-- Formulir Parameter Mahasiswa (Validasi Ketat NIM FTII UHAMKA) -->
+                <!-- Formulir Parameter Mahasiswa -->
                 <div class="card-modern p-5">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-sm font-black text-slate-800">Parameter Akademik Mahasiswa</h3>
                             <p class="text-[11px] text-slate-400 mt-0.5">Sistem membatasi khusus data mahasiswa FTII UHAMKA</p>
                         </div>
+                        <?php if ($is_admin): ?>
                         <span class="text-[10px] font-bold px-2 py-0.5 rounded-full <?= $active_algo === 'naive_bayes' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'; ?>">
                             Model: <?= $algo_meta['short_name']; ?>
                         </span>
+                        <?php endif; ?>
                     </div>
 
                     <form id="simForm" onsubmit="handleLiveSimSubmit(event)" class="space-y-4">
@@ -197,11 +210,8 @@ require_once __DIR__ . '/../../components/sidebar.php';
                                            placeholder="Contoh: 2203015072"
                                            oninput="handleNimInput(this.value)"
                                            class="w-full text-xs sm:text-sm bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 text-slate-900 font-bold transition">
-                                    <div id="nimCheckIcon" class="absolute right-3 top-2.5 hidden">
-                                        <!-- Icon checkmark atau warning -->
-                                    </div>
+                                    <div id="nimCheckIcon" class="absolute right-3 top-2.5 hidden"></div>
                                 </div>
-                                <!-- Pesan Status Validasi NIM Real-Time -->
                                 <div id="nimValidationMsg" class="mt-1.5 text-xs hidden"></div>
                             </div>
 
@@ -228,7 +238,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             </div>
                         </div>
 
-                        <!-- 2 Kolom: Kehadiran dan IPK (Bagian SKS telah dihapus sesuai arahan riset skripsi) -->
+                        <!-- 2 Kolom: Kehadiran dan IPK (Bagian SKS telah dihapus) -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="simKehadiran" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1.5">
@@ -239,9 +249,15 @@ require_once __DIR__ . '/../../components/sidebar.php';
                                            class="w-full text-xs sm:text-sm bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-400 text-slate-900 font-bold transition">
                                     <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">%</span>
                                 </div>
+                                <?php if ($is_admin): ?>
                                 <span class="text-[10px] text-slate-400 mt-1 block">
                                     Batas Aman C4.5: &gt; 72,50% · Rata-rata Tepat: 86,51%
                                 </span>
+                                <?php else: ?>
+                                <span class="text-[10px] text-slate-400 mt-1 block">
+                                    Persentase kehadiran perkuliahan semester berjalan (0–100%)
+                                </span>
+                                <?php endif; ?>
                             </div>
                             <div>
                                 <label for="simIpk" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1.5">
@@ -249,19 +265,25 @@ require_once __DIR__ . '/../../components/sidebar.php';
                                 </label>
                                 <input type="number" step="0.01" min="0" max="4.00" id="simIpk" required placeholder="0.00–4.00"
                                        class="w-full text-xs sm:text-sm bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-400 text-slate-900 font-bold transition">
+                                <?php if ($is_admin): ?>
                                 <span class="text-[10px] text-slate-400 mt-1 block">
                                     Batas Aman C4.5: &gt; 2,995 · Rata-rata Tepat: 3,37
                                 </span>
+                                <?php else: ?>
+                                <span class="text-[10px] text-slate-400 mt-1 block">
+                                    Capaian Indeks Prestasi Kumulatif saat ini (skala 0,00–4,00)
+                                </span>
+                                <?php endif; ?>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-3 pt-2">
                             <button type="submit" id="btnHitungSim"
-                                    class="flex-1 py-2.5 px-5 rounded-lg <?= $active_algo === 'naive_bayes' ? 'bg-purple-700 hover:bg-purple-800' : 'bg-[#004b87] hover:bg-[#003b6b]'; ?> text-white font-bold text-xs sm:text-sm shadow transition flex items-center justify-center gap-2 cursor-pointer">
+                                    class="flex-1 py-2.5 px-5 rounded-lg <?= $is_admin && $active_algo === 'naive_bayes' ? 'bg-purple-700 hover:bg-purple-800' : 'bg-[#004b87] hover:bg-[#003b6b]'; ?> text-white font-bold text-xs sm:text-sm shadow transition flex items-center justify-center gap-2 cursor-pointer">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                 </svg>
-                                <span>Hitung Prediksi (<?= $algo_meta['short_name']; ?>)</span>
+                                <span>Hitung Prediksi<?= $is_admin ? ' (' . $algo_meta['short_name'] . ')' : ''; ?></span>
                             </button>
                             <button type="button" onclick="resetSimForm()"
                                     class="py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition border border-slate-300">
@@ -274,7 +296,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
             </div>
 
-            <!-- KANAN: Hasil Prediksi Berdasarkan Model -->
+            <!-- KANAN: Hasil Prediksi -->
             <div class="lg:col-span-5">
 
                 <!-- Placeholder Belum Ada Prediksi -->
@@ -291,15 +313,17 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 </div>
 
                 <!-- Kartu Hasil Prediksi -->
-                <div id="simResultSection" class="hidden card-modern overflow-hidden border-2 <?= $active_algo === 'naive_bayes' ? 'border-purple-300' : 'border-blue-300'; ?> shadow-lg fade-in">
+                <div id="simResultSection" class="hidden card-modern overflow-hidden border-2 <?= $is_admin && $active_algo === 'naive_bayes' ? 'border-purple-300' : 'border-blue-300'; ?> shadow-lg fade-in">
 
                     <div class="bg-slate-50 p-4 border-b border-slate-200">
                         <div class="flex items-center justify-between gap-2 mb-1">
                             <div class="flex items-center gap-2">
-                                <span class="text-[10px] font-black uppercase tracking-widest text-[#004b87]">Hasil Prediksi</span>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-[#004b87]">Status Kelulusan</span>
+                                <?php if ($is_admin): ?>
                                 <span class="text-[9px] font-bold px-1.5 py-0.5 rounded <?= $active_algo === 'naive_bayes' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'; ?>">
                                     <?= $algo_meta['short_name']; ?>
                                 </span>
+                                <?php endif; ?>
                             </div>
                             <span id="resStatusBadge" class="px-2.5 py-1 rounded-full font-bold text-[11px] border"></span>
                         </div>
@@ -308,7 +332,8 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
                     <div class="p-4 space-y-3.5" role="alert" aria-live="polite">
 
-                        <!-- Panel Probabilitas Khusus Naive Bayes -->
+                        <?php if ($is_admin): ?>
+                        <!-- Panel Probabilitas Khusus Naive Bayes (Admin Only) -->
                         <div id="nbProbabilityCard" class="<?= $active_algo === 'naive_bayes' ? '' : 'hidden'; ?> p-3.5 rounded-xl bg-purple-50/80 border border-purple-200">
                             <div class="text-[10px] font-bold text-purple-900 uppercase tracking-wider mb-2">
                                 Probabilitas Posterior Naive Bayes P(Kelas | X)
@@ -335,7 +360,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             </div>
                         </div>
 
-                        <!-- Aturan / Kriteria Terpicu -->
+                        <!-- Aturan / Kriteria Terpicu (Admin Only) -->
                         <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
                             <div class="text-[10px] font-bold text-[#004b87] uppercase tracking-wider mb-1">
                                 <?= $active_algo === 'naive_bayes' ? 'Keputusan Teorema Bayes' : 'Aturan Pohon Keputusan C4.5'; ?>
@@ -343,23 +368,25 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             <div id="resRuleTitle" class="text-xs font-bold text-slate-900"></div>
                             <div id="resCoverage" class="text-[11px] text-[#004b87] mt-0.5"></div>
                         </div>
+                        <?php endif; ?>
 
-                        <!-- Analisis Ilmiah -->
+                        <!-- Analisis Kondisi Akademik (Selalu tampil untuk Admin & User) -->
                         <div>
-                            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Analisis Model</div>
+                            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Diagnosis Hasil</div>
                             <p id="resReason" class="text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 leading-relaxed"></p>
                         </div>
 
-                        <!-- Rekomendasi Intervensi DPA -->
+                        <!-- Rekomendasi Tindakan DPA (Selalu tampil untuk Admin & User) -->
                         <div>
-                            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Rekomendasi Dosen PA</div>
+                            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Saran &amp; Rekomendasi Dosen PA</div>
                             <p id="resAction" class="text-xs text-slate-700 bg-blue-50 p-3 rounded-xl border border-blue-200 font-medium leading-relaxed"></p>
                         </div>
 
-                        <!-- Komparasi Langsung Kedua Algoritma (C4.5 vs Naive Bayes) -->
+                        <?php if ($is_admin): ?>
+                        <!-- Komparasi Langsung Kedua Algoritma (Admin Only) -->
                         <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                             <div class="flex items-center justify-between mb-2">
-                                <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Komparasi Langsung Kedua Algoritma</span>
+                                <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Komparasi C4.5 vs Naive Bayes</span>
                                 <span id="simCompMatchBadge" class="text-[9px] font-bold px-2 py-0.5 rounded-full"></span>
                             </div>
                             
@@ -386,7 +413,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             <div id="simCompDiffNote" class="mt-2.5 p-2 rounded-lg text-[11px] leading-relaxed"></div>
                         </div>
 
-                        <!-- Tombol Simpan ke Database -->
+                        <!-- Tombol Simpan ke Database (Admin Only) -->
                         <div class="pt-2 border-t border-slate-100">
                             <button type="button" onclick="saveSimResultToDatabase()"
                                     class="w-full py-2.5 px-4 rounded-lg bg-[#004b87] hover:bg-[#003b6b] text-white font-bold text-xs shadow transition flex items-center justify-center gap-2 cursor-pointer">
@@ -397,6 +424,17 @@ require_once __DIR__ . '/../../components/sidebar.php';
                             </button>
                             <p class="text-[10px] text-slate-400 text-center mt-1.5">Data mahasiswa akan otomatis tersimpan dan terhitung di Dashboard.</p>
                         </div>
+                        <?php else: ?>
+                        <!-- Tombol Cetak / Simpan Ringkasan untuk Mahasiswa -->
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400 font-medium">Simpan hasil untuk arsip atau konsultasi DPA</span>
+                            <button type="button" onclick="window.print()"
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-lg transition">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                                <span>Cetak Hasil</span>
+                            </button>
+                        </div>
+                        <?php endif; ?>
 
                     </div>
                 </div>
@@ -495,17 +533,15 @@ require_once __DIR__ . '/../../components/sidebar.php';
                     msgEl.innerHTML = `✓ Terdaftar di Database FTII UHAMKA: <b>${std.nama}</b> (Angkatan ${check.angkatan})`;
                 } else {
                     msgEl.className = 'mt-1.5 text-xs font-bold text-blue-700 block';
-                    msgEl.innerHTML = `✓ Format NIM FTII UHAMKA Terverifikasi (Angkatan ${check.angkatan} - Mahasiswa Baru)`;
+                    msgEl.innerHTML = `✓ Format NIM FTII UHAMKA Terverifikasi (Angkatan ${check.angkatan})`;
                 }
             }
         } else if (nimVal.length > 10) {
-            // Melebihi 10 digit (kampus lain yang NIM-nya panjang)
             inputEl.classList.add('border-rose-500', 'ring-2', 'ring-rose-200');
             errBox.classList.remove('hidden');
             errBoxText.innerText = `NIM (${nimVal}) melebihi 10 digit. NIM FTII UHAMKA tepat berjumlah 10 digit angka!`;
             btnHitung.disabled = true;
         } else {
-            // Sedang mengetik
             errBox.classList.add('hidden');
             msgEl.classList.add('hidden');
             inputEl.classList.remove('border-rose-500', 'border-emerald-500', 'ring-2', 'ring-rose-200');
@@ -583,7 +619,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
             nama,
             kehadiran,
             ipk,
-            sks: 100, // SKS default sistem
+            sks: 100,
             status: res.status,
             rule: res.ruleNum,
             algo: currentAlgo,
@@ -591,32 +627,52 @@ require_once __DIR__ . '/../../components/sidebar.php';
             naive_bayes: nbRes
         };
 
-        document.getElementById('simPlaceholder').classList.add('hidden');
+        document.getElementById('simPlaceholder')?.classList.add('hidden');
         const sec = document.getElementById('simResultSection');
-        sec.classList.remove('hidden');
+        if (sec) sec.classList.remove('hidden');
 
-        document.getElementById('resStudentName').innerText = `${nama} · ${nim}`;
+        const nameEl = document.getElementById('resStudentName');
+        if (nameEl) nameEl.innerText = `${nama} · ${nim}`;
+        
         const badge = document.getElementById('resStatusBadge');
-        badge.className = `px-2.5 py-1 rounded-full font-bold text-[11px] border ${res.badgeClass}`;
-        badge.innerText = res.status;
-        document.getElementById('resRuleTitle').innerText = res.ruleTitle;
-        document.getElementById('resCoverage').innerText  = res.coverage;
-        document.getElementById('resReason').innerText    = res.reason;
-        document.getElementById('resAction').innerText    = res.recommendation;
-
-        // Tampilkan progress probabilitas jika Naive Bayes
-        const nbCard = document.getElementById('nbProbabilityCard');
-        if (currentAlgo === 'naive_bayes' && res.pctTepat !== undefined) {
-            nbCard.classList.remove('hidden');
-            document.getElementById('nbPctTepatVal').innerText = res.pctTepat + '%';
-            document.getElementById('nbPctTepatBar').style.width = res.pctTepat + '%';
-            document.getElementById('nbPctBerisikoVal').innerText = res.pctBerisiko + '%';
-            document.getElementById('nbPctBerisikoBar').style.width = res.pctBerisiko + '%';
-        } else {
-            nbCard.classList.add('hidden');
+        if (badge) {
+            badge.className = `px-2.5 py-1 rounded-full font-bold text-[11px] border ${res.badgeClass}`;
+            badge.innerText = res.status;
         }
 
-        // Tampilkan Komparasi Kedua Algoritma
+        // Field rule title & coverage (Admin only, check if present)
+        const ruleTitleEl = document.getElementById('resRuleTitle');
+        if (ruleTitleEl) ruleTitleEl.innerText = res.ruleTitle;
+
+        const covEl = document.getElementById('resCoverage');
+        if (covEl) covEl.innerText = res.coverage;
+
+        // Diagnosis & Rekomendasi (Admin & User)
+        const reasonEl = document.getElementById('resReason');
+        if (reasonEl) reasonEl.innerText = res.reason;
+
+        const actionEl = document.getElementById('resAction');
+        if (actionEl) actionEl.innerText = res.recommendation;
+
+        // Tampilkan progress probabilitas jika Naive Bayes (Admin only)
+        const nbCard = document.getElementById('nbProbabilityCard');
+        if (nbCard) {
+            if (currentAlgo === 'naive_bayes' && res.pctTepat !== undefined) {
+                nbCard.classList.remove('hidden');
+                const pt = document.getElementById('nbPctTepatVal');
+                const pb = document.getElementById('nbPctBerisikoVal');
+                const ptb = document.getElementById('nbPctTepatBar');
+                const pbb = document.getElementById('nbPctBerisikoBar');
+                if (pt) pt.innerText = res.pctTepat + '%';
+                if (pb) pb.innerText = res.pctBerisiko + '%';
+                if (ptb) ptb.style.width = res.pctTepat + '%';
+                if (pbb) pbb.style.width = res.pctBerisiko + '%';
+            } else {
+                nbCard.classList.add('hidden');
+            }
+        }
+
+        // Tampilkan Komparasi Kedua Algoritma (Admin only)
         const c45StatusEl = document.getElementById('simCompC45Status');
         const c45DetailEl = document.getElementById('simCompC45Detail');
         const nbStatusEl  = document.getElementById('simCompNbStatus');
@@ -626,16 +682,16 @@ require_once __DIR__ . '/../../components/sidebar.php';
 
         if (c45StatusEl) {
             c45StatusEl.innerHTML = `<span class="px-2 py-0.5 rounded text-[10px] font-bold inline-block border ${c45Res.badgeClass}">${c45Res.status}</span>`;
-            c45DetailEl.innerText = `Aturan ${c45Res.ruleNum} (Ambang: Hadir 72,5%, IPK 2,995)`;
+            if (c45DetailEl) c45DetailEl.innerText = `Aturan ${c45Res.ruleNum} (Ambang: Hadir 72,5%, IPK 2,995)`;
         }
 
         if (nbStatusEl) {
             nbStatusEl.innerHTML = `<span class="px-2 py-0.5 rounded text-[10px] font-bold inline-block border ${nbRes.badgeClass}">${nbRes.status}</span>`;
-            nbDetailEl.innerText = `Peluang: ${nbRes.pctTepat}% Tepat vs ${nbRes.pctBerisiko}% Risiko`;
+            if (nbDetailEl) nbDetailEl.innerText = `Peluang: ${nbRes.pctTepat}% Tepat vs ${nbRes.pctBerisiko}% Risiko`;
         }
 
-        const isMatch = (c45Res.status === nbRes.status);
         if (matchBadge && diffNote) {
+            const isMatch = (c45Res.status === nbRes.status);
             if (isMatch) {
                 matchBadge.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200';
                 matchBadge.innerText = 'Hasil Sepakat';
@@ -645,7 +701,7 @@ require_once __DIR__ . '/../../components/sidebar.php';
                 matchBadge.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300';
                 matchBadge.innerText = 'Hasil Berbeda';
                 diffNote.className = 'mt-2.5 p-2.5 rounded-lg text-[11px] leading-relaxed bg-amber-50 border border-amber-300 text-amber-950 font-medium';
-                diffNote.innerHTML = `⚠️ <b>Perbedaan Hasil Prediksi:</b> Model C4.5 menghasilkan <b>${c45Res.status}</b> (Aturan ${c45Res.ruleNum}), sedangkan Naive Bayes menghasilkan <b>${nbRes.status}</b> (${nbRes.isAtRisk ? nbRes.pctBerisiko + '% risiko' : nbRes.pctTepat + '% tepat'}). Perbedaan ini terjadi karena C4.5 menggunakan ambang pemisah kaku (Hard Decision Boundary), sedangkan Naive Bayes memperhitungkan sebaran probabilitas kontinu (Gaussian PDF).`;
+                diffNote.innerHTML = `⚠️ <b>Perbedaan Hasil Prediksi:</b> Model C4.5 menghasilkan <b>${c45Res.status}</b> (Aturan ${c45Res.ruleNum}), sedangkan Naive Bayes menghasilkan <b>${nbRes.status}</b> (${nbRes.isAtRisk ? nbRes.pctBerisiko + '% risiko' : nbRes.pctTepat + '% tepat'}). Perbedaan ini terjadi karena C4.5 menggunakan ambang pemisah kaku, sedangkan Naive Bayes memperhitungkan sebaran probabilitas normal Gaussian.`;
             }
         }
     }
@@ -659,11 +715,14 @@ require_once __DIR__ . '/../../components/sidebar.php';
     function resetSimForm() {
         document.getElementById('simForm').reset();
         hideSimResult();
-        document.getElementById('nimErrorBox').classList.add('hidden');
-        document.getElementById('nimValidationMsg').classList.add('hidden');
+        document.getElementById('nimErrorBox')?.classList.add('hidden');
+        document.getElementById('nimValidationMsg')?.classList.add('hidden');
         const inputEl = document.getElementById('simNim');
-        inputEl.classList.remove('border-rose-500', 'border-emerald-500', 'ring-2', 'ring-rose-200');
-        document.getElementById('btnHitungSim').disabled = false;
+        if (inputEl) {
+            inputEl.classList.remove('border-rose-500', 'border-emerald-500', 'ring-2', 'ring-rose-200');
+        }
+        const btn = document.getElementById('btnHitungSim');
+        if (btn) btn.disabled = false;
 
         const t = document.getElementById('simPlaceholderTitle');
         const d = document.getElementById('simPlaceholderDesc');
@@ -682,7 +741,6 @@ require_once __DIR__ . '/../../components/sidebar.php';
     async function saveSimResultToDatabase() {
         if (!currentSimResult) { alert('Lakukan perhitungan prediksi terlebih dahulu.'); return; }
         
-        // Verifikasi kembali sebelum kirim ke server
         const check = validateUhamkaNim(currentSimResult.nim);
         if (!check.valid) {
             alert('Pencarian Error: ' + check.message);

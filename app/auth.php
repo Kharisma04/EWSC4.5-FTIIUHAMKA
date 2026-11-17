@@ -251,6 +251,16 @@ function auth_logout() {
 }
 
 /**
+ * Mengecek apakah pengguna yang sedang login adalah Administrator / Dosen PA
+ *
+ * @return bool true jika admin, false jika user biasa
+ */
+function auth_is_admin() {
+    $user = auth_user();
+    return $user && ($user['role'] === 'Dosen PA / Administrator');
+}
+
+/**
  * Guard / Penjaga Halaman: Memastikan pengguna wajib sudah login.
  * Jika belum login, otomatis dialihkan ke halaman login.php.
  *

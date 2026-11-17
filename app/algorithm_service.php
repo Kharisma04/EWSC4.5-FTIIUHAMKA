@@ -83,8 +83,8 @@ function get_algorithm_metadata($algo = null) {
             'short_name'  => 'Naive Bayes',
             'type'        => 'Probabilistik',
             'badge'       => 'Gaussian Naive Bayes',
-            'accuracy'    => '91,80%',
-            'description' => 'Klasifikasi berbasis teorema probabilitas bersyarat Bayes dengan asumsi independensi fitur dan kurva sebaran normal (Gaussian).',
+            'accuracy'    => '82,76%',
+            'description' => 'Klasifikasi berbasis teorema probabilitas bersyarat Bayes dengan asumsi independensi fitur dan kurva sebaran normal (Gaussian). Akurasi pengujian RapidMiner: 82,76%.',
             'color'       => 'violet'
         ];
     }

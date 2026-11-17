@@ -62,6 +62,73 @@ function classifyC45Client(kehadiran, ipk) {
 }
 
 /**
+ * Probability Density Function Gaussian untuk Naive Bayes
+ */
+function nbGaussianPdf(x, mean, variance) {
+  if (variance <= 0.000001) variance = 0.0001;
+  const pi = 3.141592653589793;
+  const exponent = -Math.pow(x - mean, 2) / (2 * variance);
+  return (1 / Math.sqrt(2 * pi * variance)) * Math.exp(exponent);
+}
+
+/**
+ * Logika Klasifikasi Gaussian Naive Bayes Client-Side
+ */
+function classifyNaiveBayesClient(kehadiran, ipk) {
+  kehadiran = parseFloat(kehadiran);
+  ipk = parseFloat(ipk);
+
+  const priorTepat = 0.5515;
+  const priorBerisiko = 0.4485;
+
+  const likeHadirTepat = nbGaussianPdf(kehadiran, 86.5145, 75.9258);
+  const likeHadirBerisiko = nbGaussianPdf(kehadiran, 58.9388, 203.4116);
+
+  const likeIpkTepat = nbGaussianPdf(ipk, 3.3672, 0.0294);
+  const likeIpkBerisiko = nbGaussianPdf(ipk, 3.2623, 0.0788);
+
+  const postTepatRaw = priorTepat * likeHadirTepat * likeIpkTepat;
+  const postBerisikoRaw = priorBerisiko * likeHadirBerisiko * likeIpkBerisiko;
+
+  const sum = postTepatRaw + postBerisikoRaw;
+  let pctTepat = 50.0;
+  let pctBerisiko = 50.0;
+  if (sum > 0) {
+    pctTepat = Math.round((postTepatRaw / sum) * 1000) / 10;
+    pctBerisiko = Math.round((postBerisikoRaw / sum) * 1000) / 10;
+  }
+
+  const isAtRisk = (pctBerisiko >= pctTepat);
+  return {
+    status: isAtRisk ? 'Berisiko Terhambat' : 'Berpotensi Tepat Waktu',
+    ruleNum: isAtRisk ? 2 : 1,
+    ruleTitle: `Peluang: ${pctTepat}% Tepat Waktu vs ${pctBerisiko}% Berisiko`,
+    coverage: `Gaussian Bayes: Kehadiran (μ=${isAtRisk ? '58.9%' : '86.5%'}), IPK (μ=${isAtRisk ? '3.26' : '3.37'})`,
+    pctTepat: pctTepat,
+    pctBerisiko: pctBerisiko,
+    isAtRisk: isAtRisk,
+    reason: isAtRisk 
+      ? `Berdasarkan teorema Naive Bayes, mahasiswa ini memiliki probabilitas risiko kelulusan terhambat sebesar ${pctBerisiko}%. Pola kehadiran (${kehadiran.toFixed(1)}%) dan IPK (${ipk.toFixed(2)}) condong mendekati karakteristik populasi mahasiswa terhambat.`
+      : `Berdasarkan teorema Naive Bayes, probabilitas kelulusan tepat waktu mencapai ${pctTepat}%. Nilai presensi (${kehadiran.toFixed(1)}%) dan IPK (${ipk.toFixed(2)}) sangat sesuai dengan sebaran populasi mahasiswa sukses tepat waktu di FTII UHAMKA.`,
+    recommendation: isAtRisk
+      ? 'Prioritaskan bimbingan intensif DPA, monitor presensi berkala setiap 2 minggu, dan berikan pendampingan akademik pada mata kuliah sulit.'
+      : 'Pertahankan performa studi yang baik, dorong penyusunan skripsi lebih awal, dan fasilitasi program magang industri MBKM.',
+    badgeClass: isAtRisk ? 'bg-rose-100 text-rose-800 border-rose-300' : 'bg-emerald-100 text-emerald-800 border-emerald-300'
+  };
+}
+
+/**
+ * Helper terpadu untuk klasifikasi client-side berdasarkan algoritma aktif
+ */
+function classifyClient(kehadiran, ipk, algo) {
+  const selectedAlgo = algo || window.ACTIVE_ALGORITHM || 'c45';
+  if (selectedAlgo === 'naive_bayes') {
+    return classifyNaiveBayesClient(kehadiran, ipk);
+  }
+  return classifyC45Client(kehadiran, ipk);
+}
+
+/**
  * Toggle Navigasi Sidebar Mobile
  */
 function toggleSidebar() {
@@ -161,9 +228,23 @@ function renderTableRows() {
   }
 
   pageItems.forEach((std, i) => {
-    const isHambat = std.status === 'Berisiko Terhambat';
+    const isHambat = (std.status.indexOf('Berisiko') !== -1 || std.status.indexOf('Hambat') !== -1);
     const rowIdx = startIdx + i + 1;
     const stdJson = JSON.stringify(std).replace(/"/g, '&quot;');
+    const activeAlgo = window.ACTIVE_ALGORITHM || 'c45';
+
+    let statusSubText = '';
+    if (activeAlgo === 'naive_bayes') {
+      const probVal = isHambat ? (std.prob_berisiko || 50.0) : (std.prob_tepat || 50.0);
+      statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(${probVal}% peluang)</span>`;
+    } else {
+      statusSubText = `<span class="text-[9px] font-semibold opacity-90 block">(Aturan ${std.rule || (isHambat ? '1/2' : '3')})</span>`;
+    }
+
+    const isModelMismatch = (std.c45_status && std.nb_status && std.c45_status !== std.nb_status);
+    const diffBadge = isModelMismatch
+      ? `<span class="mt-1 inline-block text-[9px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-700 font-bold border border-purple-200" title="Hasil C4.5 & Naive Bayes berbeda">Beda Model</span>`
+      : '';
 
     const tr = document.createElement('tr');
     tr.className = 'hover:bg-slate-50 transition-colors text-xs';
@@ -190,8 +271,10 @@ function renderTableRows() {
       <td class="py-3 px-3 text-center text-slate-600">${std.sks}</td>
       <td class="py-3 px-3 text-center">
         <span class="px-2.5 py-1 text-[11px] rounded-full font-bold border inline-block ${isHambat ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'}">
-          ${std.status}
+          <span>${std.status}</span>
+          ${statusSubText}
         </span>
+        ${diffBadge}
       </td>
       <td class="py-3 px-3 text-center">
         <div class="inline-flex items-center gap-1">
@@ -261,8 +344,12 @@ function filterTable(statusFilter) {
 
   filteredStudents = allStudents.filter(s => {
     let matchStatus = true;
-    if (statusFilter === 'hambat') matchStatus = s.status === 'Berisiko Terhambat';
-    if (statusFilter === 'tepat') matchStatus = s.status === 'Berpotensi Tepat Waktu';
+    if (statusFilter === 'hambat') {
+      matchStatus = (s.status.indexOf('Berisiko') !== -1 || s.status.indexOf('Hambat') !== -1);
+    }
+    if (statusFilter === 'tepat') {
+      matchStatus = (s.status.indexOf('Tepat') !== -1);
+    }
 
     let matchSearch = true;
     if (q) {
@@ -293,7 +380,10 @@ function openInfoModal(student) {
   const card = document.getElementById('infoModalCard');
   if (!modal) return;
 
-  const c45 = classifyC45Client(student.kehadiran, student.ipk);
+  const activeAlgo = window.ACTIVE_ALGORITHM || 'c45';
+  const c45Pred = classifyC45Client(student.kehadiran, student.ipk);
+  const nbPred  = classifyNaiveBayesClient(student.kehadiran, student.ipk);
+  const pred    = (activeAlgo === 'naive_bayes') ? nbPred : c45Pred;
 
   const nameEl = document.getElementById('infoStudentName') || document.getElementById('infoModalTitle');
   if (nameEl) nameEl.innerText = student.nama;
@@ -303,8 +393,8 @@ function openInfoModal(student) {
   
   const badge = document.getElementById('infoStatusBadge');
   if (badge) {
-    badge.className = `px-2.5 py-0.5 rounded-full font-bold text-[11px] border ${c45.badgeClass}`;
-    badge.innerText = c45.status;
+    badge.className = `px-2.5 py-0.5 rounded-full font-bold text-[11px] border ${pred.badgeClass}`;
+    badge.innerText = pred.status;
   }
 
   const hEl = document.getElementById('infoKehadiranVal');
@@ -317,16 +407,49 @@ function openInfoModal(student) {
   if (sksEl) sksEl.innerText = `${student.sks} SKS`;
 
   const ruleEl = document.getElementById('infoRuleTitle');
-  if (ruleEl) ruleEl.innerText = c45.ruleTitle;
+  if (ruleEl) ruleEl.innerText = pred.ruleTitle;
 
   const covEl = document.getElementById('infoCoverage');
-  if (covEl) covEl.innerText = c45.coverage;
+  if (covEl) covEl.innerText = pred.coverage;
 
   const reasonEl = document.getElementById('infoReason');
-  if (reasonEl) reasonEl.innerText = c45.reason;
+  if (reasonEl) reasonEl.innerText = pred.reason;
 
   const recEl = document.getElementById('infoRecommendation');
-  if (recEl) recEl.innerText = c45.recommendation;
+  if (recEl) recEl.innerText = pred.recommendation;
+
+  // Komparasi C4.5 vs Naive Bayes di dalam Modal
+  const compMatchBadge = document.getElementById('infoCompareMatchBadge');
+  const compC45Status  = document.getElementById('infoCompareC45Status');
+  const compC45Detail  = document.getElementById('infoCompareC45Detail');
+  const compNbStatus   = document.getElementById('infoCompareNbStatus');
+  const compNbDetail   = document.getElementById('infoCompareNbDetail');
+  const compDiffNote   = document.getElementById('infoCompareDifferenceNote');
+
+  if (compC45Status) {
+    compC45Status.innerHTML = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold inline-block border ${c45Pred.badgeClass}">${c45Pred.status}</span>`;
+    compC45Detail.innerText = `Aturan ${c45Pred.ruleNum}`;
+  }
+  if (compNbStatus) {
+    compNbStatus.innerHTML = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold inline-block border ${nbPred.badgeClass}">${nbPred.status}</span>`;
+    compNbDetail.innerText = `Peluang Tepat: ${nbPred.pctTepat}%`;
+  }
+
+  const isMatch = (c45Pred.status === nbPred.status);
+  if (compMatchBadge) {
+    if (isMatch) {
+      compMatchBadge.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200';
+      compMatchBadge.innerText = 'Hasil Sepakat';
+      if (compDiffNote) compDiffNote.classList.add('hidden');
+    } else {
+      compMatchBadge.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300';
+      compMatchBadge.innerText = 'Hasil Berbeda';
+      if (compDiffNote) {
+        compDiffNote.classList.remove('hidden');
+        compDiffNote.innerHTML = `⚠️ <b>Perbedaan Klasifikasi:</b> Decision Tree C4.5 memprediksi <b>${c45Pred.status}</b> (Aturan ${c45Pred.ruleNum}), sedangkan Gaussian Naive Bayes memprediksi <b>${nbPred.status}</b> (${nbPred.isAtRisk ? nbPred.pctBerisiko + '% risiko' : nbPred.pctTepat + '% tepat'}). Hal ini wajar karena C4.5 menerapkan batas tegas IPK 2,995 dan Presensi 72,5%, sedangkan Naive Bayes memperhitungkan sebaran probabilitas normal Gaussian.`;
+      }
+    }
+  }
 
   modal.classList.remove('hidden');
   modal.classList.add('flex');
@@ -490,6 +613,108 @@ async function resetStudents() {
 }
 
 /**
+ * ====================================================================================
+ * MODAL 3: UPLOAD DATA MAHASISWA (CSV / EXCEL)
+ * ====================================================================================
+ */
+function openUploadModal() {
+  const modal = document.getElementById('uploadDataModal');
+  const card = document.getElementById('uploadModalCard');
+  if (!modal) return;
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  setTimeout(() => {
+    card?.classList.remove('scale-95');
+    card?.classList.add('scale-100');
+  }, 10);
+
+  const msg = document.getElementById('uploadStatusMsg');
+  if (msg) {
+    msg.className = 'hidden text-xs p-3 rounded-xl';
+    msg.innerHTML = '';
+  }
+}
+
+function closeUploadModal() {
+  const modal = document.getElementById('uploadDataModal');
+  const card = document.getElementById('uploadModalCard');
+  if (!modal) return;
+
+  card?.classList.remove('scale-100');
+  card?.classList.add('scale-95');
+  setTimeout(() => {
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }, 150);
+}
+
+function handleFileSelected(input) {
+  const nameDisplay = document.getElementById('selectedFileName');
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    const sizeKB = Math.round(file.size / 1024);
+    if (nameDisplay) {
+      nameDisplay.innerHTML = `<span class="text-[#004b87] font-bold">${file.name}</span> <span class="text-slate-400 font-normal">(${sizeKB} KB)</span>`;
+    }
+  }
+}
+
+async function handleUploadSubmit(e) {
+  e.preventDefault();
+  const fileInput = document.getElementById('fileUploadInput');
+  if (!fileInput || !fileInput.files || !fileInput.files[0]) {
+    alert('Harap pilih berkas CSV atau Excel terlebih dahulu.');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmitUpload');
+  const origBtnText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<svg class="w-4 h-4 animate-spin inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Mengimpor Data...`;
+
+  const mode = document.querySelector('input[name="upload_mode"]:checked')?.value || 'merge';
+  const fd = new FormData();
+  fd.append('file_data', fileInput.files[0]);
+  fd.append('mode', mode);
+
+  const statusMsg = document.getElementById('uploadStatusMsg');
+
+  try {
+    const apiUrl = (window.APP_ROOT || './') + 'app/api_student.php?action=import';
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      body: fd
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      if (statusMsg) {
+        statusMsg.className = 'text-xs p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold block';
+        statusMsg.innerHTML = `✓ <b>${result.message}</b><br><span class="text-[11px] font-normal">Total baris diproses: ${result.total_imported} data (${result.inserted} data baru ditambahkan, ${result.updated} data diperbarui). Total di sistem: ${result.total_current} mahasiswa.</span>`;
+      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 1200);
+    } else {
+      if (statusMsg) {
+        statusMsg.className = 'text-xs p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 font-semibold block';
+        statusMsg.innerHTML = `⚠ Gagal mengimpor: ${result.message}`;
+      }
+      btn.disabled = false;
+      btn.innerHTML = origBtnText;
+    }
+  } catch (err) {
+    if (statusMsg) {
+      statusMsg.className = 'text-xs p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 font-semibold block';
+      statusMsg.innerHTML = '⚠ Terjadi kesalahan koneksi saat mengunggah berkas.';
+    }
+    btn.disabled = false;
+    btn.innerHTML = origBtnText;
+  }
+}
+
+/**
  * Inisialisasi Event Listener saat DOM siap
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -520,10 +745,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('studentEditModal')?.addEventListener('click', (e) => {
     if (e.target.id === 'studentEditModal') closeEditModal();
   });
+  document.getElementById('uploadDataModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'uploadDataModal') closeUploadModal();
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeInfoModal();
       closeEditModal();
+      closeUploadModal();
     }
   });
 });

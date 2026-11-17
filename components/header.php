@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/../app/config.php';
+require_once __DIR__ . '/../app/auth.php';
 
 if (!isset($root_path)) { $root_path = './'; }
 

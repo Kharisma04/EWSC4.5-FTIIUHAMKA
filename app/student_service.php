@@ -95,19 +95,34 @@ function student_validate_uhamka_nim($nim) {
         ];
     }
 
-    // Cek kodefikasi fakultas dan prodi FTII Teknik Informatika: 03015
-    if (!preg_match('/^(\d{2})03015(\d{3})$/', $nim, $matches)) {
+    // Cek kodefikasi fakultas FTII (03) dan prodi:
+    // 015 = S1 Teknik Informatika (Reguler)
+    // 019 = S1 Teknik Informatika (Pindahan/Ekstensi)
+    // 025 = S1 Teknik Elektro
+    // 035 = S1 Teknik Mesin
+    // 045 = S1 Sistem dan Teknologi Informasi
+    if (!preg_match('/^(\d{2})03(015|019|025|035|045)(\d{3})$/', $nim, $matches)) {
         return [
             'valid' => false,
-            'message' => 'Pencarian Error: NIM [' . htmlspecialchars($nim) . '] bukan mahasiswa FTII UHAMKA (Prodi Teknik Informatika)! Data dari kampus lain ditolak oleh sistem EWS.'
+            'message' => 'Pencarian Error: NIM [' . htmlspecialchars($nim) . '] bukan mahasiswa FTII UHAMKA! Data dari kampus lain ditolak oleh sistem EWS.'
         ];
     }
 
     $angkatan = '20' . $matches[1];
+    $prodi_map = [
+        '015' => 'Teknik Informatika',
+        '019' => 'Teknik Informatika (Pindahan)',
+        '025' => 'Teknik Elektro',
+        '035' => 'Teknik Mesin',
+        '045' => 'Sistem dan Teknologi Informasi'
+    ];
+    $prodi_nama = $prodi_map[$matches[2]] ?? 'FTII UHAMKA';
+
     return [
         'valid' => true,
-        'message' => 'NIM terverifikasi sebagai mahasiswa FTII UHAMKA Angkatan ' . $angkatan . '.',
-        'angkatan' => $angkatan
+        'message' => 'NIM terverifikasi sebagai mahasiswa ' . $prodi_nama . ' (Angkatan ' . $angkatan . ').',
+        'angkatan' => $angkatan,
+        'prodi' => $prodi_nama
     ];
 }
 

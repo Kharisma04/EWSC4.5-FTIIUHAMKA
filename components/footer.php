@@ -1,11 +1,12 @@
 <?php
 /**
  * FILE       : components/footer.php
- * FUNGSI     : Footer, Modal Detail, Modal Edit, Modal Upload CSV/Excel, Script JS.
+ * FUNGSI     : Footer, Modal Detail, Modal Edit (admin), Modal Upload (admin), Script JS.
  */
 
 if (!isset($root_path)) { $root_path = './'; }
-$current_active_algo = function_exists('get_active_algorithm') ? get_active_algorithm() : 'c45';
+$current_active_algo   = function_exists('get_active_algorithm') ? get_active_algorithm() : 'c45';
+$is_admin_footer       = function_exists('auth_is_admin') ? auth_is_admin() : false;
 ?>
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-auto text-xs text-slate-400 py-3 px-6 no-print" role="contentinfo">
@@ -47,8 +48,8 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
         <!-- Body Modal -->
         <div class="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
 
-            <!-- Statistik -->
-            <div class="grid grid-cols-3 gap-2 text-center ">
+            <!-- Statistik Akademik (selalu tampil) -->
+            <div class="grid grid-cols-2 gap-2 text-center">
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                     <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">Kehadiran</div>
                     <div id="infoKehadiranVal" class="text-sm font-black text-slate-800"></div>
@@ -57,20 +58,17 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
                     <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">IPK</div>
                     <div id="infoIpkVal" class="text-sm font-black text-slate-800"></div>
                 </div>
-                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">SKS</div>
-                    <div id="infoSksVal" class="text-sm font-black text-slate-800"></div>
-                </div>
             </div>
 
-            <!-- Model & Aturan yang terpicu -->
+            <!-- Panel Teknis: Model & Aturan — hanya admin -->
+            <?php if ($is_admin_footer): ?>
             <div class="p-3 rounded-xl bg-blue-50 border border-blue-200">
                 <div class="text-[10px] font-bold text-[#004b87] uppercase tracking-wider mb-1">Model &amp; Kriteria Terpicu</div>
                 <div id="infoRuleTitle" class="text-xs font-bold text-slate-900"></div>
                 <div id="infoCoverage" class="text-[11px] text-[#004b87] mt-0.5"></div>
             </div>
 
-            <!-- Komparasi Kedua Algoritma (C4.5 vs Naive Bayes) -->
+            <!-- Komparasi Kedua Algoritma — hanya admin -->
             <div id="infoCompareCard" class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center justify-between">
                     <span>Komparasi C4.5 vs Naive Bayes</span>
@@ -90,14 +88,15 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
                 </div>
                 <div id="infoCompareDifferenceNote" class="hidden mt-2 p-2 bg-amber-50 border border-amber-200 rounded-lg text-[11px] text-amber-900 leading-relaxed font-medium"></div>
             </div>
+            <?php endif; ?>
 
-            <!-- Analisis -->
+            <!-- Analisis Kondisi (selalu tampil) -->
             <div>
                 <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Analisis Kondisi</div>
                 <p id="infoReason" class="text-xs text-slate-600 bg-white p-3 rounded-xl border border-slate-200 leading-relaxed"></p>
             </div>
 
-            <!-- Rekomendasi -->
+            <!-- Rekomendasi DPA (selalu tampil) -->
             <div>
                 <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Rekomendasi Dosen PA</div>
                 <p id="infoRecommendation" class="text-xs text-slate-700 bg-blue-50 p-3 rounded-xl border border-blue-200 leading-relaxed font-medium"></p>
@@ -116,8 +115,9 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
 </div>
 
 <!-- =====================================================================
-     MODAL: EDIT DATA MAHASISWA
+     MODAL: EDIT DATA MAHASISWA (hanya admin)
      ===================================================================== -->
+<?php if ($is_admin_footer): ?>
 <div id="studentEditModal"
      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
      role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
@@ -189,10 +189,12 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
         </form>
     </div>
 </div>
+<?php endif; // end is_admin for edit modal ?>
 
 <!-- =====================================================================
-     MODAL: UPLOAD DATA MAHASISWA (CSV / EXCEL)
+     MODAL: UPLOAD DATA MAHASISWA (hanya admin)
      ===================================================================== -->
+<?php if ($is_admin_footer): ?>
 <div id="uploadDataModal"
      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4"
      role="dialog" aria-modal="true" aria-labelledby="uploadModalTitle">
@@ -303,6 +305,7 @@ $current_active_algo = function_exists('get_active_algorithm') ? get_active_algo
         </form>
     </div>
 </div>
+<?php endif; // end is_admin for upload modal ?>
 
 <!-- Scripts Global -->
 <script>
